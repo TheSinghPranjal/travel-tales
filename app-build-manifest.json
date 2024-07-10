@@ -1,0 +1,52 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-c8ca6f96adbe813e.js",
+      "static/chunks/fd9d1056-017a8025815a99b8.js",
+      "static/chunks/23-07307beee99982ae.js",
+      "static/chunks/main-app-12802fd6d848ee0a.js",
+      "static/chunks/app/_not-found/page-7ea4c40d36d62e95.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-c8ca6f96adbe813e.js",
+      "static/chunks/fd9d1056-017a8025815a99b8.js",
+      "static/chunks/23-07307beee99982ae.js",
+      "static/chunks/main-app-12802fd6d848ee0a.js",
+      "static/css/8b4b71ae2df33885.css",
+      "static/chunks/88-ae730e08a61c46d3.js",
+      "static/chunks/app/layout-914fc3af98bc3efe.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-c8ca6f96adbe813e.js",
+      "static/chunks/fd9d1056-017a8025815a99b8.js",
+      "static/chunks/23-07307beee99982ae.js",
+      "static/chunks/main-app-12802fd6d848ee0a.js",
+      "static/chunks/app/page-b74bd5528833466a.js"
+    ],
+    "/protectedRoutes/dashboard/page": [
+      "static/chunks/webpack-c8ca6f96adbe813e.js",
+      "static/chunks/fd9d1056-017a8025815a99b8.js",
+      "static/chunks/23-07307beee99982ae.js",
+      "static/chunks/main-app-12802fd6d848ee0a.js",
+      "static/css/02a5c5efaaa6ea8c.css",
+      "static/chunks/0db0ade4-e6a8ef085b60f8cc.js",
+      "static/chunks/e8686b1f-e124038b9422d53b.js",
+      "static/chunks/161-ae17a207c94b9c36.js",
+      "static/chunks/app/protectedRoutes/dashboard/page-d322a83c1d01c7a6.js"
+    ],
+    "/protectedRoutes/trips/page": [
+      "static/chunks/webpack-c8ca6f96adbe813e.js",
+      "static/chunks/fd9d1056-017a8025815a99b8.js",
+      "static/chunks/23-07307beee99982ae.js",
+      "static/chunks/main-app-12802fd6d848ee0a.js",
+      "static/chunks/app/protectedRoutes/trips/page-855f3cc5dd4af440.js"
+    ],
+    "/protectedRoutes/homePage/page": [
+      "static/chunks/webpack-c8ca6f96adbe813e.js",
+      "static/chunks/fd9d1056-017a8025815a99b8.js",
+      "static/chunks/23-07307beee99982ae.js",
+      "static/chunks/main-app-12802fd6d848ee0a.js",
+      "static/chunks/app/protectedRoutes/homePage/page-2f1a50f71656620e.js"
+    ]
+  }
+}
