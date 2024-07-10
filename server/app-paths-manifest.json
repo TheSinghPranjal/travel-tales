@@ -2,7 +2,7 @@
   "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
   "/protectedRoutes/dashboard/page": "app/protectedRoutes/dashboard/page.js",
-  "/protectedRoutes/trips/page": "app/protectedRoutes/trips/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/protectedRoutes/homePage/page": "app/protectedRoutes/homePage/page.js"
+  "/protectedRoutes/homePage/page": "app/protectedRoutes/homePage/page.js",
+  "/protectedRoutes/trips/page": "app/protectedRoutes/trips/page.js"
 }

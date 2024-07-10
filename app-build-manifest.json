@@ -34,19 +34,19 @@
       "static/chunks/161-ae17a207c94b9c36.js",
       "static/chunks/app/protectedRoutes/dashboard/page-d322a83c1d01c7a6.js"
     ],
-    "/protectedRoutes/trips/page": [
-      "static/chunks/webpack-c8ca6f96adbe813e.js",
-      "static/chunks/fd9d1056-017a8025815a99b8.js",
-      "static/chunks/23-07307beee99982ae.js",
-      "static/chunks/main-app-12802fd6d848ee0a.js",
-      "static/chunks/app/protectedRoutes/trips/page-855f3cc5dd4af440.js"
-    ],
     "/protectedRoutes/homePage/page": [
       "static/chunks/webpack-c8ca6f96adbe813e.js",
       "static/chunks/fd9d1056-017a8025815a99b8.js",
       "static/chunks/23-07307beee99982ae.js",
       "static/chunks/main-app-12802fd6d848ee0a.js",
       "static/chunks/app/protectedRoutes/homePage/page-2f1a50f71656620e.js"
+    ],
+    "/protectedRoutes/trips/page": [
+      "static/chunks/webpack-c8ca6f96adbe813e.js",
+      "static/chunks/fd9d1056-017a8025815a99b8.js",
+      "static/chunks/23-07307beee99982ae.js",
+      "static/chunks/main-app-12802fd6d848ee0a.js",
+      "static/chunks/app/protectedRoutes/trips/page-855f3cc5dd4af440.js"
     ]
   }
 }
