@@ -32,6 +32,7 @@ const CustomCarousel = () => {
 
     return (
         <>
+
             <Carousel >
                 {items.map((item, i) => (
                     <Item key={item} item={item} />
