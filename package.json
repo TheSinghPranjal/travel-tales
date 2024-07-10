@@ -1,8 +1,11 @@
 {
   "name": "travel-tales",
   "version": "0.1.0",
+  "homepage": "https://TheSinghPranjal.github.io/travel-tales",
   "private": true,
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -21,8 +24,12 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
+    "gh-pages": "^6.1.1",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
