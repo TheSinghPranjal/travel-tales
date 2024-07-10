@@ -1,4 +1,4 @@
-import Trip from "./Trips";
+import Trip from "./trips";
 
 const TripPage = () => {
     return (

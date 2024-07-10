@@ -22,7 +22,7 @@ const CustomCarousel = () => {
 
     const Item = (props: any) => (
         <Paper style={{ backgroundImage: `url(${props.item.background})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '400px', display: 'flex', flexDirection: 'column' }}>
-            <h2 style={{ textAlign: `(${props.itemNamePosition})` }}>{props.item.name}</h2>
+            <h2 style={{ textAlign: props.itemNamePosition }}>{props.item.name}</h2>
             <p>{props.item.description}</p>
             <Button className="CheckButton">Check it out!</Button>
         </Paper>
