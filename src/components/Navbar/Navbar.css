@@ -1,0 +1,51 @@
+.navContainer {
+    width: 100%;
+    background-color: #f8f9fa; /* Light background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 60px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px; /* Adjust the logo size */
+    margin-right: 10px;
+}
+
+.companyName {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333; /* Dark text color */
+}
+
+.navMenu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navItem {
+    margin-left: 20px;
+}
+
+.navLink {
+    text-decoration: none;
+    font-size: 1em;
+    color: #007bff; /* Primary color */
+    transition: color 0.3s;
+}
+
+.navLink:hover {
+    color: #0056b3; /* Darker shade for hover */
+}
