@@ -2,11 +2,10 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import './DateTimePlaceSelection.css';
-import calendar from '../../assets/calendar.png';
-import activity from '../../assets/activity.png';
-import date from '../../assets/date.png';
-import guest from '../../assets/guest.png';
-import Image from 'next/image'
+
+// import Image from 'next/image'
+
+const cake = require('../../../public/assets/cake.png');
 
 const destinations = ['Bangalore', 'Agra', 'Pune'];
 const activities = ['Kayaking', 'Water Sports', 'Trekking'];
@@ -35,6 +34,8 @@ const DateTimePlaceSelection = () => {
         updateSearchDisabled();
     };
 
+    const pathImg = "/assets/loc1.jpeg"
+
     const handleCounterChange = (value: number, setState: any) => {
         setState((prev: number) => Math.max(prev + value, 0));
         updateSearchDisabled();
@@ -45,7 +46,7 @@ const DateTimePlaceSelection = () => {
             <div>
                 <div className="custom-dropdown-container" >
                     <div className="custom-dropdown">
-                        <Image width={40} height={40} src="/assets/placeholder.png" alt="destination icon" />
+                        <img src='https://cdn-icons-png.freepik.com/256/145/145591.png?semt=ais_hybrid' width={40} height={40} alt="destination icon" />
                         <div className="dropdown-content">
                             <span>Destination</span>
                             <select value={destination} onChange={(e) => handleDropdownChange(e, setDestination)}>
@@ -57,7 +58,7 @@ const DateTimePlaceSelection = () => {
                         </div>
                     </div>
                     <div className="custom-dropdown" >
-                        <Image width={40} height={40} src="/assets/hiking.png" alt="activity icon" />
+                        <img width={80} height={80} src="https://png.pngtree.com/png-vector/20220610/ourmid/pngtree-hiking-icon-vector-isolated-on-white-background-png-image_4826683.png" alt="activity icon" />
                         <div className="dropdown-content">
                             <span>Activity</span>
                             <select value={activity} onChange={(e) => handleDropdownChange(e, setActivity)}>
@@ -69,7 +70,7 @@ const DateTimePlaceSelection = () => {
                         </div>
                     </div>
                     <div className="custom-dropdown">
-                        <Image width={40} height={40} src="/assets/calendar.png" alt="date icon" />
+                        <img width={80} height={80} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAb1BMVEX///8zMzM1NTUfHx8bGxsiIiK2traxsbEmJiaamprMzMwwMDDz8/MpKSnR0dFTU1P5+fmKiorY2Nji4uK9vb1AQECOjo4AAAAWFhZISEilpaWEhIRdXV1NTU3c3Nzp6el6enoNDQ2Xl5dvb29mZmap8wrzAAAEB0lEQVR4nO3cb0OqPByHcTeGkWNCYolpatb7f403YH/YvDvniGxQXZ/z6Phzuq8gMFmbTAAAAAAAAAAAAAAAAAAAAAAAAADgh0vniytaL2Zpbz3xZBkrtS46Ni7WpTLTXvvTu0JpIcxTx9aZEUKrrp9PGLexEFInu06Nd5GoWie3PfepXw+m7mQ079R43iQ0Dz33qV9NQtEpYf5FwryXjl1hv1u8m7QTpovLpNY2XLy/6m4/bLzZQZeqVCcrK+FsFakLrGZWwtVHoZSH2TDhqp1nlymjxYfYSjhX4hJqbiWMPytaq6wYZl9dGq3bnewzYdQqaWHMcoiAs1jbnfSVsA6pBthT927A6xJGf0ootY7DH3FezNvHa96VdsJnc4lnO2H5UdBv73IIHbBQsu6OiNeHzd3mxEpYHDYXKayE743vDuvmoCNFFPpi7jZpPtr40X74ijP+V9c0j83XQQe/mNs2e8/Z2/aeMK8/TFl/Fbddu9pNfq/rXUe7o7mHatNKGXUbIi6a40viXpem9XdRi/uwp8RU1gl15j6+LGX1sOk2jK2iaCnU2bkva/YXGXZs/JnQ+WRfVXVQven4qjfVIVS9nj2cNe8lhkromh423X/GmG8O/zPEb7ahHmwbBkBCL0jYKxJ6QcJekdCLsAnFj0843DYU62kI68ES1iPgEMRge2lQJCQhCb9IGOZIowdLWJ0tbkIY7mzxC874JOwJCb34jQnzwrGzbhbt3XJh3RA8qxatX5pHknC+iixxJNo/h2+eE7v+vGlVcxE5rVetmztjSejc85XaupVyZ5yLIHPXqjY3eixq/AmFkzBxyiQkoW8kJCEJSegfCUlIQhL6d/nY4uclPNuG0i4n3y7hbOVOv9f2CNidnN8eAae6tKvlCEfAeZpb0tTqkVOttctu6+r/n8WRJPSIhF6QsFck9IKEvfomCa+Yaf9NEp7758wjSbi4z2xP23aE4/rJLq+PrWq+darZfWs6/EgSzkttM/aVd+yUnStv45TL8V2X/r7xIQlJSELfSEhCEpLQPxKSkIQk9O8fZu4pZ+aeMzfvzzP3ovHdt8j306Wr3WB2Vm2vLJGfVZetyZnjSOjTN0l44W9t7acPl1AE3IYydMK3g1/HJT4uk+rzQ3MAb+vTPP79mVd7PC32E3h9msnxdH5L/K/FOU10PQUgOf79qT3KJ7uymXkgVfZw69PxKRLNdz78op8v9dR0KYU2iVdayPqfeQkdcFJEWkpnBolHwZf6mtQLJolQCaUuB1hWMJ9MT3/66Dtl9fomHmhx4UUW1WtDeo1Y54uybquj9WG5jd1BQd9U9DrIwpcf8t185tN8N/gquwAAAAAAAAAAAAAAAAAAAAAAAADQs/8AdLiTEoZppycAAAAASUVORK5CYII=" alt="date icon" />
                         <div className="dropdown-content">
                             <span>Date</span>
                             <DatePicker selected={startDate} onChange={handleDateChange} placeholderText="Select Date" />
