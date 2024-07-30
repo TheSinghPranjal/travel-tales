@@ -6,13 +6,13 @@ import UpcomingEvents from "../upcomingEvents/upcomingEvents"
 const Dashboard = () => {
     return (
         <>
-            <div style={{ position: 'relative' }}>
+            <div className="relative">
                 <div>
                     <CustomCarousel />
 
                 </div>
 
-                <div style={{ position: 'absolute', bottom: '20px', zIndex: 99, height: '75px', paddingLeft: '260px' }}>
+                <div className="flex justify-center w-full absolute bottom-5 z-10 h-[75px]"  >
                     <DateTimePlaceSelection />
                 </div>
             </div>

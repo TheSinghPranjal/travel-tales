@@ -1,11 +1,11 @@
-.card {
+/* .card {
     position: relative;
-    width: 300px;
-    height: 200px;
+    width: 33%;
     margin: 20px;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
 }
 
 .card-image {
@@ -19,15 +19,20 @@
     transform: scale(1.05);
 }
 
+.card:hover .card-overlay {
+    display: flex;
+}
+
 .card-overlay {
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 30%;
     background: rgba(0, 0, 0, 0.5);
-    display: flex;
+
     align-items: center;
     justify-content: center;
+    display: none;
 }
 
 .card-details {
@@ -43,4 +48,4 @@
 .card-details p {
     margin: 5px 0;
     font-size: 1em;
-}
+} */

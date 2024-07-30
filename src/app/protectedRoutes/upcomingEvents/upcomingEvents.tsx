@@ -1,4 +1,10 @@
+'use client'
 import Card from "@/components/Card/Card";
+import CustomDropdown from "@/components/Dropdown/CustomDropdown";
+// import './upcomingEvents.css';
+import GoaImg from './../../../../public/assets/goa.jpg'
+import GoaPondiImg from './../../../../public/assets/pondi.png'
+import { circleData } from "@/data/data";
 
 
 const UpcomingEvents = () => {
@@ -15,8 +21,8 @@ const UpcomingEvents = () => {
             activities: ["Sightseeing", "Beach lounging", "Scuba diving", "Yoga"],
             numberOfDays: 5,
             images: [
-                "https://w0.peakpx.com/wallpaper/360/482/HD-wallpaper-pondicherry-harbour-rock-waves-sea-beach-india-pondicherry-graphy-sunrise-morning-harbor.jpg",
-                "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
+                GoaImg,
+                // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
             ],
             weather: "Pleasant",
             recommendedSeason: "Winter",
@@ -32,7 +38,7 @@ const UpcomingEvents = () => {
             description: "Famous for its beaches, nightlife, and Portuguese heritage.",
             activities: ["Beach parties", "Water sports", "Sightseeing", "Nightlife"],
             numberOfDays: 5,
-            images: ["https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg", "goa2.jpg"],
+            images: [GoaPondiImg],
             weather: "Warm",
             recommendedSeason: "Winter",
             nearbyAttractions: ["Basilica of Bom Jesus", "Dudhsagar Falls"]
@@ -47,8 +53,10 @@ const UpcomingEvents = () => {
             description: "A high-altitude Himalayan resort town known for its adventure activities.",
             activities: ["Trekking", "Skiing", "Paragliding", "Rafting"],
             numberOfDays: 5,
-            images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiMVquw-b6jSPOLDlgl_QuomkyfN1hmflZ5Vj5p_bRus2hr4yO6D3XRH1boSkn3mb__IA&usqp=CAU",
-                "manali2.jpg"],
+            images: [
+                GoaImg,
+                // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
+            ],
             weather: "Cold",
             recommendedSeason: "Winter",
             nearbyAttractions: ["Rohtang Pass", "Solang Valley"]
@@ -63,7 +71,10 @@ const UpcomingEvents = () => {
             description: "The Pink City, known for its historical forts, palaces, and vibrant culture.",
             activities: ["Sightseeing", "Shopping", "Cultural tours", "Camel riding"],
             numberOfDays: 5,
-            images: ["jaipur1.jpg", "jaipur2.jpg"],
+            images: [
+                GoaImg,
+                // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
+            ],
             weather: "Warm",
             recommendedSeason: "Winter",
             nearbyAttractions: ["Amber Fort", "Hawa Mahal"]
@@ -78,7 +89,10 @@ const UpcomingEvents = () => {
             description: "Known for its backwaters, houseboats, and lush greenery.",
             activities: ["Backwater cruises", "Ayurvedic treatments", "Sightseeing", "Beach activities"],
             numberOfDays: 5,
-            images: ["kerala1.jpg", "kerala2.jpg"],
+            images: [
+                GoaImg,
+                // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
+            ],
             weather: "Humid",
             recommendedSeason: "Winter",
             nearbyAttractions: ["Munnar", "Alleppey Backwaters"]
@@ -93,7 +107,10 @@ const UpcomingEvents = () => {
             description: "A high desert city in the Himalayas, known for its Buddhist monasteries and adventure activities.",
             activities: ["Motorbiking", "Trekking", "Monastery visits", "Camping"],
             numberOfDays: 10,
-            images: ["ladakh1.jpg", "ladakh2.jpg"],
+            images: [
+                GoaImg,
+                // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
+            ],
             weather: "Cold",
             recommendedSeason: "Summer",
             nearbyAttractions: ["Pangong Lake", "Nubra Valley"]
@@ -108,7 +125,10 @@ const UpcomingEvents = () => {
             description: "A city in the Himalayan foothills, known as the Yoga Capital of the World.",
             activities: ["Yoga retreats", "Rafting", "Camping", "Sightseeing"],
             numberOfDays: 5,
-            images: ["rishikesh1.jpg", "rishikesh2.jpg"],
+            images: [
+                GoaImg,
+                // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
+            ],
             weather: "Pleasant",
             recommendedSeason: "Spring",
             nearbyAttractions: ["Lakshman Jhula", "Neelkanth Mahadev Temple"]
@@ -123,7 +143,10 @@ const UpcomingEvents = () => {
             description: "The City of Lakes, known for its palaces, lakes, and royal heritage.",
             activities: ["Boat rides", "Sightseeing", "Cultural tours", "Shopping"],
             numberOfDays: 5,
-            images: ["udaipur1.jpg", "udaipur2.jpg"],
+            images: [
+                GoaImg,
+                // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
+            ],
             weather: "Hot",
             recommendedSeason: "Winter",
             nearbyAttractions: ["City Palace", "Lake Pichola"]
@@ -138,7 +161,10 @@ const UpcomingEvents = () => {
             description: "A town in the Himalayas, known for its tea plantations and scenic views.",
             activities: ["Tea plantation tours", "Sightseeing", "Trekking", "Toy train rides"],
             numberOfDays: 5,
-            images: ["darjeeling1.jpg", "darjeeling2.jpg"],
+            images: [
+                GoaImg,
+                // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
+            ],
             weather: "Cool",
             recommendedSeason: "Spring",
             nearbyAttractions: ["Tiger Hill", "Batasia Loop"]
@@ -153,33 +179,58 @@ const UpcomingEvents = () => {
             description: "A group of islands known for their pristine beaches, coral reefs, and marine life.",
             activities: ["Scuba diving", "Snorkeling", "Beach activities", "Sightseeing"],
             numberOfDays: 10,
-            images: ["andaman1.jpg", "andaman2.jpg"],
+            images: [
+                GoaImg,
+                // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
+            ],
             weather: "Tropical",
             recommendedSeason: "Winter",
             nearbyAttractions: ["Radhanagar Beach", "Cellular Jail"]
         }
     ];
 
+    const handleFormChange: any = (value: any, type: string) => {
+        // Update the form state with the selected value and type
+        console.log(value, type, 'hello')
+
+    }
+
     return (
         <>
+            <div className='my-12 px-5 '>
+                <div className="mb-3 text-[20px]" style={{ font: 'fantasy', fontSize: '25px' }}>
+                    Upcoming Trips
+                </div>
 
-            Upcoming Trips
+                <CustomDropdown
+                    selectValue={circleData[0]}
+                    handleSelectOptionChange={(selected) => handleFormChange?.(selected, 'destination')}
+                    selectDropDownId='destination'
+                    selectOptions={circleData}
+                    isClearable={true}
+                    isMultiSelect={false}
+                    isDisabled={false}
+                    isClearableForSingleSelect={false}
+                    isLoading={false}
+                    isSearchable={true}
+                />
 
-            <div>
-                {
-                    trips.map((trip) => {
-                        return (
-                            <Card
-                                key={trip.key}
-                                name={trip.name}
-                                location={trip.location}
-                                numberOfDays={trip.numberOfDays}
-                                image={trip.images[0]}
-                            />
-                        )
-                    })
-                }
+                <div className=" grid grid-cols-1 md:grid-cols-3 gap-5">
+                    {
+                        trips.map((trip) => {
+                            return (
+                                <Card
+                                    key={trip.key}
+                                    name={trip.name}
+                                    location={trip.location}
+                                    numberOfDays={trip.numberOfDays}
+                                    image={trip.images[0]}
+                                />
+                            )
+                        })
+                    }
 
+                </div>
             </div>
 
         </>

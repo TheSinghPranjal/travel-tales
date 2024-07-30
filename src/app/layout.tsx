@@ -17,9 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className='w-full'>
         <NavApp />
-        {children}</body>
+        <div className="max-w-[1478px] flex m-auto">
+          <div className="w-full">
+            {children}
+          </div>
+        </div>
+      </body>
     </html>
   );
 }

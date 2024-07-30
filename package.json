@@ -16,17 +16,19 @@
     "react": "^18",
     "react-datepicker": "^7.3.0",
     "react-dom": "^18",
-    "react-material-ui-carousel": "^3.4.2"
+    "react-material-ui-carousel": "^3.4.2",
+    "react-select": "^5.8.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.19",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
     "gh-pages": "^6.1.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "postcss": "^8.4.40",
+    "tailwindcss": "^3.4.6",
     "typescript": "^5"
   }
 }

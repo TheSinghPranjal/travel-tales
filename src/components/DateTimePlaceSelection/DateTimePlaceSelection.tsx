@@ -1,14 +1,13 @@
 'use client'
+import { circleData } from "@/data/data";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
+import CustomDropdown from "../Dropdown/CustomDropdown";
 import './DateTimePlaceSelection.css';
 
 // import Image from 'next/image'
 
 const cake = require('../../../public/assets/cake.png');
-
-const destinations = ['Bangalore', 'Agra', 'Pune'];
-const activities = ['Kayaking', 'Water Sports', 'Trekking'];
 
 const DateTimePlaceSelection = () => {
 
@@ -29,12 +28,15 @@ const DateTimePlaceSelection = () => {
         updateSearchDisabled();
     };
 
+    const handleDestinationChange = (value: any, place: string) => {
+        console.log(value, 'fuck value')
+        console.log(place, 'ff place')
+    }
+
     const handleDateChange = (date: any) => {
         setStartDate(date);
         updateSearchDisabled();
     };
-
-    const pathImg = "/assets/loc1.jpeg"
 
     const handleCounterChange = (value: number, setState: any) => {
         setState((prev: number) => Math.max(prev + value, 0));
@@ -44,17 +46,28 @@ const DateTimePlaceSelection = () => {
     return (
         <>
             <div>
-                <div className="custom-dropdown-container" >
+                <div className="flex gap-2 shadow-md bg-white rounded-[30px] p-2 flex-col md:flex-row" >
                     <div className="custom-dropdown">
                         <img src='https://cdn-icons-png.freepik.com/256/145/145591.png?semt=ais_hybrid' width={40} height={40} alt="destination icon" />
                         <div className="dropdown-content">
                             <span>Destination</span>
-                            <select value={destination} onChange={(e) => handleDropdownChange(e, setDestination)}>
+                            <CustomDropdown selectDropDownId="destination"
+                                selectOptions={circleData}
+                                selectValue={circleData[0]}
+                                selectDropDownName='destination'
+                                handleSelectOptionChange={(selected) => handleDestinationChange?.(selected, 'destination')}
+                                isMultiSelect={false}
+                                isDisabled={false}
+                                isClearableForSingleSelect={false}
+                                isLoading={false}
+                                isSearchable={true}
+                            />
+                            {/* <select value={destination} onChange={(e) => handleDropdownChange(e, setDestination)}>
                                 <option value="">Where to?</option>
                                 {destinations.map((dest, index) => (
                                     <option key={index} value={dest}>{dest}</option>
                                 ))}
-                            </select>
+                            </select> */}
                         </div>
                     </div>
                     <div className="custom-dropdown" >

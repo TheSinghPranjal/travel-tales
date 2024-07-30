@@ -14,7 +14,7 @@ const NavApp = () => {
             <nav className='navbar'>
                 <div className='logo'>
                     <img src="/path/to/logo.png" alt="Company Logo" />
-                    <span className='companyName'>Travel Company</span>
+                    <span className='companyName'>Travel Tales</span>
                 </div>
                 <ul className='navMenu'>
                     {menuItems.map((item) => (

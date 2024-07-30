@@ -1,4 +1,4 @@
-.card {
+/* .card {
     position: relative;
     width: 300px;
     height: 200px;
@@ -44,3 +44,10 @@
     margin: 5px 0;
     font-size: 1em;
 }
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+} */
