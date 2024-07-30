@@ -28,9 +28,14 @@ const DateTimePlaceSelection = () => {
         updateSearchDisabled();
     };
 
-    const handleDestinationChange = (value: any, place: string) => {
+    const handleDestinationChange = (value: any, type: string) => {
         console.log(value, 'fuck value')
-        console.log(place, 'ff place')
+        console.log(type, 'ff place')
+    }
+
+    const handleActivityChange = (value: any, type: string) => {
+        console.log(activity, 'fuck activity')
+
     }
 
     const handleDateChange = (date: any) => {
@@ -51,7 +56,8 @@ const DateTimePlaceSelection = () => {
                         <img src='https://cdn-icons-png.freepik.com/256/145/145591.png?semt=ais_hybrid' width={40} height={40} alt="destination icon" />
                         <div className="dropdown-content">
                             <span>Destination</span>
-                            <CustomDropdown selectDropDownId="destination"
+                            <CustomDropdown
+                                selectDropDownId="destination"
                                 selectOptions={circleData}
                                 selectValue={circleData[0]}
                                 selectDropDownName='destination'
@@ -74,12 +80,25 @@ const DateTimePlaceSelection = () => {
                         <img width={80} height={80} src="https://png.pngtree.com/png-vector/20220610/ourmid/pngtree-hiking-icon-vector-isolated-on-white-background-png-image_4826683.png" alt="activity icon" />
                         <div className="dropdown-content">
                             <span>Activity</span>
-                            <select value={activity} onChange={(e) => handleDropdownChange(e, setActivity)}>
+                            <CustomDropdown
+                                selectDropDownId="activity"
+                                selectOptions={ }
+                                selectValue={ }
+                                selectDropDownName={ }
+                                handleSelectOptionChange={(selected) => handleActivityChange?.(selected, 'activity')}
+                                isMultiSelect={false}
+                                isDisabled={false}
+                                isClearableForSingleSelect={false}
+                                isLoading={false}
+                                isSearchable={true}
+
+                            />
+                            {/* <select value={activity} onChange={(e) => handleDropdownChange(e, setActivity)}>
                                 <option value="">All activity</option>
                                 {activities.map((act, index) => (
                                     <option key={index} value={act}>{act}</option>
                                 ))}
-                            </select>
+                            </select> */}
                         </div>
                     </div>
                     <div className="custom-dropdown">
