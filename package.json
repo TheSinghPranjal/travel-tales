@@ -17,6 +17,7 @@
     "react-datepicker": "^7.3.0",
     "react-dom": "^18",
     "react-material-ui-carousel": "^3.4.2",
+    "react-multi-carousel": "^2.8.5",
     "react-select": "^5.8.0"
   },
   "devDependencies": {

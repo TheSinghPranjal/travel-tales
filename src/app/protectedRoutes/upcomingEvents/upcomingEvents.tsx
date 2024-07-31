@@ -1,9 +1,11 @@
 'use client'
 import Card from "@/components/Card/Card";
+import Slider from "@/components/CustomSlider/CustomSlider";
 import CustomDropdown from "@/components/Dropdown/CustomDropdown";
 // import './upcomingEvents.css';
 import { trips } from "@/data/data";
 import { activityDetails } from "@/data/data";
+import { sliderDetails } from "@/data/data";
 
 const UpcomingEvents = () => {
 
@@ -68,6 +70,12 @@ const UpcomingEvents = () => {
                     isLoading={false}
                     isSearchable={true}
                 /> */}
+                <div style={{ marginBottom: '40px' }}>
+                    <Slider sliderImageUrl={activityDetails} showDots={false} />
+                </div>
+
+
+
 
                 <div className=" grid grid-cols-1 md:grid-cols-3 gap-5">
                     {

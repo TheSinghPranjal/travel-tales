@@ -339,6 +339,7 @@ export const trips = [
 export const activityDetails = [
     {
         "key": 1,
+        "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Skydiving in Shimla",
         "startDate": "2022-12-15",
         "endDate": "2022-12-20",
@@ -359,6 +360,7 @@ export const activityDetails = [
     },
     {
         "key": 2,
+        "url": 'https://t4.ftcdn.net/jpg/02/57/91/21/360_F_257912197_ySuBhefKYPQIZNa3xeGiObLpgYBnH9U5.jpg',
         "name": "River Rafting in Rishikesh",
         "startDate": "2023-03-10",
         "endDate": "2023-03-15",
@@ -379,6 +381,7 @@ export const activityDetails = [
     },
     {
         "key": 3,
+        "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Trekking in Ladakh",
         "startDate": "2023-06-01",
         "endDate": "2023-06-10",
@@ -399,6 +402,7 @@ export const activityDetails = [
     },
     {
         "key": 4,
+        "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Scuba Diving in Andaman",
         "startDate": "2023-11-05",
         "endDate": "2023-11-10",
@@ -419,6 +423,7 @@ export const activityDetails = [
     },
     {
         "key": 5,
+        "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Bungee Jumping in Rishikesh",
         "startDate": "2023-05-20",
         "endDate": "2023-05-25",
@@ -439,6 +444,7 @@ export const activityDetails = [
     },
     {
         "key": 6,
+        "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Paragliding in Bir Billing",
         "startDate": "2023-09-01",
         "endDate": "2023-09-05",
@@ -458,7 +464,8 @@ export const activityDetails = [
         "medicalCheckupRequired": false
     },
     {
-        "key": 14,
+        "key": 7,
+        "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Surfing in Varkala",
         "startDate": "2023-09-10",
         "endDate": "2023-09-15",
@@ -478,7 +485,8 @@ export const activityDetails = [
         "medicalCheckupRequired": false
     },
     {
-        "key": 15,
+        "key": 8,
+        "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Horse Riding in Jaisalmer",
         "startDate": "2023-11-01",
         "endDate": "2023-11-10",
@@ -498,7 +506,8 @@ export const activityDetails = [
         "medicalCheckupRequired": false
     },
     {
-        "key": 16,
+        "key": 9,
+        "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Kayaking in Alleppey",
         "startDate": "2023-05-01",
         "endDate": "2023-05-10",
@@ -518,7 +527,8 @@ export const activityDetails = [
         "medicalCheckupRequired": false
     },
     {
-        "key": 17,
+        "key": 10,
+        "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Camping in Sikkim",
         "startDate": "2023-10-10",
         "endDate": "2023-10-20",
@@ -538,7 +548,8 @@ export const activityDetails = [
         "medicalCheckupRequired": false
     },
     {
-        "key": 18,
+        "key": 11,
+        "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "ATV Riding in Goa",
         "startDate": "2023-12-01",
         "endDate": "2023-12-07",
@@ -558,7 +569,29 @@ export const activityDetails = [
         "medicalCheckupRequired": false
     },
     {
-        "key": 19,
+        "key": 12,
+        "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
+        "name": "Fishing in Kerala Backwaters",
+        "startDate": "2023-06-01",
+        "endDate": "2023-06-10",
+        "location": "Kerala",
+        "charges": 1500,
+        "description": "Fishing in the Kerala backwaters is a relaxing and enjoyable experience that allows you to connect with the tranquil environment of this lush region. The backwaters of Kerala are home to a variety of fish species, and fishing here offers a unique way to immerse yourself in the serene landscape. Traditional fishing methods are often used, providing an authentic experience that includes the use of local techniques and equipment. The best time for fishing in Kerala is from October to March when the weather is pleasant and the waters are calm. Local guides are available to assist with techniques and ensure a successful and enjoyable fishing experience. Fishing in the Kerala backwaters is not just about catching fish; it's about enjoying the peaceful surroundings and traditional practices of the region.",
+        "numberOfHoursRequired": 4,
+        "images": [
+            GoaPondiImg
+        ],
+        "weather": "Warm",
+        "recommendedSeason": "Winter",
+        "difficultyLevel": "Low",
+        "ageLimit": 8,
+        "gearProvided": true,
+        "instructorAvailable": true,
+        "medicalCheckupRequired": false
+    },
+    {
+        "key": 13,
+        "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Fishing in Kerala Backwaters",
         "startDate": "2023-06-01",
         "endDate": "2023-06-10",
