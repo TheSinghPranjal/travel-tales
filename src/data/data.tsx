@@ -1,5 +1,9 @@
 import GoaImg from './../../../travel-tales/public/assets/goa.jpg'
 import GoaPondiImg from './../../../travel-tales/public/assets/pondi.png'
+import ManaliImg from './../../../travel-tales/public/assets/manali.jpg'
+import JaipurImg from './../../../travel-tales/public/assets/jaipur.jpg'
+import KeralaImg from './../../../travel-tales/public/assets/kerala.jpg'
+import LadakhImg from './../../../travel-tales/public/assets/ladakh.jpg'
 
 export const circleData = [
     {
@@ -163,16 +167,21 @@ export const trips = [
         endDate: "2022-12-20",
         location: "Tamil Nadu",
         charges: 15000,
-        description: "A serene coastal city with French colonial architecture and beautiful beaches.",
+        description: "Pondicherry, often referred to as the 'French Riviera of the East,' is a tranquil coastal city that beautifully blends the charm of French colonial architecture with the rich cultural heritage of South India. Known for its quaint, tree-lined streets, vibrant bougainvillea-laden walls, and pristine beaches, Pondicherry offers a unique experience where you can immerse yourself in a fusion of cultures. The city is dotted with colorful markets, serene ashrams, and lively cafes that evoke a sense of peace and relaxation. Whether you are strolling along the Promenade Beach, exploring the spiritual hub of Auroville, or indulging in the delectable French and South Indian cuisine, Pondicherry provides a perfect escape from the hustle and bustle of city life. With its serene beaches, historical landmarks, and a myriad of activities, Pondicherry is an ideal destination for those seeking a blend of history, culture, and relaxation.",
         activities: ["Sightseeing", "Beach lounging", "Scuba diving", "Yoga"],
         numberOfDays: 5,
-        images: [
-            GoaImg,
-            // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
-        ],
+        images: [GoaPondiImg],
         weather: "Pleasant",
         recommendedSeason: "Winter",
-        nearbyAttractions: ["Auroville", "Paradise Beach"]
+        nearbyAttractions: ["Auroville", "Paradise Beach", "Promenade Beach", "French War Memorial"],
+        transport: "Car, Bus, Train",
+        accommodation: "Hotel, Resort, Homestay",
+        cuisine: "French, South Indian, Continental",
+        shopping: "Handicrafts, Textiles, Aromatic candles",
+        localLanguage: "Tamil, English",
+        bestFor: "Couples, Solo travelers",
+        safety: "Safe",
+        travelTips: "Carry sunscreen, Stay hydrated"
     },
     {
         key: 2,
@@ -181,13 +190,21 @@ export const trips = [
         endDate: "2023-01-15",
         location: "Goa",
         charges: 20000,
-        description: "Famous for its beaches, nightlife, and Portuguese heritage.",
+        description: "Famous for its beaches, nightlife, and Portuguese heritage. Experience the vibrant beach culture and adventure activities.",
         activities: ["Beach parties", "Water sports", "Sightseeing", "Nightlife"],
         numberOfDays: 5,
-        images: [GoaPondiImg],
+        images: [GoaImg],
         weather: "Warm",
         recommendedSeason: "Winter",
-        nearbyAttractions: ["Basilica of Bom Jesus", "Dudhsagar Falls"]
+        nearbyAttractions: ["Basilica of Bom Jesus", "Dudhsagar Falls", "Anjuna Beach", "Fort Aguada"],
+        transport: "Scooter, Car, Bus",
+        accommodation: "Beach shack, Hotel, Resort",
+        cuisine: "Goan, Seafood, Continental",
+        shopping: "Cashew nuts, Feni, Handicrafts",
+        localLanguage: "Konkani, English",
+        bestFor: "Friends, Couples",
+        safety: "Moderately safe",
+        travelTips: "Beware of jellyfish, Rent a scooter"
     },
     {
         key: 3,
@@ -196,16 +213,21 @@ export const trips = [
         endDate: "2023-02-10",
         location: "Himachal Pradesh",
         charges: 18000,
-        description: "A high-altitude Himalayan resort town known for its adventure activities.",
+        description: "A high-altitude Himalayan resort town known for its adventure activities and breathtaking landscapes.",
         activities: ["Trekking", "Skiing", "Paragliding", "Rafting"],
         numberOfDays: 5,
-        images: [
-            GoaImg,
-            // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
-        ],
+        images: [ManaliImg],
         weather: "Cold",
         recommendedSeason: "Winter",
-        nearbyAttractions: ["Rohtang Pass", "Solang Valley"]
+        nearbyAttractions: ["Rohtang Pass", "Solang Valley", "Hadimba Temple", "Vashisht Hot Springs"],
+        transport: "Car, Bus, Bike",
+        accommodation: "Cottage, Hotel, Resort",
+        cuisine: "Himachali, Tibetan, North Indian",
+        shopping: "Woolen clothes, Handicrafts, Local snacks",
+        localLanguage: "Hindi, English",
+        bestFor: "Adventure seekers, Families",
+        safety: "Safe",
+        travelTips: "Carry warm clothes, Stay hydrated"
     },
     {
         key: 4,
@@ -214,16 +236,21 @@ export const trips = [
         endDate: "2023-03-20",
         location: "Rajasthan",
         charges: 12000,
-        description: "The Pink City, known for its historical forts, palaces, and vibrant culture.",
+        description: "The Pink City, known for its historical forts, palaces, and vibrant culture. A perfect blend of history and modernity.",
         activities: ["Sightseeing", "Shopping", "Cultural tours", "Camel riding"],
         numberOfDays: 5,
-        images: [
-            GoaImg,
-            // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
-        ],
+        images: [JaipurImg],
         weather: "Warm",
         recommendedSeason: "Winter",
-        nearbyAttractions: ["Amber Fort", "Hawa Mahal"]
+        nearbyAttractions: ["Amber Fort", "Hawa Mahal", "City Palace", "Jantar Mantar"],
+        transport: "Car, Rickshaw, Bus",
+        accommodation: "Heritage hotel, Guesthouse, Resort",
+        cuisine: "Rajasthani, North Indian, Continental",
+        shopping: "Jewelry, Textiles, Handicrafts",
+        localLanguage: "Hindi, English",
+        bestFor: "History enthusiasts, Families",
+        safety: "Safe",
+        travelTips: "Bargain at markets, Stay hydrated"
     },
     {
         key: 5,
@@ -232,16 +259,21 @@ export const trips = [
         endDate: "2023-04-15",
         location: "Kerala",
         charges: 22000,
-        description: "Known for its backwaters, houseboats, and lush greenery.",
+        description: "Known for its backwaters, houseboats, and lush greenery. A haven for nature lovers and wellness seekers.",
         activities: ["Backwater cruises", "Ayurvedic treatments", "Sightseeing", "Beach activities"],
         numberOfDays: 5,
-        images: [
-            GoaImg,
-            // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
-        ],
+        images: [KeralaImg],
         weather: "Humid",
         recommendedSeason: "Winter",
-        nearbyAttractions: ["Munnar", "Alleppey Backwaters"]
+        nearbyAttractions: ["Munnar", "Alleppey Backwaters", "Periyar Wildlife Sanctuary", "Fort Kochi"],
+        transport: "Car, Boat, Bus",
+        accommodation: "Houseboat, Resort, Homestay",
+        cuisine: "Kerala cuisine, Seafood, South Indian",
+        shopping: "Spices, Tea, Handicrafts",
+        localLanguage: "Malayalam, English",
+        bestFor: "Nature lovers, Families",
+        safety: "Safe",
+        travelTips: "Carry insect repellent, Stay hydrated"
     },
     {
         key: 6,
@@ -253,13 +285,18 @@ export const trips = [
         description: "A high desert city in the Himalayas, known for its Buddhist monasteries and adventure activities.",
         activities: ["Motorbiking", "Trekking", "Monastery visits", "Camping"],
         numberOfDays: 10,
-        images: [
-            GoaImg,
-            // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
-        ],
+        images: [LadakhImg],
         weather: "Cold",
         recommendedSeason: "Summer",
-        nearbyAttractions: ["Pangong Lake", "Nubra Valley"]
+        nearbyAttractions: ["Pangong Lake", "Nubra Valley", "Shanti Stupa", "Leh Palace"],
+        transport: "Bike, Car, Bus",
+        accommodation: "Guesthouse, Campsite, Hotel",
+        cuisine: "Tibetan, North Indian, Continental",
+        shopping: "Prayer flags, Handicrafts, Woolen clothes",
+        localLanguage: "Ladakhi, Hindi, English",
+        bestFor: "Adventure seekers, Solo travelers",
+        safety: "Safe",
+        travelTips: "Acclimatize properly, Stay hydrated"
     },
     {
         key: 7,
@@ -268,16 +305,21 @@ export const trips = [
         endDate: "2023-06-15",
         location: "Uttarakhand",
         charges: 14000,
-        description: "A city in the Himalayan foothills, known as the Yoga Capital of the World.",
+        description: "A city in the Himalayan foothills, known as the Yoga Capital of the World. A spiritual haven for wellness and adventure.",
         activities: ["Yoga retreats", "Rafting", "Camping", "Sightseeing"],
         numberOfDays: 5,
-        images: [
-            GoaImg,
-            // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
-        ],
+        images: [GoaImg],
         weather: "Pleasant",
         recommendedSeason: "Spring",
-        nearbyAttractions: ["Lakshman Jhula", "Neelkanth Mahadev Temple"]
+        nearbyAttractions: ["Lakshman Jhula", "Neelkanth Mahadev Temple", "Triveni Ghat", "Ram Jhula"],
+        transport: "Car, Rickshaw, Bus",
+        accommodation: "Ashram, Hotel, Guesthouse",
+        cuisine: "North Indian, Continental, Satvik",
+        shopping: "Spiritual books, Handicrafts, Rudraksha beads",
+        localLanguage: "Hindi, English",
+        bestFor: "Spiritual seekers, Adventure enthusiasts",
+        safety: "Safe",
+        travelTips: "Carry comfortable clothing, Follow local customs"
     },
     {
         key: 8,
@@ -286,54 +328,186 @@ export const trips = [
         endDate: "2023-07-10",
         location: "Rajasthan",
         charges: 13000,
-        description: "The City of Lakes, known for its palaces, lakes, and royal heritage.",
+        description: "The City of Lakes, known for its palaces, lakes, and royal heritage. A city of romance and architectural beauty.",
         activities: ["Boat rides", "Sightseeing", "Cultural tours", "Shopping"],
         numberOfDays: 5,
-        images: [
-            GoaImg,
-            // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
-        ],
+        images: [GoaImg],
         weather: "Hot",
         recommendedSeason: "Winter",
-        nearbyAttractions: ["City Palace", "Lake Pichola"]
+        nearbyAttractions: ["City Palace", "Lake Pichola", "Jagdish Temple", "Saheliyon Ki Bari"],
+        transport: "Car, Rickshaw, Bus",
+        accommodation: "Heritage hotel, Guesthouse, Resort",
+        cuisine: "Rajasthani, North Indian, Continental",
+        shopping: "Jewelry, Miniature paintings, Handicrafts",
+        localLanguage: "Hindi, English",
+        bestFor: "Couples, History enthusiasts",
+        safety: "Safe",
+        travelTips: "Stay hydrated, Wear comfortable shoes"
     },
     {
         key: 9,
         name: "Darjeeling",
-        startDate: "2023-08-15",
-        endDate: "2023-08-20",
+        startDate: "2023-08-01",
+        endDate: "2023-08-07",
         location: "West Bengal",
         charges: 16000,
-        description: "A town in the Himalayas, known for its tea plantations and scenic views.",
-        activities: ["Tea plantation tours", "Sightseeing", "Trekking", "Toy train rides"],
-        numberOfDays: 5,
-        images: [
-            GoaImg,
-            // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
-        ],
+        description: "A hill station known for its tea gardens, toy train, and panoramic views of the Himalayas. A tranquil escape into nature.",
+        activities: ["Tea garden tours", "Toy train ride", "Sightseeing", "Hiking"],
+        numberOfDays: 7,
+        images: [GoaImg],
         weather: "Cool",
         recommendedSeason: "Spring",
-        nearbyAttractions: ["Tiger Hill", "Batasia Loop"]
+        nearbyAttractions: ["Tiger Hill", "Batasia Loop", "Peace Pagoda", "Darjeeling Himalayan Railway"],
+        transport: "Car, Train, Bus",
+        accommodation: "Hotel, Guesthouse, Homestay",
+        cuisine: "Bengali, Tibetan, North Indian",
+        shopping: "Tea, Handicrafts, Woolen clothes",
+        localLanguage: "Bengali, English",
+        bestFor: "Nature lovers, Families",
+        safety: "Safe",
+        travelTips: "Carry warm clothes, Stay hydrated"
     },
     {
         key: 10,
-        name: "Andaman and Nicobar Islands",
-        startDate: "2023-09-10",
+        name: "Ooty",
+        startDate: "2023-09-15",
         endDate: "2023-09-20",
+        location: "Tamil Nadu",
+        charges: 14000,
+        description: "A charming hill station known for its tea plantations, botanical gardens, and pleasant weather. A perfect escape from the heat.",
+        activities: ["Sightseeing", "Boat rides", "Tea garden tours", "Trekking"],
+        numberOfDays: 5,
+        images: [GoaImg],
+        weather: "Cool",
+        recommendedSeason: "Summer",
+        nearbyAttractions: ["Ooty Lake", "Botanical Gardens", "Doddabetta Peak", "Rose Garden"],
+        transport: "Car, Train, Bus",
+        accommodation: "Hotel, Resort, Homestay",
+        cuisine: "South Indian, Continental, Chinese",
+        shopping: "Tea, Chocolates, Handicrafts",
+        localLanguage: "Tamil, English",
+        bestFor: "Families, Couples",
+        safety: "Safe",
+        travelTips: "Carry warm clothes, Stay hydrated"
+    },
+    {
+        key: 11,
+        name: "Shimla",
+        startDate: "2023-10-10",
+        endDate: "2023-10-15",
+        location: "Himachal Pradesh",
+        charges: 15000,
+        description: "The Queen of Hills, known for its colonial architecture, pleasant climate, and scenic beauty. A popular honeymoon destination.",
+        activities: ["Sightseeing", "Shopping", "Trekking", "Toy train ride"],
+        numberOfDays: 5,
+        images: [GoaImg],
+        weather: "Cool",
+        recommendedSeason: "Summer",
+        nearbyAttractions: ["Mall Road", "Jakhoo Temple", "Kufri", "Christ Church"],
+        transport: "Car, Bus, Train",
+        accommodation: "Hotel, Cottage, Resort",
+        cuisine: "Himachali, North Indian, Continental",
+        shopping: "Woolen clothes, Handicrafts, Local snacks",
+        localLanguage: "Hindi, English",
+        bestFor: "Couples, Families",
+        safety: "Safe",
+        travelTips: "Carry warm clothes, Stay hydrated"
+    },
+    {
+        key: 12,
+        name: "Andaman and Nicobar Islands",
+        startDate: "2023-11-05",
+        endDate: "2023-11-12",
         location: "Andaman and Nicobar Islands",
         charges: 35000,
-        description: "A group of islands known for their pristine beaches, coral reefs, and marine life.",
-        activities: ["Scuba diving", "Snorkeling", "Beach activities", "Sightseeing"],
-        numberOfDays: 10,
-        images: [
-            GoaImg,
-            // "https://www.shutterstock.com/image-vector/pondicherry-puducherry-india-beach-promenade-600nw-595423316.jpg"
-        ],
-        weather: "Tropical",
+        description: "A tropical paradise with crystal-clear waters, pristine beaches, and rich marine life. Perfect for water sports and relaxation.",
+        activities: ["Scuba diving", "Snorkeling", "Beach lounging", "Island hopping"],
+        numberOfDays: 7,
+        images: [GoaImg],
+        weather: "Warm",
         recommendedSeason: "Winter",
-        nearbyAttractions: ["Radhanagar Beach", "Cellular Jail"]
+        nearbyAttractions: ["Havelock Island", "Neil Island", "Cellular Jail", "Radhanagar Beach"],
+        transport: "Ferry, Car, Bus",
+        accommodation: "Beach resort, Hotel, Guesthouse",
+        cuisine: "Seafood, Indian, Continental",
+        shopping: "Handicrafts, Shell jewelry, Spices",
+        localLanguage: "Hindi, English",
+        bestFor: "Couples, Adventure seekers",
+        safety: "Safe",
+        travelTips: "Carry sunscreen, Stay hydrated"
+    },
+    {
+        key: 13,
+        name: "Coorg",
+        startDate: "2023-12-01",
+        endDate: "2023-12-06",
+        location: "Karnataka",
+        charges: 18000,
+        description: "The Scotland of India, known for its coffee plantations, misty landscapes, and rich culture. A great destination for nature lovers.",
+        activities: ["Coffee plantation tours", "Trekking", "Sightseeing", "Bird watching"],
+        numberOfDays: 5,
+        images: [GoaImg],
+        weather: "Cool",
+        recommendedSeason: "Winter",
+        nearbyAttractions: ["Abbey Falls", "Talacauvery", "Dubare Elephant Camp", "Raja's Seat"],
+        transport: "Car, Bus",
+        accommodation: "Homestay, Resort, Hotel",
+        cuisine: "Coorgi, South Indian, Continental",
+        shopping: "Coffee, Spices, Handicrafts",
+        localLanguage: "Kannada, English",
+        bestFor: "Nature lovers, Families",
+        safety: "Safe",
+        travelTips: "Carry comfortable clothing, Stay hydrated"
+    },
+    {
+        key: 14,
+        name: "Jaisalmer",
+        startDate: "2024-01-10",
+        endDate: "2024-01-15",
+        location: "Rajasthan",
+        charges: 25000,
+        description: "The Golden City, famous for its yellow sandstone architecture, desert landscapes, and rich history. A cultural and historical gem.",
+        activities: ["Desert safari", "Camel riding", "Sightseeing", "Shopping"],
+        numberOfDays: 5,
+        images: [GoaImg],
+        weather: "Cool",
+        recommendedSeason: "Winter",
+        nearbyAttractions: ["Jaisalmer Fort", "Sam Sand Dunes", "Patwon Ki Haveli", "Gadisar Lake"],
+        transport: "Car, Bus",
+        accommodation: "Heritage hotel, Desert camp, Resort",
+        cuisine: "Rajasthani, North Indian, Continental",
+        shopping: "Jewelry, Textiles, Handicrafts",
+        localLanguage: "Hindi, English",
+        bestFor: "History enthusiasts, Adventure seekers",
+        safety: "Safe",
+        travelTips: "Carry warm clothes, Stay hydrated"
+    },
+    {
+        key: 15,
+        name: "Varanasi",
+        startDate: "2024-02-20",
+        endDate: "2024-02-25",
+        location: "Uttar Pradesh",
+        charges: 12000,
+        description: "One of the oldest cities in the world, known for its ghats, temples, and spiritual atmosphere. A must-visit for cultural and religious exploration.",
+        activities: ["Boat ride on Ganges", "Temple visits", "Sightseeing", "Shopping"],
+        numberOfDays: 5,
+        images: [GoaImg],
+        weather: "Pleasant",
+        recommendedSeason: "Winter",
+        nearbyAttractions: ["Kashi Vishwanath Temple", "Dashashwamedh Ghat", "Sarnath", "Ramnagar Fort"],
+        transport: "Car, Rickshaw, Boat",
+        accommodation: "Hotel, Guesthouse, Ashram",
+        cuisine: "North Indian, Street food, Continental",
+        shopping: "Silk sarees, Handicrafts, Religious items",
+        localLanguage: "Hindi, English",
+        bestFor: "Spiritual seekers, Culture enthusiasts",
+        safety: "Safe",
+        travelTips: "Respect local customs, Stay hydrated"
     }
+
 ];
+
 
 
 export const activityDetails = [

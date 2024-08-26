@@ -1,0 +1,124 @@
+/* Container for the entire trip details section */
+.trip-details-container {
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Banner Image */
+.banner-image {
+    height: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.banner-image-box {
+    height: 200px;
+}
+
+.banner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Heading and Subheading */
+.trip-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.trip-name {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.trip-location {
+    font-size: 1.5rem;
+    color: #777;
+}
+
+/* Main Content - Two Columns */
+.trip-content {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Left Column - Description */
+.left-column,
+.right-column {
+    flex: 1;
+}
+
+.description-box,
+.activities-box {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.description-box h3,
+.activities-box h3 {
+    font-size: 1.8rem;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.description-box p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Right Column - Activities */
+.activities-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.activities-box ul li {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Other Info Box */
+.other-info-box {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.other-info-box h3 {
+    font-size: 1.8rem;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.other-info-box p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.moreDetailsClass {
+    color: #1976d2;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.moreDetailsClass :hover {
+    background-color: rgba(25, 118, 210, 0.05);
+    color: #1976d2;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}

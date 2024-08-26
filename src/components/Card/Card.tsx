@@ -2,9 +2,11 @@ import { FC } from "react";
 import './Card.css';
 import Image from 'next/image'
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import { useRouter } from 'next/navigation';
 
 interface CardProps {
-    key: number,
+    id: number
+    format_indent_increase: number,
     name?: string,
     startDate?: string,
     endDate?: string,
@@ -16,13 +18,19 @@ interface CardProps {
     image?: StaticImport | string,
     weather?: string,
     recommendedSeason?: string,
-    nearbyAttractions?: string
-}
+    nearbyAttractions?: string,
+    onClick?: any,
+    place?: string
 
+}
 
 const Card: FC<CardProps> = (props) => {
 
-    const { key, name, startDate, endDate, location, charges, description, activities, numberOfDays, image, weather, recommendedSeason, nearbyAttractions } = props
+    const router = useRouter();
+
+    const { name, startDate, endDate, location, charges, description, activities, numberOfDays, image, weather, recommendedSeason, nearbyAttractions, onClick } = props
+
+
 
 
     return (
