@@ -2,6 +2,7 @@
 import React, { FC } from 'react';
 import CustomButton from '../CustomButton/CustomButton';
 import CustomCollapseDetails from '../CustomCollapseDetails/CustomCollapseDetails';
+import PlanTrip from './PlanTrip/PlanTrip';
 import './TripDetails.css';
 
 type TripDetailPropType = {
@@ -41,7 +42,6 @@ const CustomTripDetailsComponent: FC<TripDetailPropType> = ({ tripDetail }) => {
                 <div className="left-column">
                     <div className="description-box">
                         <h3>Description</h3>
-                        <CustomCollapseDetails headerText="PLAN TRIP" containerClassName='moreDetailsClass' />
                         <p>{tripDetail?.description}</p>
                     </div>
                 </div>
@@ -51,8 +51,8 @@ const CustomTripDetailsComponent: FC<TripDetailPropType> = ({ tripDetail }) => {
                     <div className="activities-box">
                         <div className='d-flex justify-space-between'>
                             <h3>Activities</h3>
-                            <CustomCollapseDetails headerText="PLAN TRIP" containerClassName='moreDetailsClass' />
                             {/* <CustomButton buttonId={''} buttonText={'Plan Trip'} handleClick={() => { console.log('hey') }} /> */}
+                            <CustomCollapseDetails buttonClassName='moreDetailsClass' headerText="PLAN TRIP" children={<PlanTrip />} />
                         </div>
                         <ul>
                             {tripDetail?.activities?.map((activity, index) => (

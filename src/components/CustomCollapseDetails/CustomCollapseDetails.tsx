@@ -1,23 +1,21 @@
 'use client';
 
 import React, { useState } from 'react';
-import './CustomCollapseDetails.css'; // Ensure to create this CSS file
+import './CustomCollapseDetails.css';
 
 export interface CustomCollapseDetailsProps {
     containerId?: string;
     containerClassName?: string;
     headerText: string;
     closed?: boolean;
-    onToggleCollapse?: Function;
+    buttonClassName?: string,
+    onToggleCollapse?: Function,
+    children: JSX.Element
 }
 
-const CustomCollapseDetails: React.FC<CustomCollapseDetailsProps> = ({
-    containerId,
-    containerClassName,
-    headerText,
-    closed,
-    onToggleCollapse
-}) => {
+const CustomCollapseDetails: React.FC<CustomCollapseDetailsProps> = (props) => {
+    const { containerId, containerClassName, buttonClassName, headerText, closed, onToggleCollapse, children } = props;
+
     const [isOpen, setIsOpen] = useState(!closed);
 
     const handleToggle = () => {
@@ -28,13 +26,13 @@ const CustomCollapseDetails: React.FC<CustomCollapseDetailsProps> = ({
     };
 
     return (
-        <div className={`custom-collapse-container ${containerClassName}`} id={containerId}>
-            <button className="toggle-button" style={{ paddingTop: '10px', paddingBottom: '10px', paddingRight: '20px', paddingLeft: '20px' }} onClick={handleToggle}>
+        <div style={{}} className={`custom-collapse-container ${containerClassName}`} id={containerId}>
+            <button className={`toggle-button ${buttonClassName}`} onClick={handleToggle}>
                 {headerText}
             </button>
             <div className={`drawer ${isOpen ? 'open' : 'closed'}`}>
                 {/* Drawer content here */}
-                <p>Drawer Content</p>
+                {children && children}
             </div>
             <div className={`overlay ${isOpen ? 'active' : ''}`} onClick={handleToggle}></div>
         </div>
