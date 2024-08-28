@@ -74,3 +74,7 @@
 .search-button:hover:not(:disabled) {
     background-color: darkorange;
 }
+
+.select-width {
+    width: 200px;
+}

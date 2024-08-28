@@ -3,6 +3,7 @@ import { circleData } from "@/data/data";
 import { tripActivities } from "@/data/data";
 import { useState } from "react";
 import CustomDateTimePicker from "../CustomDateTime/CustomDateTimePicker";
+import CustomSelect from "../CustomSelect/CustomSelect";
 import CustomDropdown from "../Dropdown/CustomDropdown";
 import './DateTimePlaceSelection.css';
 
@@ -55,7 +56,7 @@ const DateTimePlaceSelection = () => {
                         <img src='https://cdn-icons-png.freepik.com/256/145/145591.png?semt=ais_hybrid' width={40} height={40} alt="destination icon" />
                         <div className="dropdown-content">
                             <span>Destination</span>
-                            <CustomDropdown
+                            {/* <CustomDropdown
                                 selectDropDownId="destination"
                                 selectOptions={circleData}
                                 selectValue={circleData[0]}
@@ -66,6 +67,18 @@ const DateTimePlaceSelection = () => {
                                 isClearableForSingleSelect={false}
                                 isLoading={false}
                                 isSearchable={false}
+                            /> */}
+                            <CustomSelect
+                                isClearable={false}
+                                options={circleData.map((item) => ({
+                                    label: item.label,
+                                    value: item.id
+                                }))
+                                }
+                                customSelectClassName='select-width'
+                                isSearchable={true}
+                            // value={circleData.map((val) => { })}
+
                             />
                         </div>
                     </div>
@@ -73,7 +86,19 @@ const DateTimePlaceSelection = () => {
                         <img width={80} height={80} src="https://png.pngtree.com/png-vector/20220610/ourmid/pngtree-hiking-icon-vector-isolated-on-white-background-png-image_4826683.png" alt="activity icon" />
                         <div className="dropdown-content">
                             <span>Activity</span>
-                            <CustomDropdown
+                            <CustomSelect
+                                isClearable={false}
+                                options={tripActivities.map((item) => ({
+                                    label: item.activity,
+                                    value: item.activity
+                                }))
+                                }
+                                customSelectClassName='select-width'
+                                isSearchable={true}
+                            // value={circleData.map((val) => { })}
+
+                            />
+                            {/* <CustomDropdown
                                 selectDropDownId="activity"
                                 selectOptions={tripActivities.map(item => ({ label: item.activity, value: item.activity }))}
                                 selectValue={{ label: tripActivities[0].activity, value: tripActivities[0].activity }}
@@ -84,7 +109,7 @@ const DateTimePlaceSelection = () => {
                                 isClearableForSingleSelect={false}
                                 isLoading={false}
                                 isSearchable={true}
-                            />
+                            /> */}
                         </div>
                     </div>
                     <div className="custom-dropdown">
@@ -99,7 +124,7 @@ const DateTimePlaceSelection = () => {
                             {/* <DatePicker selected={startDate} onChange={handleDateChange} placeholderText="Select Date" /> */}
                         </div>
                     </div>
-                    <button className="search-button" disabled={searchDisabled}>Search</button>
+                    <button className="search-button" style={{ marginRight: '10px' }} disabled={searchDisabled}>Search</button>
                 </div>
             </div>
         </>

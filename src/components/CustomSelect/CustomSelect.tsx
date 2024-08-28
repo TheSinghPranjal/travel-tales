@@ -1,6 +1,6 @@
 'use client';
 import Select from 'react-select';
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 
 interface CustomSelectProps {
   isClearable: boolean;
@@ -10,6 +10,7 @@ interface CustomSelectProps {
   isSearchable?: boolean;
   options: Array<{ label: string; value: any }>;
   value?: any;
+  customSelectClassName?: string;
 }
 
 const CustomSelect: FC<CustomSelectProps> = (props) => {
@@ -21,13 +22,23 @@ const CustomSelect: FC<CustomSelectProps> = (props) => {
     isSearchable,
     options,
     value,
+    customSelectClassName
   } = props;
 
+  // Handler to log selected option
+  const handleChange = (selectedOption: any) => {
+    if (selectedOption) {
+      console.log('Selected place:', selectedOption.label);
+      console.log('Selected value:', selectedOption.value);
+    } else {
+      console.log('Selection cleared');
+    }
+  };
 
   return (
     <>
       <Select
-        className="basic-single"
+        className={customSelectClassName}
         classNamePrefix="select"
         value={value}
         isDisabled={isDisabled}
@@ -35,51 +46,9 @@ const CustomSelect: FC<CustomSelectProps> = (props) => {
         isClearable={isClearable}
         isRtl={isRtl}
         isSearchable={isSearchable}
-        name="color"
         options={options}
+        onChange={handleChange}
       />
-
-      {/* Uncomment this if you want to add checkboxes to control the select's behavior */}
-      {/* <div
-        style={{
-          color: 'hsl(0, 0%, 40%)',
-          display: 'inline-block',
-          fontSize: 12,
-          fontStyle: 'italic',
-          marginTop: '1em',
-        }}
-      >
-        <Checkbox
-          checked={localIsClearable}
-          onChange={() => setIsClearable((state) => !state)}
-        >
-          Clearable
-        </Checkbox>
-        <Checkbox
-          checked={localIsSearchable}
-          onChange={() => setIsSearchable((state) => !state)}
-        >
-          Searchable
-        </Checkbox>
-        <Checkbox
-          checked={localIsDisabled}
-          onChange={() => setIsDisabled((state) => !state)}
-        >
-          Disabled
-        </Checkbox>
-        <Checkbox
-          checked={localIsLoading}
-          onChange={() => setIsLoading((state) => !state)}
-        >
-          Loading
-        </Checkbox>
-        <Checkbox
-          checked={localIsRtl}
-          onChange={() => setIsRtl((state) => !state)}
-        >
-          RTL
-        </Checkbox>
-      </div> */}
     </>
   );
 };
