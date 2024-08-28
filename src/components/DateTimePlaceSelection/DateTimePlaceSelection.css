@@ -29,7 +29,8 @@
     color: rgba(0, 0, 0, 0.9);
 }
 
-.custom-dropdown select, .custom-dropdown input {
+.custom-dropdown select,
+.custom-dropdown input {
     margin-top: 5px;
     /* padding: 5px;
     border-radius: 4px; */

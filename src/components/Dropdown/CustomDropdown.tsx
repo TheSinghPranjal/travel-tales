@@ -9,11 +9,6 @@ import React, {
 } from 'react'
 
 import './CustomDropdown.css';
-// const options = [
-//     { value: 'chocolate', label: 'Chocolate' },
-//     { value: 'strawberry', label: 'Strawberry' },
-//     { value: 'vanilla', label: 'Vanilla' },
-// ];
 
 export const CustomDropdownType = {
     selectDropDownId: PropTypes.string.isRequired,
@@ -38,6 +33,9 @@ export type CustomDropdownPropTypes = PropTypes.InferProps<typeof CustomDropdown
 
 
 const CustomDropdown: FC<CustomDropdownPropTypes> = (props) => {
+
+
+
     const [selectedOption, setSelectedOption] = useState(null);
     const [isRtl, setIsRtl] = useState(false);
     const {

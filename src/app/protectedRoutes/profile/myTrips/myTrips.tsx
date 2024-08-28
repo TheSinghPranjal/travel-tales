@@ -2,7 +2,7 @@
 const MyTrips = () => {
     return (
         <>
-            My Trips WOrks
+            My Trips Works
         </>
     )
 }

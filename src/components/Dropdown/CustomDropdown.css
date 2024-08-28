@@ -1,0 +1,35 @@
+.crm__dropdown__multi-value__label {
+    background-color: var(--grid-layout-border) !important;
+    border-top-left-radius: 23px !important;
+    border-bottom-left-radius: 23px !important;
+}
+
+.crm__dropdown__multi-value__remove {
+    background-color: var(--grid-layout-border) !important;
+    border-top-right-radius: 23px !important;
+    border-bottom-right-radius: 23px !important;
+}
+
+.crm__dropdown__option__wrap {
+    display: flex;
+    padding: 6px;
+    cursor: pointer;
+    line-height: normal;
+}
+
+.crm__dropdown__multi-value {
+    border-radius: 12px !important;
+    /* max-width: 70px !important; */
+    max-width: 60% !important
+}
+
+
+.crm__dropdown__option-label {
+    color: var(--font-color);
+    cursor: pointer;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    padding-left: 4px;
+    font-size: 13px !important;
+}

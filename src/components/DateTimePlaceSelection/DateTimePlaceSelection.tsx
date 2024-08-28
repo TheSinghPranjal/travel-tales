@@ -26,19 +26,19 @@ const DateTimePlaceSelection = () => {
     };
 
     const handleDestinationChange = (value: any, type: string) => {
-        setDestination(value); // Added this line
+        setDestination(value);
         console.log(value, 'value');
         console.log(type, 'place');
     }
 
     const handleActivityChange = (value: any, type: string) => {
-        setActivity(value); // Added this line
+        setActivity(value);
         console.log(value, ' : Value', type, ' : type')
         console.log(activity, 'activity');
     }
 
     const handleDateChange = (date: any) => {
-        setStartDate(date); // Added this line
+        setStartDate(date);
         updateSearchDisabled();
     };
 
@@ -58,14 +58,14 @@ const DateTimePlaceSelection = () => {
                             <CustomDropdown
                                 selectDropDownId="destination"
                                 selectOptions={circleData}
-                                selectValue={circleData[0]} // Ensure this matches an option
+                                selectValue={circleData[0]}
                                 selectDropDownName='destination'
                                 handleSelectOptionChange={(selected) => handleDestinationChange?.(selected, 'destination')}
                                 isMultiSelect={false}
                                 isDisabled={false}
                                 isClearableForSingleSelect={false}
                                 isLoading={false}
-                                isSearchable={true}
+                                isSearchable={false}
                             />
                         </div>
                     </div>
