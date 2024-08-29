@@ -1,9 +1,14 @@
-import { Store, combineReducers, configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
+import tripDetailsReducer from './dashboardRedux/dashboardReducer';
 
 const travelTalesStore = configureStore({
     reducer: {
-
+        // tripDetails: tripDetailsReducer, 
     }
-})
+});
 
-// export type RootState = ReturnType<typeof crmStore.getState>
+// Export types for use in your components
+export type RootState = ReturnType<typeof travelTalesStore.getState>;
+export type AppDispatch = typeof travelTalesStore.dispatch;
+
+export default travelTalesStore;

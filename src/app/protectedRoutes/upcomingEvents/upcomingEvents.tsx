@@ -7,12 +7,17 @@ import { trips } from "@/data/data";
 import { activityDetails } from "@/data/data";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { UrlObject } from "url";
 // import { sliderDetails } from "@/data/data";
 
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTripDetails } from "@/app/reduxStore/dashboardRedux/dashboardActions";  // Import the fetchTripDetails action
+
+
 const UpcomingEvents = () => {
-    const router = useRouter()
+    const router = useRouter();
+    // const dispatch = useDispatch();
     const itemsToShow = 6;
     const [data, setData] = useState(trips.slice(0, itemsToShow))
 
@@ -28,6 +33,14 @@ const UpcomingEvents = () => {
         else
             setData([...data, ...trips.slice(data.length, trips.length)])
     }
+
+    // useEffect(() => {
+    //     dispatch(fetchTripDetails()); // Dispatch the action to fetch trip details
+    // }, [dispatch]);
+
+    // useEffect(() => {
+    //     setData(trips.slice(0, itemsToShow)); // Update the data state when trips change
+    // }, [trips]);
 
     return (
         <>
