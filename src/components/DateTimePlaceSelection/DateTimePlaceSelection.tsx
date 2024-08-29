@@ -15,7 +15,6 @@ const DateTimePlaceSelection = () => {
     const [rooms, setRooms] = useState(0);
     const [searchDisabled, setSearchDisabled] = useState(true);
     const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(Infinity);
 
     const updateSearchDisabled = () => {
         setSearchDisabled(!destination || !activity || !startDate || (adults + children) === 0 || rooms === 0);
