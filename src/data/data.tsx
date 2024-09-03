@@ -1,9 +1,9 @@
-import GoaImg from './../../../travel-tales/public/assets/goa.jpg'
-import GoaPondiImg from './../../../travel-tales/public/assets/pondi.png'
-import ManaliImg from './../../../travel-tales/public/assets/manali.jpg'
-import JaipurImg from './../../../travel-tales/public/assets/jaipur.jpg'
-import KeralaImg from './../../../travel-tales/public/assets/kerala.jpg'
-import LadakhImg from './../../../travel-tales/public/assets/ladakh.jpg'
+import GoaImg from '../../public/assets/goa.jpg'
+import GoaPondiImg from '../../public/assets/pondi.png'
+import ManaliImg from '../../public/assets/manali.jpg'
+import JaipurImg from '../../public/assets/jaipur.jpg'
+import KeralaImg from '../../public/assets/kerala.jpg'
+import LadakhImg from '../../public/assets/ladakh.jpg'
 
 export const circleData = [
     {
