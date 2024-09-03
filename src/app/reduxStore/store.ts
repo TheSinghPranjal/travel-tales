@@ -1,14 +1,18 @@
-import { configureStore } from '@reduxjs/toolkit';
-import tripDetailsReducer from './dashboardRedux/dashboardReducer';
+import { configureStore, Reducer } from '@reduxjs/toolkit';
+import tripDetailsReducer from './dashboardRedux/dashboardSlice';
+import storage from 'redux-persist';
+import persistReducer from 'redux-persist/es/persistReducer';
+import rootReducer from './rootReducer';
 
-const travelTalesStore = configureStore({
-    reducer: {
-        // tripDetails: tripDetailsReducer, 
-    }
+// const persistConfig = {
+//     key: 'root',
+//     storage,
+//     whitelist: ['tripDetails'],
+
+// }
+
+const store = configureStore({
+    reducer: rootReducer
 });
 
-// Export types for use in your components
-export type RootState = ReturnType<typeof travelTalesStore.getState>;
-export type AppDispatch = typeof travelTalesStore.dispatch;
-
-export default travelTalesStore;
+export default store

@@ -1,5 +1,7 @@
+import { StaticImageData } from "next/image";
+
 interface Trip {
-    key: number;
+    id: number;
     name: string;
     startDate: string;
     endDate: string;
@@ -8,7 +10,7 @@ interface Trip {
     description: string;
     activities: string[];
     numberOfDays: number;
-    images: string[]; // Assuming GoaPondiImg is a string representing the image URL or file path
+    images: Array<string | StaticImageData>; // Assuming GoaPondiImg is a string representing the image URL or file path
     weather: string;
     recommendedSeason: string;
     nearbyAttractions: string[];

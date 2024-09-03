@@ -1,4 +1,7 @@
 'use client'
+import { addTripDetail } from "@/app/reduxStore/dashboardRedux/dashboardSlice";
+import { useAppDispatch, useAppSelector } from "@/app/reduxStore/hooks";
+import { RootState } from "@/app/reduxStore/rootReducer";
 import Card from "@/components/Card/Card";
 import Slider from "@/components/CustomSlider/CustomSlider";
 import CustomDropdown from "@/components/Dropdown/CustomDropdown";
@@ -10,17 +13,15 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { UrlObject } from "url";
 // import { sliderDetails } from "@/data/data";
-
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchTripDetails } from "@/app/reduxStore/dashboardRedux/dashboardActions";  // Import the fetchTripDetails action
+// Import the fetchTripDetails action
 
 
 const UpcomingEvents = () => {
     const router = useRouter();
-    // const dispatch = useDispatch();
     const itemsToShow = 6;
     const [data, setData] = useState(trips.slice(0, itemsToShow))
-
+    const dispatch = useAppDispatch()
+    const upcomingTrips = useAppSelector((store) => store.dashboardSlice.tripDetails)
     const handleFormChange: any = (value: any, type: string) => {
         // Update the form state with the selected value and type
         console.log(value, type, 'hello')
@@ -33,6 +34,33 @@ const UpcomingEvents = () => {
         else
             setData([...data, ...trips.slice(data.length, trips.length)])
     }
+
+    useEffect(() => {
+        console.log(upcomingTrips);
+        dispatch(addTripDetail({
+            id: 2,
+            name: "Goa",
+            startDate: "2023-01-10",
+            endDate: "2023-01-15",
+            location: "Goa",
+            charges: 20000,
+            description: "Famous for its beaches, nightlife, and Portuguese heritage. Experience the vibrant beach culture and adventure activities.",
+            activities: ["Beach parties", "Water sports", "Sightseeing", "Nightlife"],
+            numberOfDays: 5,
+            images: [],
+            weather: "Warm",
+            recommendedSeason: "Winter",
+            nearbyAttractions: ["Basilica of Bom Jesus", "Dudhsagar Falls", "Anjuna Beach", "Fort Aguada"],
+            transport: "Scooter, Car, Bus",
+            accommodation: "Beach shack, Hotel, Resort",
+            cuisine: "Goan, Seafood, Continental",
+            shopping: "Cashew nuts, Feni, Handicrafts",
+            localLanguage: "Konkani, English",
+            bestFor: "Friends, Couples",
+            safety: "Moderately safe",
+            travelTips: "Beware of jellyfish, Rent a scooter"
+        }))
+    }, [])
 
     // useEffect(() => {
     //     dispatch(fetchTripDetails()); // Dispatch the action to fetch trip details
@@ -64,11 +92,11 @@ const UpcomingEvents = () => {
 
                 <div className=" grid grid-cols-1 md:grid-cols-3 gap-5">
                     {
-                        data.map((trip) => {
+                        data.map((trip: any) => {
                             return (
-                                <Link key={trip.key} href={`/protectedRoutes/trips/${trip.key}`}>
+                                <Link key={trip.id} href={`/protectedRoutes/trips/${trip.id}`}>
                                     <Card
-                                        id={trip.key}
+                                        id={trip.id}
                                         name={trip.name}
                                         location={trip.location}
                                         numberOfDays={trip.numberOfDays}
@@ -110,8 +138,8 @@ const UpcomingEvents = () => {
                         activityDetails.map((activity) => {
                             return (
                                 <Card
-                                    key={activity.key}
-                                    id={activity.key}
+                                    key={activity.id}
+                                    id={activity.id}
                                     name={activity.name}
                                     location={activity.location}
                                     numberOfDays={activity.numberOfHoursRequired}

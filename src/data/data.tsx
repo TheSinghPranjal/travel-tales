@@ -161,7 +161,7 @@ export const tripActivities = [
 
 export const trips = [
     {
-        key: 1,
+        id: 1,
         name: "Pondicherry",
         startDate: "2022-12-15",
         endDate: "2022-12-20",
@@ -184,7 +184,7 @@ export const trips = [
         travelTips: "Carry sunscreen, Stay hydrated"
     },
     {
-        key: 2,
+        id: 2,
         name: "Goa",
         startDate: "2023-01-10",
         endDate: "2023-01-15",
@@ -207,7 +207,7 @@ export const trips = [
         travelTips: "Beware of jellyfish, Rent a scooter"
     },
     {
-        key: 3,
+        id: 3,
         name: "Manali",
         startDate: "2023-02-05",
         endDate: "2023-02-10",
@@ -230,7 +230,7 @@ export const trips = [
         travelTips: "Carry warm clothes, Stay hydrated"
     },
     {
-        key: 4,
+        id: 4,
         name: "Jaipur",
         startDate: "2023-03-15",
         endDate: "2023-03-20",
@@ -253,7 +253,7 @@ export const trips = [
         travelTips: "Bargain at markets, Stay hydrated"
     },
     {
-        key: 5,
+        id: 5,
         name: "Kerala",
         startDate: "2023-04-10",
         endDate: "2023-04-15",
@@ -276,7 +276,7 @@ export const trips = [
         travelTips: "Carry insect repellent, Stay hydrated"
     },
     {
-        key: 6,
+        id: 6,
         name: "Ladakh",
         startDate: "2023-05-05",
         endDate: "2023-05-15",
@@ -299,7 +299,7 @@ export const trips = [
         travelTips: "Acclimatize properly, Stay hydrated"
     },
     {
-        key: 7,
+        id: 7,
         name: "Rishikesh",
         startDate: "2023-06-10",
         endDate: "2023-06-15",
@@ -322,7 +322,7 @@ export const trips = [
         travelTips: "Carry comfortable clothing, Follow local customs"
     },
     {
-        key: 8,
+        id: 8,
         name: "Udaipur",
         startDate: "2023-07-05",
         endDate: "2023-07-10",
@@ -345,7 +345,7 @@ export const trips = [
         travelTips: "Stay hydrated, Wear comfortable shoes"
     },
     {
-        key: 9,
+        id: 9,
         name: "Darjeeling",
         startDate: "2023-08-01",
         endDate: "2023-08-07",
@@ -368,7 +368,7 @@ export const trips = [
         travelTips: "Carry warm clothes, Stay hydrated"
     },
     {
-        key: 10,
+        id: 10,
         name: "Ooty",
         startDate: "2023-09-15",
         endDate: "2023-09-20",
@@ -391,7 +391,7 @@ export const trips = [
         travelTips: "Carry warm clothes, Stay hydrated"
     },
     {
-        key: 11,
+        id: 11,
         name: "Shimla",
         startDate: "2023-10-10",
         endDate: "2023-10-15",
@@ -414,7 +414,7 @@ export const trips = [
         travelTips: "Carry warm clothes, Stay hydrated"
     },
     {
-        key: 12,
+        id: 12,
         name: "Andaman and Nicobar Islands",
         startDate: "2023-11-05",
         endDate: "2023-11-12",
@@ -437,7 +437,7 @@ export const trips = [
         travelTips: "Carry sunscreen, Stay hydrated"
     },
     {
-        key: 13,
+        id: 13,
         name: "Coorg",
         startDate: "2023-12-01",
         endDate: "2023-12-06",
@@ -460,7 +460,7 @@ export const trips = [
         travelTips: "Carry comfortable clothing, Stay hydrated"
     },
     {
-        key: 14,
+        id: 14,
         name: "Jaisalmer",
         startDate: "2024-01-10",
         endDate: "2024-01-15",
@@ -483,7 +483,7 @@ export const trips = [
         travelTips: "Carry warm clothes, Stay hydrated"
     },
     {
-        key: 15,
+        id: 15,
         name: "Varanasi",
         startDate: "2024-02-20",
         endDate: "2024-02-25",
@@ -512,7 +512,7 @@ export const trips = [
 
 export const activityDetails = [
     {
-        "key": 1,
+        "id": 1,
         "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Skydiving in Shimla",
         "startDate": "2022-12-15",
@@ -533,7 +533,7 @@ export const activityDetails = [
         "medicalCheckupRequired": true
     },
     {
-        "key": 2,
+        "id": 2,
         "url": 'https://t4.ftcdn.net/jpg/02/57/91/21/360_F_257912197_ySuBhefKYPQIZNa3xeGiObLpgYBnH9U5.jpg',
         "name": "River Rafting in Rishikesh",
         "startDate": "2023-03-10",
@@ -554,7 +554,7 @@ export const activityDetails = [
         "medicalCheckupRequired": false
     },
     {
-        "key": 3,
+        "id": 3,
         "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Trekking in Ladakh",
         "startDate": "2023-06-01",
@@ -575,7 +575,7 @@ export const activityDetails = [
         "medicalCheckupRequired": true
     },
     {
-        "key": 4,
+        "id": 4,
         "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Scuba Diving in Andaman",
         "startDate": "2023-11-05",
@@ -596,7 +596,7 @@ export const activityDetails = [
         "medicalCheckupRequired": false
     },
     {
-        "key": 5,
+        "id": 5,
         "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Bungee Jumping in Rishikesh",
         "startDate": "2023-05-20",
@@ -617,7 +617,7 @@ export const activityDetails = [
         "medicalCheckupRequired": true
     },
     {
-        "key": 6,
+        "id": 6,
         "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Paragliding in Bir Billing",
         "startDate": "2023-09-01",
@@ -638,7 +638,7 @@ export const activityDetails = [
         "medicalCheckupRequired": false
     },
     {
-        "key": 7,
+        "id": 7,
         "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Surfing in Varkala",
         "startDate": "2023-09-10",
@@ -659,7 +659,7 @@ export const activityDetails = [
         "medicalCheckupRequired": false
     },
     {
-        "key": 8,
+        "id": 8,
         "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Horse Riding in Jaisalmer",
         "startDate": "2023-11-01",
@@ -680,7 +680,7 @@ export const activityDetails = [
         "medicalCheckupRequired": false
     },
     {
-        "key": 9,
+        "id": 9,
         "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Kayaking in Alleppey",
         "startDate": "2023-05-01",
@@ -701,7 +701,7 @@ export const activityDetails = [
         "medicalCheckupRequired": false
     },
     {
-        "key": 10,
+        "id": 10,
         "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Camping in Sikkim",
         "startDate": "2023-10-10",
@@ -722,7 +722,7 @@ export const activityDetails = [
         "medicalCheckupRequired": false
     },
     {
-        "key": 11,
+        "id": 11,
         "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "ATV Riding in Goa",
         "startDate": "2023-12-01",
@@ -743,7 +743,7 @@ export const activityDetails = [
         "medicalCheckupRequired": false
     },
     {
-        "key": 12,
+        "id": 12,
         "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Fishing in Kerala Backwaters",
         "startDate": "2023-06-01",
@@ -764,7 +764,7 @@ export const activityDetails = [
         "medicalCheckupRequired": false
     },
     {
-        "key": 13,
+        "id": 13,
         "url": 'https://www.india.com/wp-content/uploads/2018/08/Pondicherry_Pondicherry_Beach-at-Pondicherry.jpg',
         "name": "Fishing in Kerala Backwaters",
         "startDate": "2023-06-01",
