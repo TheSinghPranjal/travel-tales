@@ -6,7 +6,6 @@ import { Provider } from "react-redux";
 import "./globals.css";
 import store from "./reduxStore/store";
 
-const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {
 //   title: "Create Next App",
