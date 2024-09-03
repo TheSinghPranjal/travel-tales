@@ -106,7 +106,7 @@ const UpcomingEvents = () => {
                         })
                     }
                 </div>
-                {data.length < trips.length && <button onClick={loadMore}>load more</button>}
+                {data.length < trips.length && <button style={{ color: 'blue2' }} onClick={loadMore}>+ load more</button>}
             </div>
 
             <div className='my-12 px-5 '>
