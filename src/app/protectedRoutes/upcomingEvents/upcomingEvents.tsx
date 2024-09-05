@@ -1,6 +1,6 @@
 'use client'
 import { addTripDetail } from "@/app/reduxStore/dashboardRedux/dashboardSlice";
-import { useAppDispatch, useAppSelector } from "@/app/reduxStore/hooks";
+// import { useAppDispatch, useAppSelector } from "@/app/reduxStore/hooks";
 import Card from "@/components/Card/Card";
 import Slider from "@/components/CustomSlider/CustomSlider";
 import CustomDropdown from "@/components/Dropdown/CustomDropdown";
@@ -19,8 +19,8 @@ const UpcomingEvents = () => {
     const router = useRouter();
     const itemsToShow = 6;
     const [data, setData] = useState(trips.slice(0, itemsToShow))
-    const dispatch = useAppDispatch()
-    const upcomingTrips = useAppSelector((store) => store.dashboardSlice.tripDetails)
+    // const dispatch = useAppDispatch()
+    // const upcomingTrips = useAppSelector((store) => store.dashboardSlice.tripDetails)
     const handleFormChange: any = (value: any, type: string) => {
         // Update the form state with the selected value and type
         console.log(value, type, 'hello')
@@ -34,32 +34,32 @@ const UpcomingEvents = () => {
             setData([...data, ...trips.slice(data.length, trips.length)])
     }
 
-    useEffect(() => {
-        console.log(upcomingTrips);
-        dispatch(addTripDetail({
-            id: 2,
-            name: "Goa",
-            startDate: "2023-01-10",
-            endDate: "2023-01-15",
-            location: "Goa",
-            charges: 20000,
-            description: "Famous for its beaches, nightlife, and Portuguese heritage. Experience the vibrant beach culture and adventure activities.",
-            activities: ["Beach parties", "Water sports", "Sightseeing", "Nightlife"],
-            numberOfDays: 5,
-            images: [],
-            weather: "Warm",
-            recommendedSeason: "Winter",
-            nearbyAttractions: ["Basilica of Bom Jesus", "Dudhsagar Falls", "Anjuna Beach", "Fort Aguada"],
-            transport: "Scooter, Car, Bus",
-            accommodation: "Beach shack, Hotel, Resort",
-            cuisine: "Goan, Seafood, Continental",
-            shopping: "Cashew nuts, Feni, Handicrafts",
-            localLanguage: "Konkani, English",
-            bestFor: "Friends, Couples",
-            safety: "Moderately safe",
-            travelTips: "Beware of jellyfish, Rent a scooter"
-        }))
-    }, [])
+    // useEffect(() => {
+    //     console.log(upcomingTrips);
+    //     dispatch(addTripDetail({
+    //         id: 2,
+    //         name: "Goa",
+    //         startDate: "2023-01-10",
+    //         endDate: "2023-01-15",
+    //         location: "Goa",
+    //         charges: 20000,
+    //         description: "Famous for its beaches, nightlife, and Portuguese heritage. Experience the vibrant beach culture and adventure activities.",
+    //         activities: ["Beach parties", "Water sports", "Sightseeing", "Nightlife"],
+    //         numberOfDays: 5,
+    //         images: [],
+    //         weather: "Warm",
+    //         recommendedSeason: "Winter",
+    //         nearbyAttractions: ["Basilica of Bom Jesus", "Dudhsagar Falls", "Anjuna Beach", "Fort Aguada"],
+    //         transport: "Scooter, Car, Bus",
+    //         accommodation: "Beach shack, Hotel, Resort",
+    //         cuisine: "Goan, Seafood, Continental",
+    //         shopping: "Cashew nuts, Feni, Handicrafts",
+    //         localLanguage: "Konkani, English",
+    //         bestFor: "Friends, Couples",
+    //         safety: "Moderately safe",
+    //         travelTips: "Beware of jellyfish, Rent a scooter"
+    //     }))
+    // }, [])
 
     // useEffect(() => {
     //     dispatch(fetchTripDetails()); // Dispatch the action to fetch trip details
