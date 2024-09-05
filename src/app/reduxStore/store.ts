@@ -2,7 +2,7 @@ import { configureStore, Reducer } from '@reduxjs/toolkit';
 import tripDetailsReducer from './dashboardRedux/dashboardSlice';
 import storage from 'redux-persist';
 import persistReducer from 'redux-persist/es/persistReducer';
-import rootReducer from './rootReducer';
+// import rootReducer from './rootReducer';
 
 // const persistConfig = {
 //     key: 'root',
@@ -11,8 +11,8 @@ import rootReducer from './rootReducer';
 
 // }
 
-const store = configureStore({
-    reducer: rootReducer
-});
+// const store = configureStore({
+//     // reducer: rootReducer
+// });
 
-export default store
+// export default store
