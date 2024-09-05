@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "isolatedModules": false,
     "lib": [
       "dom",
       "dom.iterable",
