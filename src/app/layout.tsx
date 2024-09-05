@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Provider } from "react-redux";
 import "./globals.css";
-import store from "./reduxStore/store";
 
 
 // export const metadata: Metadata = {
@@ -23,9 +22,9 @@ export default function RootLayout({
         <NavApp />
         <div className="max-w-[1478px] flex m-auto">
           <div className="w-full">
-            <Provider store={store}>
-              {children}
-            </Provider>
+
+            {children}
+
           </div>
         </div>
       </body>
