@@ -52,7 +52,7 @@ const CustomTripDetailsComponent: FC<TripDetailPropType> = ({ tripDetail }) => {
                         <div className='d-flex justify-space-between'>
                             <h3>Activities</h3>
                             {/* <CustomButton buttonId={''} buttonText={'Plan Trip'} handleClick={() => { console.log('hey') }} /> */}
-                            <CustomCollapseDetails buttonClassName='moreDetailsClass' headerText="PLAN TRIP" children={<PlanTrip />} />
+                            <CustomCollapseDetails buttonClassName='moreDetailsClass' headerText="PLAN TRIP" />
                         </div>
                         <ul>
                             {tripDetail?.activities?.map((activity, index) => (

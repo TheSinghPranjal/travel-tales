@@ -10,7 +10,7 @@ export interface CustomCollapseDetailsProps {
     closed?: boolean;
     buttonClassName?: string,
     onToggleCollapse?: Function,
-    children: JSX.Element
+    children?: JSX.Element
 }
 
 const CustomCollapseDetails: React.FC<CustomCollapseDetailsProps> = (props) => {
