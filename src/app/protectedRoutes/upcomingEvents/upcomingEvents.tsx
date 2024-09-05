@@ -1,7 +1,7 @@
 'use client'
 import { addTripDetail } from "@/app/reduxStore/dashboardRedux/dashboardSlice";
 import { useAppDispatch, useAppSelector } from "@/app/reduxStore/hooks";
-import { RootState } from "@/app/reduxStore/rootReducer";
+// import { RootState } from "@/app/reduxStore/rootReducer";
 import Card from "@/components/Card/Card";
 import Slider from "@/components/CustomSlider/CustomSlider";
 import CustomDropdown from "@/components/Dropdown/CustomDropdown";
