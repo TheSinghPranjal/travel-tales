@@ -22,9 +22,7 @@ export default function RootLayout({
         <NavApp />
         <div className="max-w-[1478px] flex m-auto">
           <div className="w-full">
-
             {children}
-
           </div>
         </div>
       </body>

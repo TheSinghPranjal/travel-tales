@@ -19,10 +19,8 @@ const UpcomingEvents = () => {
     const router = useRouter();
     const itemsToShow = 6;
     const [data, setData] = useState(trips.slice(0, itemsToShow))
-    // const dispatch = useAppDispatch()
-    // const upcomingTrips = useAppSelector((store) => store.dashboardSlice.tripDetails)
+
     const handleFormChange: any = (value: any, type: string) => {
-        // Update the form state with the selected value and type
         console.log(value, type, 'hello')
 
     }
@@ -61,13 +59,6 @@ const UpcomingEvents = () => {
     //     }))
     // }, [])
 
-    // useEffect(() => {
-    //     dispatch(fetchTripDetails()); // Dispatch the action to fetch trip details
-    // }, [dispatch]);
-
-    // useEffect(() => {
-    //     setData(trips.slice(0, itemsToShow)); // Update the data state when trips change
-    // }, [trips]);
 
     return (
         <>
