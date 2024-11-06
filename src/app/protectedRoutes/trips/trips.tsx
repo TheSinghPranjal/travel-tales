@@ -1,9 +1,15 @@
+import TrafficLight from "../homePage/TrafficLight";
+import Test from "./Test";
+import Test2 from "./Test2";
 
 
 const Trip = () => {
     return (
         <>
-            <h1>Triop 1</h1>
+            <Test />
+            <h1>hellllo</h1>
+            <Test2 />
+            <TrafficLight />
         </>
     )
 

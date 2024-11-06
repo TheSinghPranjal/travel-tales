@@ -1,0 +1,43 @@
+.border-class {
+
+
+    background-color: whitesmoke;
+    height: 80px;
+    width: 80px;
+    border-color: black;
+    border: 2px;
+    border-style: dashed;
+
+}
+
+.border-class-input {
+
+    background-color: whitesmoke;
+    height: 60px;
+    width: 280px;
+    border-color: black;
+    border: 2px;
+    border-style: dashed;
+
+}
+
+.todo-input {
+
+    background-color: whitesmoke;
+    height: 60px;
+    width: 280px;
+    border-color: black;
+    border: 2px;
+    border-style: dashed;
+
+}
+
+.todo-button {
+
+    background-color: whitesmoke;
+    height: 60px;
+    width: 280px;
+    border-color: black;
+    border: 2px;
+    border-style: double;
+}
