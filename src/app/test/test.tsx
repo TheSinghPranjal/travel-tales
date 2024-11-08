@@ -65,7 +65,7 @@ const CarouselComponent = () => {
     };
 
     const handleDotClick = (index: number) => {
-        setCurrentQuestionIndex(index);
+        // setCurrentQuestionIndex(index);
         carouselRef.current?.goToSlide(index);
     };
 
@@ -88,7 +88,7 @@ const CarouselComponent = () => {
     };
 
     return (
-        <div style={{ backgroundColor: 'red', padding: '20px' }}>
+        <div style={{ background: 'linear-gradient(90deg, #EF5858 0%, #6A0606 100%)', padding: '20px', boxShadow: '4px 4px 8px 0px #0000001F', borderRadius: '8px' }}>
             <Carousel
                 ref={carouselRef}
                 showDots
@@ -103,6 +103,7 @@ const CarouselComponent = () => {
                 arrows={false}
                 renderButtonGroupOutside
                 customDot={<CustomDot />}
+                afterChange={(previousSlide: any, { currentSlide }) => setCurrentQuestionIndex(currentSlide)}
             >
                 {questions.map((question, index) => (
                     <div key={question.id} style={{ padding: '20px', textAlign: 'center' }}>
@@ -115,21 +116,26 @@ const CarouselComponent = () => {
                             layout="responsive"
                         />
                         <h4 style={{ margin: '20px 0' }}>{question.question}</h4>
-                        <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '20px' }}>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px', marginBottom: '20px' }}>
                             {question.options.map((option, i) => (
                                 <div
                                     key={i}
-                                    style={{
-                                        padding: '10px 20px',
-                                        border: '1px solid grey',
-                                        borderRadius: '8px',
-                                        backgroundColor: selectedOptions[index] === i ? 'blue' : 'white',
-                                        color: selectedOptions[index] === i ? 'white' : 'black',
-                                        cursor: 'pointer',
-                                    }}
                                     onClick={() => handleOptionSelect(index, i)}
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        width: '45%',
+                                        padding: '10px',
+                                        margin: '5px',
+                                        borderRadius: '8px',
+                                        fontWeight: 'normal',
+                                        cursor: 'pointer',
+                                        backgroundColor: selectedOptions[index] === i ? 'white' : 'rgba(255, 255, 255, 0.16)',
+                                        color: selectedOptions[index] === i ? 'black' : 'white',
+                                    }}
                                 >
-                                    {option}
+                                    <span style={{ marginRight: '5px' }}>{i + 1}.</span> {option}
                                 </div>
                             ))}
                         </div>
