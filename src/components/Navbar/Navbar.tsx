@@ -5,8 +5,8 @@ const menuItems = [
     { fieldName: 'Dashboard', route: '/protectedRoutes/dashboard' },
     { fieldName: 'Home', route: '/protectedRoutes/homePage' },
     { fieldName: 'About', route: '/protectedRoutes/trips' },
-    // { fieldName: 'Contact', route: '/protectedRoutes/homePage' },
-    // { fieldName: 'Trips', route: '/protectedRoutes/trips' },
+    { fieldName: 'Vastrai', route: '/vastrai' },
+    { fieldName: 'Test', route: '/test' },
     // { fieldName: 'Profile', route: '/protectedRoutes/profile' }
 ];
 
