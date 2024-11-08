@@ -61,7 +61,6 @@ const CarouselComponent = () => {
             const newIndex = (currentQuestionIndex + 1) % questions.length;
             setCurrentQuestionIndex(newIndex);
             carouselRef.current?.goToSlide(newIndex);
-            console.log(newIndex, "Hey New Index")
         }
     };
 
@@ -91,7 +90,10 @@ const CarouselComponent = () => {
         <div
             style={{
                 background: `url(${BgRed.src}) center center / cover, linear-gradient(90deg, #EF5858 0%, #6A0606 100%)`,
-                padding: '20px',
+                paddingLeft: '12px',
+                paddingRight: '12px',
+                paddingTop: '24px',
+                paddingBottom: '24px',
                 boxShadow: '4px 4px 8px 0px #0000001F',
                 borderRadius: '8px'
             }}
@@ -113,7 +115,7 @@ const CarouselComponent = () => {
                 afterChange={(previousSlide: number, { currentSlide }: { currentSlide: number }) => setCurrentQuestionIndex(currentSlide)}
             >
                 {questions.map((question, index) => (
-                    <div key={question.id} style={{ padding: '20px', textAlign: 'center' }}>
+                    <div key={question.id} style={{ padding: '0px', textAlign: 'center' }}>
                         <h3 style={{ color: 'orange' }}>Quiz of the day</h3>
                         <Image
                             src={question.image}
@@ -142,9 +144,29 @@ const CarouselComponent = () => {
                                         cursor: 'pointer',
                                         backgroundColor: selectedOptions[index] === i ? 'white' : 'rgba(255, 255, 255, 0.16)',
                                         color: selectedOptions[index] === i ? 'black' : 'white',
+                                        position: 'relative',
                                     }}
                                 >
-                                    <span style={{ marginRight: '5px' }}>{i + 1}.</span> {option}
+                                    <span
+                                        style={{
+                                            position: 'absolute',
+                                            left: '10px',
+                                            top: '50%',
+                                            transform: 'translateY(-50%)',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            width: '24px',
+                                            height: '24px',
+                                            borderRadius: '50%',
+                                            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                                            color: selectedOptions[index] === i ? 'black' : 'white',
+                                            fontWeight: 'bold',
+                                        }}
+                                    >
+                                        {i + 1}
+                                    </span>
+                                    <span style={{ textAlign: 'center', width: '100%' }}>{option}</span>
                                 </div>
                             ))}
                         </div>
@@ -162,7 +184,7 @@ const CarouselComponent = () => {
                     border: 'none',
                     borderRadius: '8px',
                     cursor: selectedOptions[currentQuestionIndex] !== null ? 'pointer' : 'not-allowed',
-                    marginTop: '20px'
+                    marginTop: '30px'
                 }}
             >
                 Next
