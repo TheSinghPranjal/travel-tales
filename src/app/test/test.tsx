@@ -4,6 +4,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Image from 'next/image';
 import ManaliImg from '../test/quizOfDay.svg';
+import BgRed from '../test/red_bg.svg';
 
 const CarouselComponent = () => {
     const questions = [
@@ -65,7 +66,6 @@ const CarouselComponent = () => {
     };
 
     const handleDotClick = (index: number) => {
-        // setCurrentQuestionIndex(index);
         carouselRef.current?.goToSlide(index);
     };
 
@@ -139,24 +139,25 @@ const CarouselComponent = () => {
                                 </div>
                             ))}
                         </div>
-                        <button
-                            onClick={handleNext}
-                            disabled={selectedOptions[index] === null}
-                            style={{
-                                width: '100%',
-                                padding: '10px 20px',
-                                backgroundColor: selectedOptions[index] === null ? 'grey' : 'blue',
-                                color: 'white',
-                                border: 'none',
-                                borderRadius: '8px',
-                                cursor: selectedOptions[index] !== null ? 'pointer' : 'not-allowed',
-                            }}
-                        >
-                            Next
-                        </button>
                     </div>
                 ))}
             </Carousel>
+            <button
+                onClick={handleNext}
+                disabled={selectedOptions[currentQuestionIndex] === null}
+                style={{
+                    width: '100%',
+                    padding: '10px 20px',
+                    backgroundColor: selectedOptions[currentQuestionIndex] === null ? 'grey' : 'white',
+                    color: selectedOptions[currentQuestionIndex] === null ? 'white' : '#7D1212',
+                    border: 'none',
+                    borderRadius: '8px',
+                    cursor: selectedOptions[currentQuestionIndex] !== null ? 'pointer' : 'not-allowed',
+                    marginTop: '10px' // Add margin to separate the button from the carousel
+                }}
+            >
+                Next
+            </button>
         </div>
     );
 };
