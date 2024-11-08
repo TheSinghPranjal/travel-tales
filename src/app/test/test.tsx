@@ -41,7 +41,7 @@ const CarouselComponent = () => {
 
     const [selectedOptions, setSelectedOptions] = useState(Array(questions.length).fill(null));
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const carouselRef = useRef(null);
+    const carouselRef = useRef<Carousel | null>(null);
 
     const responsive = {
         desktop: { breakpoint: { max: 3000, min: 1024 }, items: 1 },
@@ -49,7 +49,7 @@ const CarouselComponent = () => {
         mobile: { breakpoint: { max: 464, min: 0 }, items: 1 },
     };
 
-    const handleOptionSelect = (questionIndex, optionIndex) => {
+    const handleOptionSelect = (questionIndex: number, optionIndex: number) => {
         const updatedSelections = [...selectedOptions];
         updatedSelections[questionIndex] = optionIndex;
         setSelectedOptions(updatedSelections);
@@ -57,14 +57,34 @@ const CarouselComponent = () => {
 
     const handleNext = () => {
         if (selectedOptions[currentQuestionIndex] !== null) {
-            setCurrentQuestionIndex((prevIndex) => {
-                const newIndex = prevIndex === questions.length - 1 ? 0 : prevIndex + 1;
-                if (carouselRef.current) {
-                    carouselRef.current.goToSlide(newIndex);
-                }
-                return newIndex;
-            });
+            const newIndex = (currentQuestionIndex + 1) % questions.length;
+            setCurrentQuestionIndex(newIndex);
+            carouselRef.current?.goToSlide(newIndex);
+            console.log(newIndex, "Hey New Index")
         }
+    };
+
+    const handleDotClick = (index: number) => {
+        setCurrentQuestionIndex(index);
+        carouselRef.current?.goToSlide(index);
+    };
+
+    const CustomDot = ({ onClick, ...rest }: any) => {
+        const { index, active } = rest;
+        return (
+            <li
+                onClick={() => handleDotClick(index)}
+                style={{
+                    display: 'inline-block',
+                    width: '10px',
+                    height: '10px',
+                    borderRadius: '50%',
+                    backgroundColor: active ? 'blue' : 'grey',
+                    margin: '0 5px',
+                    cursor: 'pointer',
+                }}
+            />
+        );
     };
 
     return (
@@ -82,6 +102,7 @@ const CarouselComponent = () => {
                 transitionDuration={500}
                 arrows={false}
                 renderButtonGroupOutside
+                customDot={<CustomDot />}
             >
                 {questions.map((question, index) => (
                     <div key={question.id} style={{ padding: '20px', textAlign: 'center' }}>
