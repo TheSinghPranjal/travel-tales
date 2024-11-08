@@ -88,7 +88,14 @@ const CarouselComponent = () => {
     };
 
     return (
-        <div style={{ background: 'linear-gradient(90deg, #EF5858 0%, #6A0606 100%)', padding: '20px', boxShadow: '4px 4px 8px 0px #0000001F', borderRadius: '8px' }}>
+        <div
+            style={{
+                background: `url(${BgRed.src}) center center / cover, linear-gradient(90deg, #EF5858 0%, #6A0606 100%)`,
+                padding: '20px',
+                boxShadow: '4px 4px 8px 0px #0000001F',
+                borderRadius: '8px'
+            }}
+        >
             <Carousel
                 ref={carouselRef}
                 showDots
@@ -115,7 +122,9 @@ const CarouselComponent = () => {
                             height={200}
                             layout="responsive"
                         />
-                        <h4 style={{ margin: '20px 0', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '20px' }}>{question.question}</h4>
+                        <h4 style={{ margin: '20px 0', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '20px' }}>
+                            {`Q${index + 1}: ${question.question}`}
+                        </h4>
                         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px', marginBottom: '20px' }}>
                             {question.options.map((option, i) => (
                                 <div
@@ -147,13 +156,13 @@ const CarouselComponent = () => {
                 disabled={selectedOptions[currentQuestionIndex] === null}
                 style={{
                     width: '100%',
-                    padding: '10px 20px',
+                    padding: '15px 20px',
                     backgroundColor: selectedOptions[currentQuestionIndex] === null ? 'grey' : 'white',
                     color: selectedOptions[currentQuestionIndex] === null ? 'white' : '#7D1212',
                     border: 'none',
                     borderRadius: '8px',
                     cursor: selectedOptions[currentQuestionIndex] !== null ? 'pointer' : 'not-allowed',
-                    marginTop: '10px' // Add margin to separate the button from the carousel
+                    marginTop: '20px'
                 }}
             >
                 Next
