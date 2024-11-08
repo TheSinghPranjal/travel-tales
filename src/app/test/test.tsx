@@ -79,7 +79,7 @@ const CarouselComponent = () => {
                     width: '10px',
                     height: '10px',
                     borderRadius: '50%',
-                    backgroundColor: active ? 'blue' : 'grey',
+                    backgroundColor: active ? 'white' : '#CCCCCC',
                     margin: '0 5px',
                     cursor: 'pointer',
                 }}
@@ -103,7 +103,7 @@ const CarouselComponent = () => {
                 arrows={false}
                 renderButtonGroupOutside
                 customDot={<CustomDot />}
-                afterChange={(previousSlide: any, { currentSlide }) => setCurrentQuestionIndex(currentSlide)}
+                afterChange={(previousSlide: number, { currentSlide }: { currentSlide: number }) => setCurrentQuestionIndex(currentSlide)}
             >
                 {questions.map((question, index) => (
                     <div key={question.id} style={{ padding: '20px', textAlign: 'center' }}>
@@ -115,7 +115,7 @@ const CarouselComponent = () => {
                             height={200}
                             layout="responsive"
                         />
-                        <h4 style={{ margin: '20px 0' }}>{question.question}</h4>
+                        <h4 style={{ margin: '20px 0', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '20px' }}>{question.question}</h4>
                         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px', marginBottom: '20px' }}>
                             {question.options.map((option, i) => (
                                 <div
@@ -143,6 +143,7 @@ const CarouselComponent = () => {
                             onClick={handleNext}
                             disabled={selectedOptions[index] === null}
                             style={{
+                                width: '100%',
                                 padding: '10px 20px',
                                 backgroundColor: selectedOptions[index] === null ? 'grey' : 'blue',
                                 color: 'white',
