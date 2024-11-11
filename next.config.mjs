@@ -1,10 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
-
-
-    // output: "export",
-    basePath: "/travel-tales"
-};
-
-export default nextConfig;
+    basePath: "/travel-tales",
+    async rewrites() {
+      return [
+        {
+          source: '/api/:path*',  // All requests to `/api/*`
+          destination: 'https://piclumen.com/api/:path*', // Forward these requests to the external API
+        },
+      ];
+    },
+  };
+  
+  export default nextConfig;
+  

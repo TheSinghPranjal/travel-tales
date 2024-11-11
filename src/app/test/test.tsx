@@ -75,8 +75,8 @@ const CarouselComponent = () => {
                 onClick={() => handleDotClick(index)}
                 style={{
                     display: 'inline-block',
-                    width: '10px',
-                    height: '10px',
+                    width: '6px',
+                    height: '6px',
                     borderRadius: '50%',
                     backgroundColor: active ? 'white' : '#CCCCCC',
                     margin: '0 5px',
@@ -87,109 +87,81 @@ const CarouselComponent = () => {
     };
 
     return (
-        <div
-            style={{
-                background: `url(${BgRed.src}) center center / cover, linear-gradient(90deg, #EF5858 0%, #6A0606 100%)`,
-                paddingLeft: '12px',
-                paddingRight: '12px',
-                paddingTop: '24px',
-                paddingBottom: '24px',
-                boxShadow: '4px 4px 8px 0px #0000001F',
-                borderRadius: '8px'
-            }}
-        >
-            <Carousel
-                ref={carouselRef}
-                showDots
-                responsive={responsive}
-                swipeable
-                draggable
-                ssr
-                infinite={false}
-                keyBoardControl
-                customTransition="transform 300ms ease-in-out"
-                transitionDuration={500}
-                arrows={false}
-                renderButtonGroupOutside
-                customDot={<CustomDot />}
-                afterChange={(previousSlide: number, { currentSlide }: { currentSlide: number }) => setCurrentQuestionIndex(currentSlide)}
-            >
-                {questions.map((question, index) => (
-                    <div key={question.id} style={{ padding: '0px', textAlign: 'center' }}>
-                        <h3 style={{ color: 'orange' }}>Quiz of the day</h3>
-                        <Image
-                            src={question.image}
-                            alt="Quiz Image"
-                            width={300}
-                            height={200}
-                            layout="responsive"
-                        />
-                        <h4 style={{ margin: '20px 0', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '20px' }}>
-                            {`Q${index + 1}: ${question.question}`}
-                        </h4>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px', marginBottom: '20px' }}>
-                            {question.options.map((option, i) => (
-                                <div
-                                    key={i}
-                                    onClick={() => handleOptionSelect(index, i)}
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        width: '45%',
-                                        padding: '10px',
-                                        margin: '5px',
-                                        borderRadius: '8px',
-                                        fontWeight: 'normal',
-                                        cursor: 'pointer',
-                                        backgroundColor: selectedOptions[index] === i ? 'white' : 'rgba(255, 255, 255, 0.16)',
-                                        color: selectedOptions[index] === i ? 'black' : 'white',
-                                        position: 'relative',
-                                    }}
-                                >
-                                    <span
-                                        style={{
-                                            position: 'absolute',
-                                            left: '10px',
-                                            top: '50%',
-                                            transform: 'translateY(-50%)',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            width: '24px',
-                                            height: '24px',
-                                            borderRadius: '50%',
-                                            backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                                            color: selectedOptions[index] === i ? 'black' : 'white',
-                                            fontWeight: 'bold',
-                                        }}
-                                    >
-                                        {i + 1}
-                                    </span>
-                                    <span style={{ textAlign: 'center', width: '100%' }}>{option}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                ))}
-            </Carousel>
-            <button
-                onClick={handleNext}
-                disabled={selectedOptions[currentQuestionIndex] === null}
+        <div>
+
+            <div
+                className="relative p-6 rounded-lg shadow-md"
                 style={{
-                    width: '100%',
-                    padding: '15px 20px',
-                    backgroundColor: selectedOptions[currentQuestionIndex] === null ? 'grey' : 'white',
-                    color: selectedOptions[currentQuestionIndex] === null ? 'white' : '#7D1212',
-                    border: 'none',
-                    borderRadius: '8px',
-                    cursor: selectedOptions[currentQuestionIndex] !== null ? 'pointer' : 'not-allowed',
-                    marginTop: '30px'
+                    backgroundImage: `url(${BgRed.src}), linear-gradient(90deg, #EF5858 0%, #6A0606 100%)`,
+                    backgroundPosition: 'center center',
+                    backgroundSize: 'cover'
                 }}
             >
-                Next
-            </button>
+                <h3 style={{ color: 'orange' }}>Quiz of the day</h3>
+                <Carousel
+                    ref={carouselRef}
+                    showDots
+                    responsive={responsive}
+                    swipeable
+                    draggable
+                    ssr
+                    infinite={false}
+                    keyBoardControl
+                    customTransition="transform 300ms ease-in-out"
+                    transitionDuration={500}
+                    arrows={false}
+                    renderButtonGroupOutside
+                    customDot={<CustomDot />}
+                    afterChange={(previousSlide: number, { currentSlide }: { currentSlide: number }) => setCurrentQuestionIndex(currentSlide)}
+                >
+                    {questions.map((question, index) => (
+                        <div key={question.id} style={{ padding: '0px', textAlign: 'center' }}>
+                            <Image
+                                src={question.image}
+                                alt="Quiz Image"
+                                width={300}
+                                height={200}
+                                layout="responsive"
+                            />
+                            <h4 style={{ margin: '20px 0', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '20px' }}>
+                                {`Q${index + 1}: ${question.question}`}
+                            </h4>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px', marginBottom: '20px' }}>
+                                {question.options.map((option, i) => (
+                                    <div
+                                        key={i}
+                                        onClick={() => handleOptionSelect(index, i)}
+                                        className={`flex items-center justify-center w-[45%] p-2.5 m-1 rounded-lg font-normal cursor-pointer relative 
+                               ${selectedOptions[index] === i ? 'bg-white text-black' : 'bg-white/20 text-white'}`}
+                                    >
+
+                                        <span
+                                            className={`absolute left-2 top-1/2 transform -translate-y-1/2 flex items-center justify-center w-6 h-6 rounded-full bg-white/20 
+    ${selectedOptions[index] === i ? 'text-black' : 'text-white'} font-bold`}
+                                        >
+
+                                            {i + 1}
+                                        </span>
+                                        <span style={{ textAlign: 'center', width: '100%' }}>{option}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </Carousel>
+                <button
+                    onClick={handleNext}
+                    disabled={selectedOptions[currentQuestionIndex] === null}
+                    className={`w-full py-4 px-5 ${selectedOptions[currentQuestionIndex] === null
+                            ? 'bg-gray-400 text-white cursor-not-allowed'
+                            : 'bg-white text-[#7D1212] cursor-pointer'
+                        } rounded-lg mt-7`}
+                >
+                    Next
+                </button>
+            </div>
         </div>
+
     );
 };
 
