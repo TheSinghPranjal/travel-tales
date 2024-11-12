@@ -48,8 +48,6 @@ const Test3 = () => {
                             <h3>{item.enteredTodo}</h3>
                             <button onClick={() => deleteTodoFromtheList(item.id)}>Delete Todo</button>
                         </div>
-
-
                 )
             }
 
