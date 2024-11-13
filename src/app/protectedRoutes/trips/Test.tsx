@@ -152,18 +152,18 @@ const Test = () => {
 
     const editTodo = (index: number) => {
         const selectedTodo = todo[index];
-        setEditingIndex(index); // Set the index of the todo being edited
-        setEditingText(selectedTodo.text); // Set the text of the selected todo
+        setEditingIndex(index);
+        setEditingText(selectedTodo.text);
     };
 
     const saveEditedTodo = (index: number) => {
         setTodo((prevTodos) =>
             prevTodos.map((todo, i) =>
-                i === index ? { ...todo, text: editingText } : todo // Update the text of the specific todo
+                i === index ? { ...todo, text: editingText } : todo
             )
         );
-        setEditingIndex(null); // Reset the editing state
-        setEditingText(''); // Clear the editing text after saving
+        setEditingIndex(null);
+        setEditingText('');
     };
 
 

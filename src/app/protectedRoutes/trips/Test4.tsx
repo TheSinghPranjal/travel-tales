@@ -8,6 +8,8 @@ const Test4 = () => {
     const inputText = useRef<HTMLInputElement>(null);
     const [todo, setTodo] = useState<{ id: number, enteredText: string, completed: boolean }[]>([]);
 
+    const [editableText, setEditableText] = useState<string>('');
+
     const addTodo = () => {
 
         const enteredTextValue = inputText.current!.value;
@@ -41,6 +43,16 @@ const Test4 = () => {
         }))
     }
 
+    const editTodo = (item: any) => {
+        console.log(item, 'Item')
+        const textToEdit = item.enteredText;
+        setEditableText(textToEdit);
+
+
+        // setEditableText(editableText = )
+
+    }
+
 
 
 
@@ -61,7 +73,7 @@ const Test4 = () => {
                             <button onClick={() =>
                                 deleteTodo(item.id)
                             }>Delete Todo</button>
-                            {/* <button onClick={()=> editTodo(item.id) }>Edit Todo</button>  */}
+                            <button onClick={() => editTodo(item)}>Edit Todo</button>
                         </div>
                 )
             }
