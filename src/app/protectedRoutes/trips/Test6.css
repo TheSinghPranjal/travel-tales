@@ -1,60 +1,23 @@
-.border-class {
-  background-color: whitesmoke;
-  height: 80px;
-  width: 80px;
-  border-color: black;
-  border: 2px;
-  border-style: dashed;
-}
-
-.border-class-input {
-  background-color: whitesmoke;
-  height: 60px;
-  width: 280px;
-  border-color: black;
-  border: 2px;
-  border-style: dashed;
-}
-
-.todo-input {
-  background-color: whitesmoke;
-  height: 60px;
-  width: 280px;
-  border-color: black;
-  border: 2px;
-  border-style: dashed;
-}
-
-.todo-button {
-  background-color: whitesmoke;
-  height: 60px;
-  width: 280px;
-  border-color: black;
-  border: 2px;
-  border-style: double;
-}
-
 .draggable-container {
   display: flex;
   cursor: grab;
   z-index: 1000;
-  transition: right 0.3s ease, left 0.3s ease;
+  height: 50px; /* Adjust height as necessary */
 }
 
 .left-arrow,
 .right-arrow {
-  width: 20px;
-  height: 30px;
+  width: 5%;
   background-color: #ccc;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  border-radius: 15px;
-  transition: width 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
 }
 
 .middle-data {
+  width: 90%;
   padding: 10px;
   background-color: #f4f4f4;
   border: 1px solid #ccc;
@@ -62,6 +25,14 @@
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  overflow: hidden;
-  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.left-arrow {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.right-arrow {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 }

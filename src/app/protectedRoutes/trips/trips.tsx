@@ -20,7 +20,7 @@ const Trip = () => {
             <Test4 />
             <Test5 />
             <DraggableTest6 />
-            <DrawerTest />
+            {/* <DrawerTest /> */}
         </>
     )
 
