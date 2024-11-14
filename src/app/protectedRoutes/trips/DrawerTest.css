@@ -1,0 +1,33 @@
+.drawer {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hidden initially */
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  transition: left 0.3s ease;
+}
+
+.drawer.open {
+  left: 0; /* Slide in when open */
+}
+
+.draggable-element {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: #6200ea;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  transition: all 0.1s ease;
+}
+
+.draggable-element:active {
+  cursor: grabbing;
+}

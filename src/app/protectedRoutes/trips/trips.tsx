@@ -1,4 +1,5 @@
 import TrafficLight from "../homePage/TrafficLight";
+import DrawerTest from "./DrawerTest";
 import Test from "./Test";
 import Test2 from "./Test2";
 import Test3 from "./Test3";
@@ -19,6 +20,7 @@ const Trip = () => {
             <Test4 />
             <Test5 />
             <DraggableTest6 />
+            <DrawerTest />
         </>
     )
 
