@@ -1,10 +1,12 @@
 'use client'
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Test5 = () => {
 
     const enteredText = useRef<HTMLInputElement>(null)
     const [ticket, setTicket] = useState<{ id: number, ticketValue: string, completed: boolean }[]>([])
+
+    const [light, setLight] = useState<string>('green');
 
     const addTicket = () => {
         const enteredTextValue = enteredText.current!.value;
@@ -32,6 +34,19 @@ const Test5 = () => {
 
     }
 
+    useEffect(() => {
+        if (light === 'red') {
+            setLight('green')
+        }
+        else if (light === 'green') {
+            setLight('yellow')
+        }
+        else (light === 'yellow')
+        {
+            setLight('red')
+        }
+    })
+
     return (
         <>
             <div>Test 5</div>
@@ -48,6 +63,18 @@ const Test5 = () => {
 
                 </div>
             )}
+
+
+
+
+            <h1>
+                Making of Traffic Light
+            </h1>
+
+            <div>
+
+            </div>
+
 
         </>
     )
