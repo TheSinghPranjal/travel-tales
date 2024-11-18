@@ -6,25 +6,43 @@ const TrafficLight = () => {
     const [light, setLight] = useState('red');
 
 
+    // useEffect(() => {
+    //     const timer = setInterval(() => {
+    //         if (light === 'red') {
+    //             setLight('green')
+    //         }
+    //         else if (light === 'green') {
+    //             setLight('yellow')
+    //         }
+    //         else if (light === 'yellow') {
+    //             setLight('red')
+    //         }
+    //     }, light === 'red' ? 20000 : light === 'green' ? 10000 : 2000)
+
+    //     return (() => {
+    //         clearInterval(timer)
+    //     })
+
+    // }, [light])
+
+
     useEffect(() => {
-        const timer = setInterval(() => {
+        const timer = setTimeout(() => {
             if (light === 'red') {
-                setLight('green')
+                setLight('green');
             }
             else if (light === 'green') {
-                setLight('yellow')
+                setLight('yellow');
             }
             else if (light === 'yellow') {
-                setLight('red')
+                setLight('red');
             }
-        }, light === 'red' ? 20000 : light === 'green' ? 10000 : 2000)
+        }, 300)
 
         return (() => {
             clearInterval(timer)
         })
-
     }, [light])
-
 
 
 
@@ -66,10 +84,16 @@ const TrafficLight = () => {
 
     return (
         <>
-            <div className="traffic-light-container">
+            {/* <div className="traffic-light-container">
                 <div className={`light red ${light === 'red' ? 'active' : ''}`}></div>
                 <div className={`light yellow ${light === 'yellow' ? 'active' : ''}`}></div>
                 <div className={`light green ${light === 'green' ? 'active' : ''}`}></div>
+            </div> */}
+            <div className="traffic-box flex flex-col">
+                <div className={`red ${light === 'red' ? 'active' : ''}`}></div>
+                <div className={`yellow ${light === 'yellow' ? 'active' : ''}`} ></div>
+                <div className={`green ${light === 'green' ? 'active' : ''}`}></div>
+
             </div>
         </>
     );

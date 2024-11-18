@@ -1,37 +1,77 @@
 .traffic-light-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 300px;
-    background-color: #333;
-    border-radius: 20px;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 300px;
+  background-color: #333;
+  border-radius: 20px;
+  padding: 10px;
 }
 
 .light {
-    width: 60px;
-    height: 60px;
-    background-color: grey;
-    border-radius: 50%;
-    margin: 10px 0;
-    opacity: 0.4;
-    transition: opacity 0.5s ease;
+  width: 60px;
+  height: 60px;
+  background-color: grey;
+  border-radius: 50%;
+  margin: 10px 0;
+  opacity: 0.4;
+  transition: opacity 0.5s ease;
 }
 
 .red {
-    background-color: red;
+  background-color: red;
 }
 
 .yellow {
-    background-color: yellow;
+  background-color: yellow;
 }
 
 .green {
-    background-color: green;
+  background-color: green;
 }
 
 .active {
-    opacity: 1;
+  opacity: 1;
+}
+
+.traffic-box {
+  width: 100px;
+  height: 400px;
+  background-color: #333;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s ease;
+}
+
+.red {
+  background-color: red;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.yellow {
+  background-color: yellow;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.green {
+  background-color: green;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.red.active {
+  opacity: 1;
 }

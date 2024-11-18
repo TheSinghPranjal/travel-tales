@@ -6,6 +6,7 @@ import Test3 from "./Test3";
 import Test4 from "./Test4";
 import Test5 from "./Test5";
 import DraggableTest6 from "./Test6";
+import Test8 from "./Trip8";
 
 
 const Trip = () => {
@@ -21,6 +22,7 @@ const Trip = () => {
             <Test5 />
             <DraggableTest6 />
             {/* <DrawerTest /> */}
+            <Test8 />
         </>
     )
 
