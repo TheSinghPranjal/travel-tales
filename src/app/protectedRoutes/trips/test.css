@@ -1,0 +1,44 @@
+.box-black {
+  background-color: black;
+  height: 300px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.red {
+  height: 80px;
+  width: 80px;
+  background-color: red;
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.yellow {
+  height: 80px;
+  width: 80px;
+  background-color: yellow;
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.green {
+  height: 80px;
+  width: 80px;
+  background-color: green;
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.active .red {
+  opacity: 1;
+}
+
+.active .yellow {
+  opacity: 1;
+}
+
+.active .green {
+  opacity: 1;
+}
