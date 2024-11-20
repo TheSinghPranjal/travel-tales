@@ -9,30 +9,40 @@ interface ImageData2 {
     imgUrl2: string;
 }
 
-const VastraiDashboard: React.FC = () => {
+const VTestPNetflix: React.FC = () => {
     const [images, setImages] = useState<ImageData[]>([]);
     const [loading, setLoading] = useState(false);
-
-    //pranjalares@gmail.com
+    //       vtest3 is pranjalnetflix
 
     const fetchImageData = async () => {
         try {
             setLoading(true);
 
-            // Generate a random seed between 100000000000 and 999999999999
-            const randomSeed = Math.floor(Math.random() * (99999999999 - 20000000000 + 1)) + 10000000000;
+            // Generate a random seed (consistent with the example)
+            const randomSeed = Math.floor(Math.random() * (99999999999 - 10000000000 + 1)) + 10000000000;
 
             const response = await fetch('https://piclumen.com/api/gen/create', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
-                    'Authorization': '6319c982b6a89a3a6f37136b75cba6040235e54d',
+                    'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8',
+                    'Authorization': '4b3f8f8ba90aa8f2abca1f707765e8243d71d6c7',
                     'Content-Type': 'application/json;charset=UTF-8',
+                    'Cookie': '_ga=GA1.1.640825681.1731058113; _fbp=fb.1.1731058114411.801208256321900227; g_state={"i_l":0}; _ga_8GVHYJ2FGV=GS1.1.1732088600.4.1.1732088713.0.0.0',
+                    'Origin': 'https://piclumen.com',
+                    'Priority': 'u=1, i',
+                    'Referer': 'https://piclumen.com/app/image-generator/create',
+                    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+                    'sec-ch-ua-mobile': '?0',
+                    'sec-ch-ua-platform': '"macOS"',
+                    'sec-fetch-dest': 'empty',
+                    'sec-fetch-mode': 'cors',
+                    'sec-fetch-site': 'same-origin',
+                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
                 },
                 body: JSON.stringify({
                     model_id: "34ec1b5a-8962-4a93-b047-68cec9691dc2",
-                    prompt: `ares cat
-                    `,
+                    prompt: `yellowcat`,
                     negative_prompt: "NSFW, watermark",
                     resolution: { width: 704, height: 1472, batch_size: 4 },
                     model_ability: { anime_style_control: null },
@@ -62,7 +72,7 @@ const VastraiDashboard: React.FC = () => {
                         method: 'POST',
                         headers: {
                             'Accept': 'application/json, text/plain, */*',
-                            'Authorization': '6319c982b6a89a3a6f37136b75cba6040235e54d',
+                            'Authorization': '4b3f8f8ba90aa8f2abca1f707765e8243d71d6c7',
                         },
                         body: formData,
                     });
@@ -83,6 +93,12 @@ const VastraiDashboard: React.FC = () => {
             setLoading(false);
         }
     };
+
+
+
+
+
+
 
 
     const downloadImage = async (imgUrl: string) => {
@@ -169,4 +185,4 @@ const VastraiDashboard: React.FC = () => {
     );
 };
 
-export default VastraiDashboard;
+export default VTestPNetflix;

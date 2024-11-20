@@ -9,31 +9,29 @@ interface ImageData2 {
     imgUrl2: string;
 }
 
-const VastraiDashboard: React.FC = () => {
+const VTest2: React.FC = () => {
     const [images, setImages] = useState<ImageData[]>([]);
     const [loading, setLoading] = useState(false);
-
-    //pranjalares@gmail.com
+    //pranjalsingh10061997
 
     const fetchImageData = async () => {
         try {
             setLoading(true);
 
-            // Generate a random seed between 100000000000 and 999999999999
-            const randomSeed = Math.floor(Math.random() * (99999999999 - 20000000000 + 1)) + 10000000000;
+            // Generate a random seed between 10000000000 and 99999999999
+            const randomSeed = Math.floor(Math.random() * (99999999999 - 10000000000 + 1)) + 10000000000;
 
             const response = await fetch('https://piclumen.com/api/gen/create', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
-                    'Authorization': '6319c982b6a89a3a6f37136b75cba6040235e54d',
+                    'Authorization': '24eb35131ec42e94f0036abb93267eb513e808f7',
                     'Content-Type': 'application/json;charset=UTF-8',
                 },
                 body: JSON.stringify({
                     model_id: "34ec1b5a-8962-4a93-b047-68cec9691dc2",
-                    prompt: `ares cat
-                    `,
-                    negative_prompt: "NSFW, watermark",
+                    prompt: `orange cat
+                    `, negative_prompt: "NSFW, watermark",
                     resolution: { width: 704, height: 1472, batch_size: 4 },
                     model_ability: { anime_style_control: null },
                     seed: randomSeed,
@@ -62,7 +60,7 @@ const VastraiDashboard: React.FC = () => {
                         method: 'POST',
                         headers: {
                             'Accept': 'application/json, text/plain, */*',
-                            'Authorization': '6319c982b6a89a3a6f37136b75cba6040235e54d',
+                            'Authorization': '24eb35131ec42e94f0036abb93267eb513e808f7',
                         },
                         body: formData,
                     });
@@ -83,6 +81,15 @@ const VastraiDashboard: React.FC = () => {
             setLoading(false);
         }
     };
+
+    const convertToVideo = () => {
+        return (
+            <>
+
+            </>
+        )
+    }
+
 
 
     const downloadImage = async (imgUrl: string) => {
@@ -141,6 +148,7 @@ const VastraiDashboard: React.FC = () => {
                                 <button onClick={() => downloadImage(img.imgUrl)} style={{ marginTop: '10px' }}>
                                     Download
                                 </button>
+                                <button onClick={() => convertToVideo(img.imgUrl)}>Convert to Vid</button>
                             </div>
                         ))}
                     </div>
@@ -169,4 +177,4 @@ const VastraiDashboard: React.FC = () => {
     );
 };
 
-export default VastraiDashboard;
+export default VTest2;

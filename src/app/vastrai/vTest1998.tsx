@@ -9,30 +9,40 @@ interface ImageData2 {
     imgUrl2: string;
 }
 
-const VastraiDashboard: React.FC = () => {
+const VTestP1998: React.FC = () => {
     const [images, setImages] = useState<ImageData[]>([]);
     const [loading, setLoading] = useState(false);
-
-    //pranjalares@gmail.com
+    //       vtest3 is pranjalsingh10031998
 
     const fetchImageData = async () => {
         try {
             setLoading(true);
 
-            // Generate a random seed between 100000000000 and 999999999999
-            const randomSeed = Math.floor(Math.random() * (99999999999 - 20000000000 + 1)) + 10000000000;
+            // Generate a random seed between 10000000000 and 99999999999
+            const randomSeed = Math.floor(Math.random() * (99999999999 - 10000000000 + 1)) + 10000000000;
 
             const response = await fetch('https://piclumen.com/api/gen/create', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
-                    'Authorization': '6319c982b6a89a3a6f37136b75cba6040235e54d',
+                    'Accept-Language': 'en-US,en;q=0.9',
+                    'Authorization': '2348a8ae1440dc5e8947b5932f0f1c5c928f163e',
                     'Content-Type': 'application/json;charset=UTF-8',
+                    'Cookie': '_fbp=fb.1.1730187595252.93423803796530097; _ga=GA1.1.803847923.1730187596; g_state={"i_l":0}; _ga_8GVHYJ2FGV=GS1.1.1732087908.7.1.1732088308.0.0.0',
+                    'Origin': 'https://piclumen.com',
+                    'Priority': 'u=1, i',
+                    'Referer': 'https://piclumen.com/app/image-generator/create',
+                    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+                    'sec-ch-ua-mobile': '?1',
+                    'sec-ch-ua-platform': '"Android"',
+                    'sec-fetch-dest': 'empty',
+                    'sec-fetch-mode': 'cors',
+                    'sec-fetch-site': 'same-origin',
+                    'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36',
                 },
                 body: JSON.stringify({
                     model_id: "34ec1b5a-8962-4a93-b047-68cec9691dc2",
-                    prompt: `ares cat
-                    `,
+                    prompt: `white cat`,
                     negative_prompt: "NSFW, watermark",
                     resolution: { width: 704, height: 1472, batch_size: 4 },
                     model_ability: { anime_style_control: null },
@@ -62,7 +72,7 @@ const VastraiDashboard: React.FC = () => {
                         method: 'POST',
                         headers: {
                             'Accept': 'application/json, text/plain, */*',
-                            'Authorization': '6319c982b6a89a3a6f37136b75cba6040235e54d',
+                            'Authorization': '2348a8ae1440dc5e8947b5932f0f1c5c928f163e',
                         },
                         body: formData,
                     });
@@ -83,6 +93,11 @@ const VastraiDashboard: React.FC = () => {
             setLoading(false);
         }
     };
+
+
+
+
+
 
 
     const downloadImage = async (imgUrl: string) => {
@@ -169,4 +184,4 @@ const VastraiDashboard: React.FC = () => {
     );
 };
 
-export default VastraiDashboard;
+export default VTestP1998;

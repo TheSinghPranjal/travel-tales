@@ -9,34 +9,37 @@ interface ImageData2 {
     imgUrl2: string;
 }
 
-const VastraiDashboard: React.FC = () => {
+const VTest3: React.FC = () => {
     const [images, setImages] = useState<ImageData[]>([]);
     const [loading, setLoading] = useState(false);
-
-    //pranjalares@gmail.com
+    //       vtest3 is tango20381.27
 
     const fetchImageData = async () => {
         try {
             setLoading(true);
 
-            // Generate a random seed between 100000000000 and 999999999999
-            const randomSeed = Math.floor(Math.random() * (99999999999 - 20000000000 + 1)) + 10000000000;
+            // Generate a random seed between 10000000000 and 99999999999
+            const randomSeed = Math.floor(Math.random() * (99999999999 - 10000000000 + 1)) + 10000000000;
 
             const response = await fetch('https://piclumen.com/api/gen/create', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
-                    'Authorization': '6319c982b6a89a3a6f37136b75cba6040235e54d',
+                    'Authorization': 'fc8f5406b5f282482ee2f9839f79ed6520512529',
+                    'Referer': 'https://piclumen.com/app/image-generator/create',
+                    'sec-ch-ua-platform': '"macOS"',
+                    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+                    'sec-ch-ua-mobile': '?0',
+                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
                     'Content-Type': 'application/json;charset=UTF-8',
                 },
                 body: JSON.stringify({
                     model_id: "34ec1b5a-8962-4a93-b047-68cec9691dc2",
-                    prompt: `ares cat
-                    `,
+                    prompt: `black cat`,
                     negative_prompt: "NSFW, watermark",
                     resolution: { width: 704, height: 1472, batch_size: 4 },
                     model_ability: { anime_style_control: null },
-                    seed: randomSeed,
+                    seed: randomSeed, // Use the generated random seed
                     steps: 25,
                     cfg: 4.5,
                     sampler_name: "dpmpp_2m_sde_gpu",
@@ -62,7 +65,7 @@ const VastraiDashboard: React.FC = () => {
                         method: 'POST',
                         headers: {
                             'Accept': 'application/json, text/plain, */*',
-                            'Authorization': '6319c982b6a89a3a6f37136b75cba6040235e54d',
+                            'Authorization': 'fc8f5406b5f282482ee2f9839f79ed6520512529',
                         },
                         body: formData,
                     });
@@ -83,6 +86,8 @@ const VastraiDashboard: React.FC = () => {
             setLoading(false);
         }
     };
+
+
 
 
     const downloadImage = async (imgUrl: string) => {
@@ -169,4 +174,4 @@ const VastraiDashboard: React.FC = () => {
     );
 };
 
-export default VastraiDashboard;
+export default VTest3;
