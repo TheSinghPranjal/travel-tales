@@ -21,11 +21,16 @@ const VastraiDashboard: React.FC = () => {
                 },
                 body: JSON.stringify({
                     model_id: "34ec1b5a-8962-4a93-b047-68cec9691dc2",
-                    prompt: " orange cat",
+                    prompt: `cat
+                    Focus on the following details:
+                    - Ensure the camera angle emphasizes the inviting bedroom environment, incorporating personal decor elements that reflect the model's personality.
+                    - The lighting should be natural and ambient, enhancing intricate details and creating a warm, intimate atmosphere.
+                    - The overall composition must convey joy, comfort, and playfulness while ensuring a respectful representation of the model.
+                    - Images should be captured in DSLR quality, showcasing the model's features and the surrounding environment clearly.`,
                     negative_prompt: "NSFW, watermark",
                     resolution: { width: 704, height: 1472, batch_size: 4 },
                     model_ability: { anime_style_control: null },
-                    seed: 1212677203,
+                    seed: 82364354825,
                     steps: 25,
                     cfg: 4.5,
                     sampler_name: "dpmpp_2m_sde_gpu",
@@ -73,6 +78,7 @@ const VastraiDashboard: React.FC = () => {
         }
     };
 
+
     const downloadImage = async (imgUrl: string) => {
         try {
             const response = await fetch(imgUrl, { method: 'GET' });
@@ -90,13 +96,25 @@ const VastraiDashboard: React.FC = () => {
         }
     };
 
+    // First useEffect: Handles image downloading
     useEffect(() => {
         if (images.length > 0) {
-            const timer = setTimeout(() => {
-                images.forEach((img) => downloadImage(img.imgUrl)); // Automatically download all images
+            const downloadTimer = setTimeout(() => {
+                images.forEach((img) => downloadImage(img.imgUrl));
             }, 10000); // 10 seconds delay
 
-            return () => clearTimeout(timer); // Clean up timer on component unmount or images change
+            return () => clearTimeout(downloadTimer);
+        }
+    }, [images]);
+
+    // Second useEffect: Triggers fetchImageData 5 seconds after downloading
+    useEffect(() => {
+        if (images.length > 0) {
+            const regenerateTimer = setTimeout(() => {
+                fetchImageData();
+            }, 25000);
+
+            return () => clearTimeout(regenerateTimer);
         }
     }, [images]);
 
