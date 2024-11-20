@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface ImageData {
     imgUrl: string;
@@ -21,7 +21,7 @@ const VastraiDashboard: React.FC = () => {
                 },
                 body: JSON.stringify({
                     model_id: "34ec1b5a-8962-4a93-b047-68cec9691dc2",
-                    prompt: "cat",
+                    prompt: " orange cat",
                     negative_prompt: "NSFW, watermark",
                     resolution: { width: 704, height: 1472, batch_size: 4 },
                     model_ability: { anime_style_control: null },
@@ -89,6 +89,16 @@ const VastraiDashboard: React.FC = () => {
             console.error('Error downloading image:', error);
         }
     };
+
+    useEffect(() => {
+        if (images.length > 0) {
+            const timer = setTimeout(() => {
+                images.forEach((img) => downloadImage(img.imgUrl)); // Automatically download all images
+            }, 10000); // 10 seconds delay
+
+            return () => clearTimeout(timer); // Clean up timer on component unmount or images change
+        }
+    }, [images]);
 
     return (
         <div>
