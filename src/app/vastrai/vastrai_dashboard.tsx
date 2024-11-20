@@ -26,7 +26,7 @@ const VastraiDashboard: React.FC = () => {
                     negative_prompt: "NSFW, watermark",
                     resolution: { width: 704, height: 1472, batch_size: 4 },
                     model_ability: { anime_style_control: null },
-                    seed: 95463351239,
+                    seed: 1212677203,
                     steps: 25,
                     cfg: 4.5,
                     sampler_name: "dpmpp_2m_sde_gpu",
@@ -47,7 +47,7 @@ const VastraiDashboard: React.FC = () => {
                 // Polling the status endpoint
                 const intervalId = setInterval(async () => {
                     const formData = new FormData();
-                    formData.append("markId", markId); // Append the markId as form data
+                    formData.append("markId", markId);
 
                     const statusResponse = await fetch('https://piclumen.com/api/task/processTask', {
                         method: 'POST',
@@ -55,17 +55,19 @@ const VastraiDashboard: React.FC = () => {
                             'Accept': 'application/json, text/plain, */*',
                             'Authorization': '6319c982b6a89a3a6f37136b75cba6040235e54d',
                         },
-                        body: formData, // Send FormData as the body
+                        body: formData,
                     });
 
                     const statusData = await statusResponse.json();
                     if (statusData.status === 0 && statusData.data?.status === 'success') {
-                        // Update the images array with the retrieved URLs
                         setImages(statusData.data.img_urls || []);
                         setLoading(false);
-                        clearInterval(intervalId); // Stop polling once images are received
+                        clearInterval(intervalId);
                     }
-                }, 1000); // Poll every second
+                }, 1000);
+            } else {
+                setLoading(false);
+                console.error("Failed to initiate image generation:", createData);
             }
         } catch (error) {
             console.error('Error fetching data:', error);
