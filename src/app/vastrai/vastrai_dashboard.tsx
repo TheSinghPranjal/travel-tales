@@ -5,6 +5,10 @@ interface ImageData {
     imgUrl: string;
 }
 
+interface ImageData2 {
+    imgUrl2: string;
+}
+
 const VastraiDashboard: React.FC = () => {
     const [images, setImages] = useState<ImageData[]>([]);
     const [loading, setLoading] = useState(false);
@@ -12,6 +16,10 @@ const VastraiDashboard: React.FC = () => {
     const fetchImageData = async () => {
         try {
             setLoading(true);
+
+            // Generate a random seed between 100000000000 and 999999999999
+            const randomSeed = Math.floor(Math.random() * (99999999999 - 20000000000 + 1)) + 10000000000;
+
             const response = await fetch('https://piclumen.com/api/gen/create', {
                 method: 'POST',
                 headers: {
@@ -22,15 +30,19 @@ const VastraiDashboard: React.FC = () => {
                 body: JSON.stringify({
                     model_id: "34ec1b5a-8962-4a93-b047-68cec9691dc2",
                     prompt: `cat
+                    negative prompts :
+                    imperfect eyes, squint eyes, extra arms, extra legs, extra toes, extra feet, extra hands.
+                    
                     Focus on the following details:
                     - Ensure the camera angle emphasizes the inviting bedroom environment, incorporating personal decor elements that reflect the model's personality.
                     - The lighting should be natural and ambient, enhancing intricate details and creating a warm, intimate atmosphere.
-                    - The overall composition must convey joy, comfort, and playfulness while ensuring a respectful representation of the model.
-                    - Images should be captured in DSLR quality, showcasing the model's features and the surrounding environment clearly.`,
+                    - The overall composition must convey joy, comfort, and playfulness while ensuring a respectful representation of the model. 
+                    - Images should be captured in DSLR quality, showcasing the model's features and the surrounding environment clearly.
+                    `,
                     negative_prompt: "NSFW, watermark",
                     resolution: { width: 704, height: 1472, batch_size: 4 },
                     model_ability: { anime_style_control: null },
-                    seed: 82364354825,
+                    seed: randomSeed,
                     steps: 25,
                     cfg: 4.5,
                     sampler_name: "dpmpp_2m_sde_gpu",
@@ -108,6 +120,7 @@ const VastraiDashboard: React.FC = () => {
     }, [images]);
 
     // Second useEffect: Triggers fetchImageData 5 seconds after downloading
+
     useEffect(() => {
         if (images.length > 0) {
             const regenerateTimer = setTimeout(() => {
@@ -119,25 +132,46 @@ const VastraiDashboard: React.FC = () => {
     }, [images]);
 
     return (
-        <div>
-            <button onClick={fetchImageData} disabled={loading} style={{ marginBottom: '20px' }}>
-                {loading ? 'Generating Images...' : 'Generate Images'}
-            </button>
-            {loading ? (
-                <p>Loading images...</p>
-            ) : (
-                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                    {images.map((img, index) => (
-                        <div key={index} style={{ margin: '10px', textAlign: 'center' }}>
-                            <img src={img.imgUrl} alt={`Generated Image ${index + 1}`} style={{ width: '200px', height: 'auto' }} />
-                            <button onClick={() => downloadImage(img.imgUrl)} style={{ marginTop: '10px' }}>
-                                Download
-                            </button>
-                        </div>
-                    ))}
-                </div>
-            )}
-        </div>
+        <>
+            <div>
+                <button onClick={fetchImageData} disabled={loading} style={{ marginBottom: '20px' }}>
+                    {loading ? 'Generating Images...' : 'Generate Images'}
+                </button>
+                {loading ? (
+                    <p>Loading images...</p>
+                ) : (
+                    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                        {images.map((img, index) => (
+                            <div key={index} style={{ margin: '10px', textAlign: 'center' }}>
+                                <img src={img.imgUrl} alt={`Generated Image ${index + 1}`} style={{ width: '200px', height: 'auto' }} />
+                                <button onClick={() => downloadImage(img.imgUrl)} style={{ marginTop: '10px' }}>
+                                    Download
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+            {/* <div>
+                <button onClick={fetchImageData2} disabled={loading} style={{ marginBottom: '20px', color: 'red' }}>
+                    {loading2 ? 'Generating Images...' : 'Generate Images'}
+                </button>
+                {loading2 ? (
+                    <p>Loading images set 2...</p>
+                ) : (
+                    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                        {images2.map((img, index) => (
+                            <div key={index} style={{ margin: '10px', textAlign: 'center' }}>
+                                <img src={img.imgUrl2} alt={`Generated Image ${index + 1}`} style={{ width: '200px', height: 'auto' }} />
+                                <button onClick={() => downloadImage2(img.imgUrl2)} style={{ marginTop: '10px' }}>
+                                    Download
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div> */}
+        </>
     );
 };
 
