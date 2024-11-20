@@ -2,6 +2,7 @@ import TrafficLight from "../homePage/TrafficLight";
 import DrawerTest from "./DrawerTest";
 import Test from "./Test";
 import Test10 from "./Test10";
+import Test11 from "./Test11";
 import Test2 from "./Test2";
 import Test3 from "./Test3";
 import Test4 from "./Test4";
@@ -27,6 +28,7 @@ const Trip = () => {
             {/* <Test8 /> */}
             {/* <Test9 /> */}
             <Test10 />
+            <Test11 />
         </>
     )
 
