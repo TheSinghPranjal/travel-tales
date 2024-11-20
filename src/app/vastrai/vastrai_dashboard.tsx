@@ -12,7 +12,6 @@ const VastraiDashboard: React.FC = () => {
     const fetchImageData = async () => {
         try {
             setLoading(true);
-            // Initial API call to create the task
             const response = await fetch('https://piclumen.com/api/gen/create', {
                 method: 'POST',
                 headers: {
@@ -44,7 +43,6 @@ const VastraiDashboard: React.FC = () => {
             if (createData.status === 0 && createData.data?.markId) {
                 const markId = createData.data.markId;
 
-                // Polling the status endpoint
                 const intervalId = setInterval(async () => {
                     const formData = new FormData();
                     formData.append("markId", markId);
@@ -75,6 +73,23 @@ const VastraiDashboard: React.FC = () => {
         }
     };
 
+    const downloadImage = async (imgUrl: string) => {
+        try {
+            const response = await fetch(imgUrl, { method: 'GET' });
+            if (!response.ok) throw new Error(`Failed to fetch image: ${response.statusText}`);
+            const blob = await response.blob();
+            const blobUrl = URL.createObjectURL(blob);
+
+            const link = document.createElement('a');
+            link.href = blobUrl;
+            link.download = `image_${Date.now()}.jpg`;
+            link.click();
+            URL.revokeObjectURL(blobUrl);
+        } catch (error) {
+            console.error('Error downloading image:', error);
+        }
+    };
+
     return (
         <div>
             <button onClick={fetchImageData} disabled={loading} style={{ marginBottom: '20px' }}>
@@ -85,9 +100,11 @@ const VastraiDashboard: React.FC = () => {
             ) : (
                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                     {images.map((img, index) => (
-                        <div key={index} style={{ margin: '10px' }}>
+                        <div key={index} style={{ margin: '10px', textAlign: 'center' }}>
                             <img src={img.imgUrl} alt={`Generated Image ${index + 1}`} style={{ width: '200px', height: 'auto' }} />
-                            <button>Download</button>
+                            <button onClick={() => downloadImage(img.imgUrl)} style={{ marginTop: '10px' }}>
+                                Download
+                            </button>
                         </div>
                     ))}
                 </div>
