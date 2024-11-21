@@ -12,7 +12,7 @@ interface ImageData2 {
 const VTestP1998: React.FC = () => {
     const [images, setImages] = useState<ImageData[]>([]);
     const [loading, setLoading] = useState(false);
-    //       vtest3 is pranjalsingh10031998
+    //       vtest3 is pranjalsingh10031998.17
 
     const fetchImageData = async () => {
         try {
