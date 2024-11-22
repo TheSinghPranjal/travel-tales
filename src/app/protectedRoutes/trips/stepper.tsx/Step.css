@@ -1,0 +1,40 @@
+/* Container for the entire step form */
+.step1-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Title styling */
+.section-title {
+  margin-bottom: 16px;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+/* Styling for the form columns container */
+.form-columns {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+}
+
+/* Individual column styling */
+.form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Style for each TextField input */
+.input-field {
+  padding: 8px;
+  box-sizing: border-box;
+  width: 100%;
+}

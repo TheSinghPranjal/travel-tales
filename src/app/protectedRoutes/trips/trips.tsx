@@ -4,6 +4,7 @@ import Test from "./Test";
 import Test10 from "./Test10";
 import Test11 from "./Test11";
 import Test2 from "./Test2";
+import Test20 from "./Test20";
 import Test3 from "./Test3";
 import Test4 from "./Test4";
 import Test5 from "./Test5";
@@ -27,8 +28,9 @@ const Trip = () => {
             {/* <DrawerTest /> */}
             {/* <Test8 /> */}
             {/* <Test9 /> */}
-            <Test10 />
-            <Test11 />
+            {/* <Test10 />
+            <Test11 /> */}
+            <Test20 />
         </>
     )
 
