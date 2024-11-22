@@ -29,11 +29,12 @@ const Step2 = () => {
     };
 
     return (
-        <div>
+        <div className='flex justify-center'>
             {/* Country Dropdown */}
             <FormControl sx={{ m: 1, minWidth: 200 }}>
                 <InputLabel>Country</InputLabel>
                 <Select
+                    fullWidth
                     value={selectedCountry}
                     label="Country"
                     onChange={handleCountryChange}
@@ -61,7 +62,7 @@ const Step2 = () => {
                     <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
-                    {selectedCountry && countries[selectedCountry].map((state) => (
+                    {selectedCountry && countries[selectedCountry].map((state: any) => (
                         <MenuItem key={state} value={state}>
                             {state}
                         </MenuItem>
