@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import Step1 from './Step1';
 import Step2 from './Step2';
 
-const steps = ['Personal Information', 'Create an ad group', 'Create an ad'];
+const steps = ['Personal Information', 'Country and City', 'Create an ad'];
 
 // Define components for each step page
 function Step1Page() {

@@ -8,14 +8,14 @@ const Step1 = () => {
             <h3 className="section-title">Personal Information</h3>
             <div className="form-columns">
                 <div className="form-column">
-                    <TextField fullWidth label="First Name" variant="outlined" placeholder="Enter First Name" className="input-field" />
-                    <TextField fullWidth label="Phone Number" variant="outlined" placeholder="Enter Phone Number" className="input-field" />
-                    <TextField fullWidth label="Email" variant="outlined" placeholder="Enter Email" className="input-field" />
+                    <TextField fullWidth label="First Name" variant="outlined" placeholder="Enter First Name" className="" />
+                    <TextField fullWidth label="Phone Number" variant="outlined" placeholder="Enter Phone Number" className="" />
+                    <TextField fullWidth label="Email" variant="outlined" placeholder="Enter Email" className="" />
                 </div>
                 <div className="form-column">
-                    <TextField fullWidth label="Last Name" variant="outlined" placeholder="Enter Last Name" className="input-field" />
-                    <TextField fullWidth label="Alternate Number" variant="outlined" placeholder="Enter Alternate Number" className="input-field" />
-                    <TextField fullWidth label="Alternate Email" variant="outlined" placeholder="Enter Alternate Email" className="input-field" />
+                    <TextField fullWidth label="Last Name" variant="outlined" placeholder="Enter Last Name" className="" />
+                    <TextField fullWidth label="Alternate Number" variant="outlined" placeholder="Enter Alternate Number" className="" />
+                    <TextField fullWidth label="Alternate Email" variant="outlined" placeholder="Enter Alternate Email" className="" />
                 </div>
             </div>
         </div>
