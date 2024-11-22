@@ -11,7 +11,7 @@ const Step2 = () => {
     const [selectedState, setSelectedState] = React.useState('');
 
     // Define countries and their respective states
-    const countries = {
+    const countries: { [key: string]: string[] } = {
         USA: ['California', 'Texas', 'New York'],
         Canada: ['Ontario', 'Quebec', 'British Columbia'],
         India: ['Maharashtra', 'Delhi', 'Karnataka'],
@@ -62,7 +62,7 @@ const Step2 = () => {
                     <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
-                    {selectedCountry && countries[selectedCountry].map((state: any) => (
+                    {selectedCountry && countries[selectedCountry]?.map((state) => (
                         <MenuItem key={state} value={state}>
                             {state}
                         </MenuItem>
