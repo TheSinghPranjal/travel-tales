@@ -11,18 +11,24 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+    const [secondaryPhoneNumber, setSecondaryPhoneNumber] = useState('');
+    const [secondaryEmail, setSecondaryEmail] = useState('');
     const [email, setEmail] = useState('');
     const [errors, setErrors] = useState({
         firstName: '',
         lastName: '',
         phoneNumber: '',
+        secondaryPhoneNumber: '',
         email: '',
+        secondaryEmail: ''
     });
     const [touchedFields, setTouchedFields] = useState({
         firstName: false,
         lastName: false,
         phoneNumber: false,
+        secondaryPhoneNumber: false,
         email: false,
+        secondaryEmail: false
     });
 
     const validateFields = () => {
@@ -39,6 +45,9 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                     ? ''
                     : 'Email must contain "@" and end with ".com" or ".in"'
                 : 'Email is required',
+            secondaryEmail: '',
+            secondaryPhoneNumber: ''
+
         };
         setErrors(newErrors);
         return Object.values(newErrors).every((error) => error === '');
@@ -70,12 +79,17 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         helperText={touchedFields.firstName ? errors.firstName : ''}
                     />
                     <TextField
+                        type='number'
                         fullWidth
                         label="Phone Number"
                         variant="outlined"
                         placeholder="Enter Phone Number"
                         value={phoneNumber}
-                        onChange={(e) => setPhoneNumber(e.target.value)}
+                        onChange={(e) => {
+                            // Only allow digits
+                            const value = e.target.value.replace(/[^0-9]/g, '');
+                            setPhoneNumber(value);
+                        }}
                         onBlur={() => handleBlur('phoneNumber')}
                         error={touchedFields.phoneNumber && !!errors.phoneNumber}
                         helperText={touchedFields.phoneNumber ? errors.phoneNumber : ''}
@@ -103,6 +117,34 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         onBlur={() => handleBlur('lastName')}
                         error={touchedFields.lastName && !!errors.lastName}
                         helperText={touchedFields.lastName ? errors.lastName : ''}
+                    />
+                    <TextField
+                        fullWidth
+                        type="text"
+                        label="Secondary Phone Number"
+                        variant="outlined"
+                        placeholder="Enter Secondary Number"
+                        value={secondaryPhoneNumber}
+                        onChange={(e) => {
+                            // Only allow digits
+                            const value = e.target.value.replace(/[^0-9]/g, '');
+                            setSecondaryPhoneNumber(value);
+                        }}
+                        onBlur={() => handleBlur('secondaryPhoneNumber')}
+                        error={touchedFields.secondaryPhoneNumber && !!errors.secondaryPhoneNumber}
+                        helperText={touchedFields.secondaryPhoneNumber ? errors.secondaryPhoneNumber : ''}
+                    />
+
+                    <TextField
+                        fullWidth
+                        label="Secondary Email"
+                        variant="outlined"
+                        placeholder="Enter Secondary Email"
+                        value={secondaryEmail}
+                        onChange={(e) => setSecondaryEmail(e.target.value)}
+                        onBlur={() => handleBlur('email')}
+                        error={touchedFields.secondaryEmail && !!errors.secondaryEmail}
+                        helperText={touchedFields.secondaryEmail ? errors.secondaryEmail : ''}
                     />
                 </div>
             </div>
