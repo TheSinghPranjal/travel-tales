@@ -1,6 +1,5 @@
 'use client'
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
@@ -11,9 +10,8 @@ import Step2 from './Step2';
 
 const steps = ['Personal Information', 'Country and City', 'Create an ad'];
 
-// Define components for each step page
-function Step1Page() {
-    return <Step1 />;
+function Step1Page({ setIsStepValid }: { setIsStepValid: (isValid: boolean) => void }) {
+    return <Step1 setIsStepValid={setIsStepValid} />;
 }
 
 function Step2Page() {
@@ -26,53 +24,24 @@ function Step3Page() {
 
 export default function HorizontalLinearStepper() {
     const [activeStep, setActiveStep] = React.useState(0);
-    const [skipped, setSkipped] = React.useState(new Set<number>());
-
-    const isStepOptional = (step: number) => {
-        return step === 1;
-    };
-
-    const isStepSkipped = (step: number) => {
-        return skipped.has(step);
-    };
+    const [isStepValid, setIsStepValid] = React.useState(false);
 
     const handleNext = () => {
-        let newSkipped = skipped;
-        if (isStepSkipped(activeStep)) {
-            newSkipped = new Set(newSkipped.values());
-            newSkipped.delete(activeStep);
-        }
-
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        setSkipped(newSkipped);
     };
 
     const handleBack = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
-    const handleSkip = () => {
-        if (!isStepOptional(activeStep)) {
-            throw new Error("You can't skip a step that isn't optional.");
-        }
-
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        setSkipped((prevSkipped) => {
-            const newSkipped = new Set(prevSkipped.values());
-            newSkipped.add(activeStep);
-            return newSkipped;
-        });
-    };
-
     const handleReset = () => {
         setActiveStep(0);
     };
 
-    // Render the page content based on the current step
     const renderStepContent = (step: number) => {
         switch (step) {
             case 0:
-                return <Step1Page />;
+                return <Step1Page setIsStepValid={setIsStepValid} />;
             case 1:
                 return <Step2Page />;
             case 2:
@@ -83,63 +52,46 @@ export default function HorizontalLinearStepper() {
     };
 
     return (
-        <Box sx={{ width: '100%' }}>
+        <div style={{ width: '100%' }}>
             <Stepper activeStep={activeStep}>
-                {steps.map((label, index) => {
-                    const stepProps: { completed?: boolean } = {};
-                    const labelProps: {
-                        optional?: React.ReactNode;
-                    } = {};
-                    if (isStepOptional(index)) {
-                        labelProps.optional = (
-                            <Typography variant="caption">Optional</Typography>
-                        );
-                    }
-                    if (isStepSkipped(index)) {
-                        stepProps.completed = false;
-                    }
-                    return (
-                        <Step key={label} {...stepProps}>
-                            <StepLabel {...labelProps}>{label}</StepLabel>
-                        </Step>
-                    );
-                })}
+                {steps.map((label, index) => (
+                    <Step key={label}>
+                        <StepLabel>{label}</StepLabel>
+                    </Step>
+                ))}
             </Stepper>
             {activeStep === steps.length ? (
                 <React.Fragment>
-                    <Typography sx={{ mt: 2, mb: 1 }}>
+                    <Typography style={{ marginTop: '16px', marginBottom: '8px' }}>
                         All steps completed - you&apos;re finished
                     </Typography>
-                    <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                        <Box sx={{ flex: '1 1 auto' }} />
+                    <div style={{ display: 'flex', flexDirection: 'row', paddingTop: '16px' }}>
+                        <div style={{ flex: '1 1 auto' }} />
                         <Button onClick={handleReset}>Reset</Button>
-                    </Box>
+                    </div>
                 </React.Fragment>
             ) : (
                 <React.Fragment>
-                    {/* Render the content for the current step */}
-                    <Box sx={{ mt: 2, mb: 1 }}>{renderStepContent(activeStep)}</Box>
-                    <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+                    <div style={{ marginTop: '16px', marginBottom: '8px' }}>{renderStepContent(activeStep)}</div>
+                    <div style={{ display: 'flex', flexDirection: 'row', paddingTop: '16px' }}>
                         <Button
                             color="inherit"
                             disabled={activeStep === 0}
                             onClick={handleBack}
-                            sx={{ mr: 1 }}
+                            style={{ marginRight: '8px' }}
                         >
                             Back
                         </Button>
-                        <Box sx={{ flex: '1 1 auto' }} />
-                        {isStepOptional(activeStep) && (
-                            <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                                Skip
-                            </Button>
-                        )}
-                        <Button onClick={handleNext}>
+                        <div style={{ flex: '1 1 auto' }} />
+                        <Button
+                            onClick={handleNext}
+                            disabled={activeStep === 0 && !isStepValid}
+                        >
                             {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                         </Button>
-                    </Box>
+                    </div>
                 </React.Fragment>
             )}
-        </Box>
+        </div>
     );
 }
