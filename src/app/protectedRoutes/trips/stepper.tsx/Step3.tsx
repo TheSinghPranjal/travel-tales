@@ -5,6 +5,9 @@ import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import { FaCcVisa, FaCcMastercard, FaStripe } from 'react-icons/fa';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+
 
 const Step3 = () => {
     const [firstName, setFirstName] = useState('');
@@ -13,6 +16,8 @@ const Step3 = () => {
     const [addressLine2, setAddressLine2] = useState('');
     const [pincode, setPincode] = useState<string>('');
     const [billingEmail, setBillingEmail] = useState('');
+    const [selectedBank, setSelectedBank] = useState('@icici');
+
 
     const [errors, setErrors] = useState({
         billingEmail: '',
@@ -93,7 +98,7 @@ const Step3 = () => {
         return (
             <div className="max-w-lg mx-auto p-4">
                 <h2 className="text-xl font-semibold mb-4">Payment</h2>
-                <Box className="flex justify-around mb-4">
+                <Box className="flex justify-around mb-4 " style={{ width: '500px' }}>
                     <Button
                         variant={selectedPayment === 'card' ? 'contained' : 'outlined'}
                         onClick={() => setSelectedPayment('card')}
@@ -172,6 +177,35 @@ const Step3 = () => {
                         </Box>
                     </div>
                 )}
+                {selectedPayment === 'googlePay' && (
+                    <div>
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <TextField
+                                className="w-3/4"
+                                type="text"
+                                label="UPI ID"
+                                variant="outlined"
+                                placeholder="Enter UPI ID"
+                                value={billingEmail}
+                            // onChange={(e) => setBillingEmail(e.target.value)}
+                            // onBlur={() => handleBlur('billingEmail')}
+                            // error={touchedFields.billingEmail && !!errors.billingEmail}
+                            // helperText={touchedFields.billingEmail ? errors.billingEmail : ''}
+                            />
+                            <Select
+                                variant="outlined"
+                                value={selectedBank}
+                                onChange={(e) => setSelectedBank(e.target.value)}
+                                style={{ marginLeft: 8, width: 120 }}
+                            >
+                                <MenuItem value="@icici">@icici</MenuItem>
+                                <MenuItem value="@sbi">@sbi</MenuItem>
+                                <MenuItem value="@axis">@axis</MenuItem>
+                            </Select>
+                        </div>
+                    </div>
+                )}
+
             </div>
         );
     };
