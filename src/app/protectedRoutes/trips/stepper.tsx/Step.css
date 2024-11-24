@@ -9,6 +9,20 @@
   align-items: center;
 }
 
+.pincode {
+  max-width: 800px;
+}
+
+.step3-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Title styling */
 .section-title {
   margin-bottom: 16px;

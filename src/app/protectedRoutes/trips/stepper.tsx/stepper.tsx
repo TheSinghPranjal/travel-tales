@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Step1 from './Step1';
 import Step2 from './Step2';
+import Step3 from './Step3';
 
 const steps = ['Personal Information', 'Country and City', 'Create an ad'];
 
@@ -19,7 +20,7 @@ function Step2Page() {
 }
 
 function Step3Page() {
-    return <Typography>Content for Step 3</Typography>;
+    return <Typography><Step3 /></Typography>;
 }
 
 export default function HorizontalLinearStepper() {
