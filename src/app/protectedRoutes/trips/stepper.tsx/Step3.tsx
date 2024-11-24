@@ -1,13 +1,12 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import { FaCcVisa, FaCcMastercard, FaStripe } from 'react-icons/fa';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-
 
 const Step3 = () => {
     const [firstName, setFirstName] = useState('');
@@ -17,7 +16,6 @@ const Step3 = () => {
     const [pincode, setPincode] = useState<string>('');
     const [billingEmail, setBillingEmail] = useState('');
     const [selectedBank, setSelectedBank] = useState('@icici');
-
 
     const [errors, setErrors] = useState({
         billingEmail: '',
@@ -34,6 +32,33 @@ const Step3 = () => {
         addressLine1: false,
         pincode: false,
     });
+
+    // Save specified fields to localStorage
+    useEffect(() => {
+        const dataToSave = {
+            billingEmail,
+            pincode,
+            firstName,
+            lastName,
+            addressLine1,
+            addressLine2,
+        };
+        localStorage.setItem('billingData', JSON.stringify(dataToSave));
+    }, [billingEmail, pincode, firstName, lastName, addressLine1, addressLine2]);
+
+    // Load saved data from localStorage when component mounts
+    // useEffect(() => {
+    //     const savedData = localStorage.getItem('billingData');
+    //     if (savedData) {
+    //         const parsedData = JSON.parse(savedData);
+    //         setBillingEmail(parsedData.billingEmail || '');
+    //         setPincode(parsedData.pincode || '');
+    //         setFirstName(parsedData.firstName || '');
+    //         setLastName(parsedData.lastName || '');
+    //         setAddressLine1(parsedData.addressLine1 || '');
+    //         setAddressLine2(parsedData.addressLine2 || '');
+    //     }
+    // }, []);
 
     const handleBlur = (field: string) => {
         setTouchedFields((prev) => ({ ...prev, [field]: true }));
@@ -177,35 +202,6 @@ const Step3 = () => {
                         </Box>
                     </div>
                 )}
-                {selectedPayment === 'googlePay' && (
-                    <div>
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                            <TextField
-                                className="w-3/4"
-                                type="text"
-                                label="UPI ID"
-                                variant="outlined"
-                                placeholder="Enter UPI ID"
-                                value={billingEmail}
-                            // onChange={(e) => setBillingEmail(e.target.value)}
-                            // onBlur={() => handleBlur('billingEmail')}
-                            // error={touchedFields.billingEmail && !!errors.billingEmail}
-                            // helperText={touchedFields.billingEmail ? errors.billingEmail : ''}
-                            />
-                            <Select
-                                variant="outlined"
-                                value={selectedBank}
-                                onChange={(e) => setSelectedBank(e.target.value)}
-                                style={{ marginLeft: 8, width: 120 }}
-                            >
-                                <MenuItem value="@icici">@icici</MenuItem>
-                                <MenuItem value="@sbi">@sbi</MenuItem>
-                                <MenuItem value="@axis">@axis</MenuItem>
-                            </Select>
-                        </div>
-                    </div>
-                )}
-
             </div>
         );
     };
@@ -234,64 +230,61 @@ const Step3 = () => {
                     variant="outlined"
                     placeholder="Enter Pincode"
                     value={pincode}
-                    onChange={(e) => {
-                        const value = e.target.value.replace(/[^0-9]/g, '').slice(0, 6);
-                        setPincode(value);
-                    }}
+                    onChange={(e) => setPincode(e.target.value)}
                     onBlur={() => handleBlur('pincode')}
                     error={touchedFields.pincode && !!errors.pincode}
                     helperText={touchedFields.pincode ? errors.pincode : ''}
                 />
             </Box>
-            <hr className="w-full my-4" />
-            <h3 className="text-lg font-medium mb-2">Shipping Information</h3>
-            <form className="flex flex-col items-center w-full gap-4">
-                <Box className="w-full flex flex-col gap-4">
-                    <TextField
-                        fullWidth
-                        label="First Name"
-                        variant="outlined"
-                        placeholder="Enter First Name"
-                        value={firstName}
-                        onChange={(e) => setFirstName(e.target.value)}
-                        onBlur={() => handleBlur('firstName')}
-                        error={touchedFields.firstName && !!errors.firstName}
-                        helperText={touchedFields.firstName ? errors.firstName : ''}
-                    />
-                    <TextField
-                        fullWidth
-                        label="Last Name"
-                        variant="outlined"
-                        placeholder="Enter Last Name"
-                        value={lastName}
-                        onChange={(e) => setLastName(e.target.value)}
-                        onBlur={() => handleBlur('lastName')}
-                        error={touchedFields.lastName && !!errors.lastName}
-                        helperText={touchedFields.lastName ? errors.lastName : ''}
-                    />
-                    <TextField
-                        fullWidth
-                        label="Address Line 1"
-                        variant="outlined"
-                        placeholder="Enter Address Line 1"
-                        value={addressLine1}
-                        onChange={(e) => setAddressLine1(e.target.value)}
-                        onBlur={() => handleBlur('addressLine1')}
-                        error={touchedFields.addressLine1 && !!errors.addressLine1}
-                        helperText={touchedFields.addressLine1 ? errors.addressLine1 : ''}
-                    />
-                    <TextField
-                        fullWidth
-                        label="Address Line 2"
-                        variant="outlined"
-                        placeholder="Enter Address Line 2 (Optional)"
-                        value={addressLine2}
-                        onChange={(e) => setAddressLine2(e.target.value)}
-                    />
-                </Box>
-                <hr className="w-full my-4" />
-                <PaymentForm />
-            </form>
+            <TextField
+                className="w-full mb-4"
+                type="text"
+                label="First Name"
+                variant="outlined"
+                placeholder="Enter First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                onBlur={() => handleBlur('firstName')}
+                error={touchedFields.firstName && !!errors.firstName}
+                helperText={touchedFields.firstName ? errors.firstName : ''}
+            />
+            <TextField
+                className="w-full mb-4"
+                type="text"
+                label="Last Name"
+                variant="outlined"
+                placeholder="Enter Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                onBlur={() => handleBlur('lastName')}
+                error={touchedFields.lastName && !!errors.lastName}
+                helperText={touchedFields.lastName ? errors.lastName : ''}
+            />
+            <TextField
+                className="w-full mb-4"
+                type="text"
+                label="Address Line 1"
+                variant="outlined"
+                placeholder="Enter Address Line 1"
+                value={addressLine1}
+                onChange={(e) => setAddressLine1(e.target.value)}
+                onBlur={() => handleBlur('addressLine1')}
+                error={touchedFields.addressLine1 && !!errors.addressLine1}
+                helperText={touchedFields.addressLine1 ? errors.addressLine1 : ''}
+            />
+            <TextField
+                className="w-full mb-4"
+                type="text"
+                label="Address Line 2"
+                variant="outlined"
+                placeholder="Enter Address Line 2"
+                value={addressLine2}
+                onChange={(e) => setAddressLine2(e.target.value)}
+                onBlur={() => handleBlur('addressLine2')}
+            />
+
+            <h3 className="text-lg font-medium mb-2">Payment Information</h3>
+            <PaymentForm />
         </div>
     );
 };
