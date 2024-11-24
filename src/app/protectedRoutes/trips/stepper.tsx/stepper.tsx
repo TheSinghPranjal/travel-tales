@@ -8,8 +8,9 @@ import Typography from '@mui/material/Typography';
 import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
+import Step4 from './Step4';
 
-const steps = ['Personal Information', 'Country and City', 'Create an ad'];
+const steps = ['Personal Information', 'Country and City', 'Payment', 'Summary'];
 
 function Step1Page({ setIsStepValid }: { setIsStepValid: (isValid: boolean) => void }) {
     return <Step1 setIsStepValid={setIsStepValid} />;
@@ -21,6 +22,10 @@ function Step2Page() {
 
 function Step3Page() {
     return <Typography><Step3 /></Typography>;
+}
+
+function Step4Page() {
+    return <Typography><Step4 /></Typography>;
 }
 
 export default function HorizontalLinearStepper() {
@@ -47,6 +52,8 @@ export default function HorizontalLinearStepper() {
                 return <Step2Page />;
             case 2:
                 return <Step3Page />;
+            case 3:
+                return <Step4Page />;
             default:
                 return null;
         }

@@ -31,6 +31,33 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
         secondaryEmail: false
     });
 
+    // Load data from localStorage on component mount
+    // useEffect(() => {
+    //     const savedData = localStorage.getItem('formData');
+    //     if (savedData) {
+    //         const parsedData = JSON.parse(savedData);
+    //         setFirstName(parsedData.firstName || '');
+    //         setLastName(parsedData.lastName || '');
+    //         setPhoneNumber(parsedData.phoneNumber || '');
+    //         setSecondaryPhoneNumber(parsedData.secondaryPhoneNumber || '');
+    //         setEmail(parsedData.email || '');
+    //         setSecondaryEmail(parsedData.secondaryEmail || '');
+    //     }
+    // }, []);
+
+    // Save data to localStorage whenever form data changes
+    useEffect(() => {
+        const formData = {
+            firstName,
+            lastName,
+            phoneNumber,
+            secondaryPhoneNumber,
+            email,
+            secondaryEmail
+        };
+        localStorage.setItem('formData', JSON.stringify(formData));
+    }, [firstName, lastName, phoneNumber, secondaryPhoneNumber, email, secondaryEmail]);
+
     const validateFields = () => {
         const newErrors = {
             firstName: firstName ? '' : 'First Name is required',
@@ -47,7 +74,6 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                 : 'Email is required',
             secondaryEmail: '',
             secondaryPhoneNumber: ''
-
         };
         setErrors(newErrors);
         return Object.values(newErrors).every((error) => error === '');
@@ -79,14 +105,13 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         helperText={touchedFields.firstName ? errors.firstName : ''}
                     />
                     <TextField
-                        type='number'
+                        type="number"
                         fullWidth
                         label="Phone Number"
                         variant="outlined"
                         placeholder="Enter Phone Number"
                         value={phoneNumber}
                         onChange={(e) => {
-                            // Only allow digits
                             const value = e.target.value.replace(/[^0-9]/g, '');
                             setPhoneNumber(value);
                         }}
@@ -126,7 +151,6 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         placeholder="Enter Secondary Number"
                         value={secondaryPhoneNumber}
                         onChange={(e) => {
-                            // Only allow digits
                             const value = e.target.value.replace(/[^0-9]/g, '');
                             setSecondaryPhoneNumber(value);
                         }}
@@ -134,7 +158,6 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         error={touchedFields.secondaryPhoneNumber && !!errors.secondaryPhoneNumber}
                         helperText={touchedFields.secondaryPhoneNumber ? errors.secondaryPhoneNumber : ''}
                     />
-
                     <TextField
                         fullWidth
                         label="Secondary Email"
@@ -142,7 +165,7 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         placeholder="Enter Secondary Email"
                         value={secondaryEmail}
                         onChange={(e) => setSecondaryEmail(e.target.value)}
-                        onBlur={() => handleBlur('email')}
+                        onBlur={() => handleBlur('secondaryEmail')}
                         error={touchedFields.secondaryEmail && !!errors.secondaryEmail}
                         helperText={touchedFields.secondaryEmail ? errors.secondaryEmail : ''}
                     />
