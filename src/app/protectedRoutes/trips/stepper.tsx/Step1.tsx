@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
 import './Step.css';
@@ -8,12 +8,15 @@ interface Step1Props {
 }
 
 const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [secondaryPhoneNumber, setSecondaryPhoneNumber] = useState('');
-    const [secondaryEmail, setSecondaryEmail] = useState('');
-    const [email, setEmail] = useState('');
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        phoneNumber: '',
+        secondaryPhoneNumber: '',
+        secondaryEmail: '',
+        email: ''
+    });
+
     const [errors, setErrors] = useState({
         firstName: '',
         lastName: '',
@@ -22,6 +25,7 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
         email: '',
         secondaryEmail: ''
     });
+
     const [touchedFields, setTouchedFields] = useState({
         firstName: false,
         lastName: false,
@@ -31,47 +35,54 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
         secondaryEmail: false
     });
 
+    // Retrieve data from localStorage on component mount
+    useEffect(() => {
+        const savedData = localStorage.getItem('formData');
+        if (savedData) {
+            setFormData(JSON.parse(savedData));
+        }
+    }, []);
+
     // Save data to localStorage whenever form data changes
     useEffect(() => {
-        const formData = {
-            firstName,
-            lastName,
-            phoneNumber,
-            secondaryPhoneNumber,
-            email,
-            secondaryEmail
-        };
         localStorage.setItem('formData', JSON.stringify(formData));
-    }, [firstName, lastName, phoneNumber, secondaryPhoneNumber, email, secondaryEmail]);
+    }, [formData]);
 
     const validateFields = () => {
         const newErrors = {
-            firstName: firstName ? '' : 'First Name is required',
-            lastName: lastName ? '' : 'Last Name is required',
-            phoneNumber: phoneNumber
-                ? phoneNumber.length === 10 && /^[0-9]+$/.test(phoneNumber)
+            firstName: formData.firstName ? '' : 'First Name is required',
+            lastName: formData.lastName ? '' : 'Last Name is required',
+            phoneNumber: formData.phoneNumber
+                ? formData.phoneNumber.length === 10 && /^[0-9]+$/.test(formData.phoneNumber)
                     ? ''
                     : 'Phone Number must be 10 digits'
                 : 'Phone Number is required',
-            email: email
-                ? email.includes('@') && (email.endsWith('.com') || email.endsWith('.in'))
+            email: formData.email
+                ? formData.email.includes('@') && (formData.email.endsWith('.com') || formData.email.endsWith('.in'))
                     ? ''
                     : 'Email must contain "@" and end with ".com" or ".in"'
                 : 'Email is required',
             secondaryEmail: '',
             secondaryPhoneNumber: ''
         };
+
         setErrors(newErrors);
+
+        // Return whether all fields are valid
         return Object.values(newErrors).every((error) => error === '');
     };
 
     useEffect(() => {
         setIsStepValid(validateFields());
-    }, [firstName, lastName, phoneNumber, email]);
+    }, [formData]);
 
     const handleBlur = (field: keyof typeof touchedFields) => {
         setTouchedFields((prev) => ({ ...prev, [field]: true }));
         validateFields();
+    };
+
+    const handleChange = (field: string, value: string) => {
+        setFormData((prev) => ({ ...prev, [field]: value }));
     };
 
     return (
@@ -84,8 +95,8 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         label="First Name"
                         variant="outlined"
                         placeholder="Enter First Name"
-                        value={firstName}
-                        onChange={(e) => setFirstName(e.target.value)}
+                        value={formData.firstName}
+                        onChange={(e) => handleChange('firstName', e.target.value)}
                         onBlur={() => handleBlur('firstName')}
                         error={touchedFields.firstName && !!errors.firstName}
                         helperText={touchedFields.firstName ? errors.firstName : ''}
@@ -96,10 +107,10 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         label="Phone Number"
                         variant="outlined"
                         placeholder="Enter Phone Number"
-                        value={phoneNumber}
+                        value={formData.phoneNumber}
                         onChange={(e) => {
                             const value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
-                            setPhoneNumber(value);
+                            handleChange('phoneNumber', value);
                         }}
                         onBlur={() => handleBlur('phoneNumber')}
                         error={touchedFields.phoneNumber && !!errors.phoneNumber}
@@ -110,8 +121,8 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         label="Email"
                         variant="outlined"
                         placeholder="Enter Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={formData.email}
+                        onChange={(e) => handleChange('email', e.target.value)}
                         onBlur={() => handleBlur('email')}
                         error={touchedFields.email && !!errors.email}
                         helperText={touchedFields.email ? errors.email : ''}
@@ -123,8 +134,8 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         label="Last Name"
                         variant="outlined"
                         placeholder="Enter Last Name"
-                        value={lastName}
-                        onChange={(e) => setLastName(e.target.value)}
+                        value={formData.lastName}
+                        onChange={(e) => handleChange('lastName', e.target.value)}
                         onBlur={() => handleBlur('lastName')}
                         error={touchedFields.lastName && !!errors.lastName}
                         helperText={touchedFields.lastName ? errors.lastName : ''}
@@ -135,10 +146,10 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         label="Secondary Phone Number"
                         variant="outlined"
                         placeholder="Enter Secondary Number"
-                        value={secondaryPhoneNumber}
+                        value={formData.secondaryPhoneNumber}
                         onChange={(e) => {
                             const value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
-                            setSecondaryPhoneNumber(value);
+                            handleChange('secondaryPhoneNumber', value);
                         }}
                         onBlur={() => handleBlur('secondaryPhoneNumber')}
                         error={touchedFields.secondaryPhoneNumber && !!errors.secondaryPhoneNumber}
@@ -149,8 +160,8 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         label="Secondary Email"
                         variant="outlined"
                         placeholder="Enter Secondary Email"
-                        value={secondaryEmail}
-                        onChange={(e) => setSecondaryEmail(e.target.value)}
+                        value={formData.secondaryEmail}
+                        onChange={(e) => handleChange('secondaryEmail', e.target.value)}
                         onBlur={() => handleBlur('secondaryEmail')}
                         error={touchedFields.secondaryEmail && !!errors.secondaryEmail}
                         helperText={touchedFields.secondaryEmail ? errors.secondaryEmail : ''}
