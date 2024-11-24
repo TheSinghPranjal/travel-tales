@@ -31,20 +31,6 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
         secondaryEmail: false
     });
 
-    // Load data from localStorage on component mount
-    // useEffect(() => {
-    //     const savedData = localStorage.getItem('formData');
-    //     if (savedData) {
-    //         const parsedData = JSON.parse(savedData);
-    //         setFirstName(parsedData.firstName || '');
-    //         setLastName(parsedData.lastName || '');
-    //         setPhoneNumber(parsedData.phoneNumber || '');
-    //         setSecondaryPhoneNumber(parsedData.secondaryPhoneNumber || '');
-    //         setEmail(parsedData.email || '');
-    //         setSecondaryEmail(parsedData.secondaryEmail || '');
-    //     }
-    // }, []);
-
     // Save data to localStorage whenever form data changes
     useEffect(() => {
         const formData = {
@@ -112,7 +98,7 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         placeholder="Enter Phone Number"
                         value={phoneNumber}
                         onChange={(e) => {
-                            const value = e.target.value.replace(/[^0-9]/g, '');
+                            const value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
                             setPhoneNumber(value);
                         }}
                         onBlur={() => handleBlur('phoneNumber')}
@@ -151,7 +137,7 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         placeholder="Enter Secondary Number"
                         value={secondaryPhoneNumber}
                         onChange={(e) => {
-                            const value = e.target.value.replace(/[^0-9]/g, '');
+                            const value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
                             setSecondaryPhoneNumber(value);
                         }}
                         onBlur={() => handleBlur('secondaryPhoneNumber')}
