@@ -209,7 +209,7 @@ const Step3 = () => {
     return (
         <div className="w-4/5 max-w-3xl mx-auto flex flex-col items-center">
             <h2 className="text-xl font-semibold mb-4">Payment and Account Information</h2>
-            <h3 className="text-lg font-medium mb-2">Contact Information</h3>
+            <h3 className="text-lg font-medium mb-2">Billing Information</h3>
             <Box className="flex justify-center items-center w-full gap-4 mb-4">
                 <TextField
                     className="w-3/4"

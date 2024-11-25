@@ -9,6 +9,9 @@ import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
 import Step4 from './Step4';
+import useLocalStorage from './localStorage';
+
+
 
 const steps = ['Personal Information', 'Country and City', 'Payment', 'Summary'];
 
@@ -29,19 +32,20 @@ function Step4Page() {
 }
 
 export default function HorizontalLinearStepper() {
-    const [activeStep, setActiveStep] = React.useState(0);
+    const [activeStep, setActiveStep] = useLocalStorage('activeStep', 0);
     const [isStepValid, setIsStepValid] = React.useState(false);
 
     const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        setActiveStep(activeStep + 1);
     };
 
     const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+        setActiveStep(activeStep - 1);
     };
 
     const handleReset = () => {
         setActiveStep(0);
+        localStorage.removeItem('activeStep');
     };
 
     const renderStepContent = (step: number) => {
