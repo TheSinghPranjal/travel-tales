@@ -9,8 +9,22 @@ import FormHelperText from '@mui/material/FormHelperText';
 const Step2 = () => {
     const [selectedCountry, setSelectedCountry] = useState('');
     const [selectedState, setSelectedState] = useState('');
+    const [countries, setCountries] = useState<{ [key: string]: string[] }>({});
 
     useEffect(() => {
+
+        const fetchCountries = async () => {
+            try {
+                const response = await fetch('https://run.mocky.io/v3/93ebfda9-cc7c-4830-8d96-6e694b62f185');
+                const data = await response.json();
+                setCountries(data);
+            } catch (error) {
+                console.error('Error fetching countries:', error);
+            }
+        };
+
+        fetchCountries();
+
         const countryDetails = {
             selectedCountry,
             selectedState
@@ -18,20 +32,12 @@ const Step2 = () => {
         localStorage.setItem('countryDetails', JSON.stringify(countryDetails));
     }, [selectedCountry, selectedState]);
 
-    // Define countries and their respective states
-    const countries: { [key: string]: string[] } = {
-        USA: ['California', 'Texas', 'New York'],
-        Canada: ['Ontario', 'Quebec', 'British Columbia'],
-        India: ['Maharashtra', 'Delhi', 'Karnataka'],
-    };
-
-    // Handle country change
     const handleCountryChange = (event: SelectChangeEvent) => {
         setSelectedCountry(event.target.value);
-        setSelectedState(''); // Reset state selection when country changes
+        setSelectedState('');
     };
 
-    // Handle state change
+
     const handleStateChange = (event: SelectChangeEvent) => {
         setSelectedState(event.target.value);
     };
