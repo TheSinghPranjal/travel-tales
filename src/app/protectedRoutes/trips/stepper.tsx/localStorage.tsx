@@ -1,17 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function useLocalStorage(key: string, initialValue: number) {
-    const [value, setValue] = useState(() => {
-        const storedValue = localStorage.getItem(key);
-        return storedValue !== null ? JSON.parse(storedValue) : initialValue;
-    });
+    const [value, setValue] = useState<number>(initialValue);
+
+    useEffect(() => {
+        // Only access localStorage in the browser
+        if (typeof window !== 'undefined') {
+            const storedValue = localStorage.getItem(key);
+            if (storedValue !== null) {
+                setValue(JSON.parse(storedValue));
+            }
+        }
+    }, [key]);
 
     const setStoredValue = (newValue: number) => {
         setValue(newValue);
-        localStorage.setItem(key, JSON.stringify(newValue));
+        if (typeof window !== 'undefined') {
+            localStorage.setItem(key, JSON.stringify(newValue));
+        }
     };
 
-    // Place the return array directly after `return`
     return [value, setStoredValue] as const;
 }
 
