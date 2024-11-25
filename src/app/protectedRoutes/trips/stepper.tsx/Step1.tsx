@@ -1,14 +1,15 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import './Step.css';
+import useLocalStorageForStep1 from './localStorageStep1';
 
 interface Step1Props {
     setIsStepValid: (isValid: boolean) => void;
 }
 
 const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useLocalStorageForStep1('formData', {
         firstName: '',
         lastName: '',
         phoneNumber: '',
@@ -35,19 +36,6 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
         secondaryEmail: false
     });
 
-    // Retrieve data from localStorage on component mount
-    useEffect(() => {
-        const savedData = localStorage.getItem('formData');
-        if (savedData) {
-            setFormData(JSON.parse(savedData));
-        }
-    }, []);
-
-    // Save data to localStorage whenever form data changes
-    useEffect(() => {
-        localStorage.setItem('formData', JSON.stringify(formData));
-    }, [formData]);
-
     const validateFields = () => {
         const newErrors = {
             firstName: formData.firstName ? '' : 'First Name is required',
@@ -72,7 +60,8 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
         return Object.values(newErrors).every((error) => error === '');
     };
 
-    useEffect(() => {
+    // Validate fields when form data changes
+    React.useEffect(() => {
         setIsStepValid(validateFields());
     }, [formData]);
 
@@ -82,7 +71,7 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
     };
 
     const handleChange = (field: string, value: string) => {
-        setFormData((prev) => ({ ...prev, [field]: value }));
+        setFormData((prev: any) => ({ ...prev, [field]: value }));
     };
 
     return (

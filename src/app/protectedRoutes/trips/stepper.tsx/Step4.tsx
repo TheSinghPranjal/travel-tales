@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
-import './Step4.css'
+import './Step4.css';
 
 const Step4 = () => {
     // State to store data fetched from local storage
@@ -20,7 +20,7 @@ const Step4 = () => {
         pincode: '',
         addressLine1: '',
         addressLine2: ''
-    })
+    });
 
     useEffect(() => {
         // Load data from local storage when Step4 component mounts
@@ -110,7 +110,7 @@ const Step4 = () => {
                     </div>
                 </div>
             </div>
-            <hr></hr>
+            <hr />
             <h3 className="section-title">Review Billing Data</h3>
 
             <div className="form-columns">
@@ -162,7 +162,7 @@ const Step4 = () => {
                         />
                     </div>
                     <div className="form-row">
-                        <label>Addess 2:</label>
+                        <label>Address 2:</label>
                         <TextField
                             fullWidth
                             variant="outlined"
@@ -185,7 +185,6 @@ const Step4 = () => {
                     </div>
                 </div>
             </div>
-
         </form>
     );
 };

@@ -1,23 +1,22 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
-import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import { FaCcVisa, FaCcMastercard, FaStripe } from 'react-icons/fa';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
+import useLocalStorageForStep3 from './localStorageForStep3';
+
 
 const Step3 = () => {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [addressLine1, setAddressLine1] = useState('');
-    const [addressLine2, setAddressLine2] = useState('');
-    const [pincode, setPincode] = useState<string>('');
-    const [billingEmail, setBillingEmail] = useState('');
-    const [selectedBank, setSelectedBank] = useState('@icici');
+    const [firstName, setFirstName] = useLocalStorageForStep3<string>('firstName', '');
+    const [lastName, setLastName] = useLocalStorageForStep3<string>('lastName', '');
+    const [addressLine1, setAddressLine1] = useLocalStorageForStep3<string>('addressLine1', '');
+    const [addressLine2, setAddressLine2] = useLocalStorageForStep3<string>('addressLine2', '');
+    const [pincode, setPincode] = useLocalStorageForStep3<string>('pincode', '');
+    const [billingEmail, setBillingEmail] = useLocalStorageForStep3<string>('billingEmail', '');
+    const [selectedBank, setSelectedBank] = useLocalStorageForStep3<string>('selectedBank', '@icici');
 
-    const [errors, setErrors] = useState({
+    const [errors, setErrors] = React.useState({
         billingEmail: '',
         firstName: '',
         lastName: '',
@@ -25,40 +24,13 @@ const Step3 = () => {
         pincode: '',
     });
 
-    const [touchedFields, setTouchedFields] = useState({
+    const [touchedFields, setTouchedFields] = React.useState({
         billingEmail: false,
         firstName: false,
         lastName: false,
         addressLine1: false,
         pincode: false,
     });
-
-    // Save specified fields to localStorage
-    useEffect(() => {
-        const dataToSave = {
-            billingEmail,
-            pincode,
-            firstName,
-            lastName,
-            addressLine1,
-            addressLine2,
-        };
-        localStorage.setItem('billingData', JSON.stringify(dataToSave));
-    }, [billingEmail, pincode, firstName, lastName, addressLine1, addressLine2]);
-
-    // Load saved data from localStorage when component mounts
-    // useEffect(() => {
-    //     const savedData = localStorage.getItem('billingData');
-    //     if (savedData) {
-    //         const parsedData = JSON.parse(savedData);
-    //         setBillingEmail(parsedData.billingEmail || '');
-    //         setPincode(parsedData.pincode || '');
-    //         setFirstName(parsedData.firstName || '');
-    //         setLastName(parsedData.lastName || '');
-    //         setAddressLine1(parsedData.addressLine1 || '');
-    //         setAddressLine2(parsedData.addressLine2 || '');
-    //     }
-    // }, []);
 
     const handleBlur = (field: string) => {
         setTouchedFields((prev) => ({ ...prev, [field]: true }));
@@ -78,13 +50,13 @@ const Step3 = () => {
     };
 
     const PaymentForm = () => {
-        const [selectedPayment, setSelectedPayment] = useState<'card' | 'googlePay' | 'bank' | null>(null);
-        const [cardNumber, setCardNumber] = useState('');
-        const [expiry, setExpiry] = useState('');
-        const [cvc, setCvc] = useState('');
-        const [isBillingSame, setIsBillingSame] = useState(true);
+        const [selectedPayment, setSelectedPayment] = React.useState<'card' | 'googlePay' | 'bank' | null>(null);
+        const [cardNumber, setCardNumber] = React.useState('');
+        const [expiry, setExpiry] = React.useState('');
+        const [cvc, setCvc] = React.useState('');
+        const [isBillingSame, setIsBillingSame] = React.useState(true);
 
-        const [paymentErrors, setPaymentErrors] = useState({
+        const [paymentErrors, setPaymentErrors] = React.useState({
             cardNumber: '',
             expiry: '',
             cvc: ''
@@ -123,7 +95,7 @@ const Step3 = () => {
         return (
             <div className="max-w-lg mx-auto p-4">
                 <h2 className="text-xl font-semibold mb-4">Payment</h2>
-                <Box className="flex justify-around mb-4 " style={{ width: '500px' }}>
+                <Box className="flex justify-around mb-4" style={{ width: '500px' }}>
                     <Button
                         variant={selectedPayment === 'card' ? 'contained' : 'outlined'}
                         onClick={() => setSelectedPayment('card')}
@@ -193,9 +165,6 @@ const Step3 = () => {
                             />
                             <span>Billing is same as shipping information</span>
                         </div>
-                        <p className="text-sm text-gray-500 mt-4">
-                            By providing your card information, you allow us to save your card details for future payments.
-                        </p>
                         <Box className="flex justify-between mt-6">
                             <Button variant="outlined">Cancel</Button>
                             <Button variant="contained" color="primary">Save</Button>
@@ -273,20 +242,17 @@ const Step3 = () => {
                 helperText={touchedFields.addressLine1 ? errors.addressLine1 : ''}
             />
             <TextField
-                className="w-full mb-4"
+                className="w-full mb-6"
                 type="text"
-                label="Address Line 2"
+                label="Address Line 2 (optional)"
                 variant="outlined"
                 placeholder="Enter Address Line 2"
                 value={addressLine2}
                 onChange={(e) => setAddressLine2(e.target.value)}
-                onBlur={() => handleBlur('addressLine2')}
             />
 
-            <h3 className="text-lg font-medium mb-2">Payment Information</h3>
             <PaymentForm />
         </div>
     );
 };
-
 export default Step3;
