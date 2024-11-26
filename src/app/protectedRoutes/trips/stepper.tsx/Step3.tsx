@@ -6,47 +6,70 @@ import Button from '@mui/material/Button';
 import { FaCcVisa, FaCcMastercard, FaStripe } from 'react-icons/fa';
 import useLocalStorageForStep3 from './localStorageForStep3';
 
+interface BillingData {
+    firstName: string;
+    lastName: string;
+    addressLine1: string;
+    addressLine2: string;
+    billingEmail: string;
+    pincode: string;
+}
 
 const Step3 = () => {
-    const [firstName, setFirstName] = useLocalStorageForStep3<string>('firstName', '');
-    const [lastName, setLastName] = useLocalStorageForStep3<string>('lastName', '');
-    const [addressLine1, setAddressLine1] = useLocalStorageForStep3<string>('addressLine1', '');
-    const [addressLine2, setAddressLine2] = useLocalStorageForStep3<string>('addressLine2', '');
-    const [pincode, setPincode] = useLocalStorageForStep3<string>('pincode', '');
-    const [billingEmail, setBillingEmail] = useLocalStorageForStep3<string>('billingEmail', '');
-    const [selectedBank, setSelectedBank] = useLocalStorageForStep3<string>('selectedBank', '@icici');
-
-    const [errors, setErrors] = React.useState({
-        billingEmail: '',
+    const [billingData, setBillingData] = useLocalStorageForStep3<BillingData>('billingData', {
         firstName: '',
         lastName: '',
         addressLine1: '',
-        pincode: '',
+        addressLine2: '',
+        billingEmail: '',
+        pincode: ''
     });
 
-    const [touchedFields, setTouchedFields] = React.useState({
-        billingEmail: false,
-        firstName: false,
-        lastName: false,
-        addressLine1: false,
-        pincode: false,
+    const [formState, setFormState] = React.useState({
+        errors: {
+            billingEmail: '',
+            firstName: '',
+            lastName: '',
+            addressLine1: '',
+            pincode: ''
+        },
+        touchedFields: {
+            billingEmail: false,
+            firstName: false,
+            lastName: false,
+            addressLine1: false,
+            pincode: false
+        }
     });
 
     const handleBlur = (field: string) => {
-        setTouchedFields((prev) => ({ ...prev, [field]: true }));
+        setFormState((prev) => ({
+            ...prev,
+            touchedFields: { ...prev.touchedFields, [field]: true }
+        }));
     };
 
     const validateFields = () => {
         const newErrors = {
-            billingEmail: billingEmail ? '' : 'Billing Email is required',
-            firstName: firstName ? '' : 'First Name is required',
-            lastName: lastName ? '' : 'Last Name is required',
-            addressLine1: addressLine1 ? '' : 'Address Line 1 is required',
-            pincode: pincode.length === 6 ? '' : 'Pincode must be 6 digits',
-            addressLine2: ''
+            billingEmail: billingData.billingEmail ? '' : 'Billing Email is required',
+            firstName: billingData.firstName ? '' : 'First Name is required',
+            lastName: billingData.lastName ? '' : 'Last Name is required',
+            addressLine1: billingData.addressLine1 ? '' : 'Address Line 1 is required',
+            pincode: billingData.pincode.length === 6 ? '' : 'Pincode must be 6 digits',
         };
-        setErrors(newErrors);
+        setFormState((prev) => ({
+            ...prev,
+            errors: newErrors
+        }));
         return Object.values(newErrors).every((error) => error === '');
+    };
+
+    const handleChange = (field: keyof BillingData, value: string) => {
+        // Directly passing an object with the correct shape
+        setBillingData({
+            ...billingData,
+            [field]: value
+        });
     };
 
     const PaymentForm = () => {
@@ -186,11 +209,11 @@ const Step3 = () => {
                     label="Billing Email"
                     variant="outlined"
                     placeholder="Enter Billing Email"
-                    value={billingEmail}
-                    onChange={(e) => setBillingEmail(e.target.value)}
+                    value={billingData.billingEmail}
+                    onChange={(e) => handleChange('billingEmail', e.target.value)}
                     onBlur={() => handleBlur('billingEmail')}
-                    error={touchedFields.billingEmail && !!errors.billingEmail}
-                    helperText={touchedFields.billingEmail ? errors.billingEmail : ''}
+                    error={formState.touchedFields.billingEmail && !!formState.errors.billingEmail}
+                    helperText={formState.touchedFields.billingEmail ? formState.errors.billingEmail : ''}
                 />
                 <TextField
                     className="w-1/4"
@@ -198,11 +221,11 @@ const Step3 = () => {
                     label="Pincode"
                     variant="outlined"
                     placeholder="Enter Pincode"
-                    value={pincode}
-                    onChange={(e) => setPincode(e.target.value)}
+                    value={billingData.pincode}
+                    onChange={(e) => handleChange('pincode', e.target.value)}
                     onBlur={() => handleBlur('pincode')}
-                    error={touchedFields.pincode && !!errors.pincode}
-                    helperText={touchedFields.pincode ? errors.pincode : ''}
+                    error={formState.touchedFields.pincode && !!formState.errors.pincode}
+                    helperText={formState.touchedFields.pincode ? formState.errors.pincode : ''}
                 />
             </Box>
             <TextField
@@ -211,11 +234,11 @@ const Step3 = () => {
                 label="First Name"
                 variant="outlined"
                 placeholder="Enter First Name"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
+                value={billingData.firstName}
+                onChange={(e) => handleChange('firstName', e.target.value)}
                 onBlur={() => handleBlur('firstName')}
-                error={touchedFields.firstName && !!errors.firstName}
-                helperText={touchedFields.firstName ? errors.firstName : ''}
+                error={formState.touchedFields.firstName && !!formState.errors.firstName}
+                helperText={formState.touchedFields.firstName ? formState.errors.firstName : ''}
             />
             <TextField
                 className="w-full mb-4"
@@ -223,11 +246,11 @@ const Step3 = () => {
                 label="Last Name"
                 variant="outlined"
                 placeholder="Enter Last Name"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
+                value={billingData.lastName}
+                onChange={(e) => handleChange('lastName', e.target.value)}
                 onBlur={() => handleBlur('lastName')}
-                error={touchedFields.lastName && !!errors.lastName}
-                helperText={touchedFields.lastName ? errors.lastName : ''}
+                error={formState.touchedFields.lastName && !!formState.errors.lastName}
+                helperText={formState.touchedFields.lastName ? formState.errors.lastName : ''}
             />
             <TextField
                 className="w-full mb-4"
@@ -235,24 +258,24 @@ const Step3 = () => {
                 label="Address Line 1"
                 variant="outlined"
                 placeholder="Enter Address Line 1"
-                value={addressLine1}
-                onChange={(e) => setAddressLine1(e.target.value)}
+                value={billingData.addressLine1}
+                onChange={(e) => handleChange('addressLine1', e.target.value)}
                 onBlur={() => handleBlur('addressLine1')}
-                error={touchedFields.addressLine1 && !!errors.addressLine1}
-                helperText={touchedFields.addressLine1 ? errors.addressLine1 : ''}
+                error={formState.touchedFields.addressLine1 && !!formState.errors.addressLine1}
+                helperText={formState.touchedFields.addressLine1 ? formState.errors.addressLine1 : ''}
             />
             <TextField
-                className="w-full mb-6"
+                className="w-full mb-4"
                 type="text"
-                label="Address Line 2 (optional)"
+                label="Address Line 2"
                 variant="outlined"
                 placeholder="Enter Address Line 2"
-                value={addressLine2}
-                onChange={(e) => setAddressLine2(e.target.value)}
+                value={billingData.addressLine2}
+                onChange={(e) => handleChange('addressLine2', e.target.value)}
             />
-
             <PaymentForm />
         </div>
     );
 };
+
 export default Step3;
