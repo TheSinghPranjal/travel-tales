@@ -1,8 +1,9 @@
 'use client';
 import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
+
 import './Step.css';
 import useLocalStorageForStep1 from './localStorageStep1';
+import TextField from '@mui/material/TextField';
 
 interface Step1Props {
     setIsStepValid: (isValid: boolean) => void;
@@ -55,12 +56,9 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
         };
 
         setErrors(newErrors);
-
-        // Return whether all fields are valid
         return Object.values(newErrors).every((error) => error === '');
     };
 
-    // Validate fields when form data changes
     React.useEffect(() => {
         setIsStepValid(validateFields());
     }, [formData]);
@@ -85,10 +83,11 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         variant="outlined"
                         placeholder="Enter First Name"
                         value={formData.firstName}
-                        onChange={(e) => handleChange('firstName', e.target.value)}
+                        onChange={(e: any) => handleChange('firstName', e.target.value)}
                         onBlur={() => handleBlur('firstName')}
                         error={touchedFields.firstName && !!errors.firstName}
                         helperText={touchedFields.firstName ? errors.firstName : ''}
+
                     />
                     <TextField
                         type="number"
@@ -97,7 +96,7 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         variant="outlined"
                         placeholder="Enter Phone Number"
                         value={formData.phoneNumber}
-                        onChange={(e) => {
+                        onChange={(e: any) => {
                             const value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
                             handleChange('phoneNumber', value);
                         }}
@@ -111,7 +110,7 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         variant="outlined"
                         placeholder="Enter Email"
                         value={formData.email}
-                        onChange={(e) => handleChange('email', e.target.value)}
+                        onChange={(e: any) => handleChange('email', e.target.value)}
                         onBlur={() => handleBlur('email')}
                         error={touchedFields.email && !!errors.email}
                         helperText={touchedFields.email ? errors.email : ''}
@@ -124,7 +123,7 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         variant="outlined"
                         placeholder="Enter Last Name"
                         value={formData.lastName}
-                        onChange={(e) => handleChange('lastName', e.target.value)}
+                        onChange={(e: any) => handleChange('lastName', e.target.value)}
                         onBlur={() => handleBlur('lastName')}
                         error={touchedFields.lastName && !!errors.lastName}
                         helperText={touchedFields.lastName ? errors.lastName : ''}
@@ -136,7 +135,7 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         variant="outlined"
                         placeholder="Enter Secondary Number"
                         value={formData.secondaryPhoneNumber}
-                        onChange={(e) => {
+                        onChange={(e: any) => {
                             const value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
                             handleChange('secondaryPhoneNumber', value);
                         }}
@@ -150,7 +149,7 @@ const Step1: React.FC<Step1Props> = ({ setIsStepValid }) => {
                         variant="outlined"
                         placeholder="Enter Secondary Email"
                         value={formData.secondaryEmail}
-                        onChange={(e) => handleChange('secondaryEmail', e.target.value)}
+                        onChange={(e: any) => handleChange('secondaryEmail', e.target.value)}
                         onBlur={() => handleBlur('secondaryEmail')}
                         error={touchedFields.secondaryEmail && !!errors.secondaryEmail}
                         helperText={touchedFields.secondaryEmail ? errors.secondaryEmail : ''}

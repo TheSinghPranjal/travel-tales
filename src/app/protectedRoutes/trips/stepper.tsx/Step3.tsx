@@ -1,10 +1,13 @@
+
+'use client'
 import * as React from 'react';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import Checkbox from '@mui/material/Checkbox';
-import Button from '@mui/material/Button';
+
 import { FaCcVisa, FaCcMastercard, FaStripe } from 'react-icons/fa';
 import useLocalStorageForStep3 from './localStorageForStep3';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Checkbox from '@mui/material/Checkbox';
 
 interface BillingData {
     firstName: string;
@@ -159,6 +162,7 @@ const Step3 = () => {
                                 )
                             }}
                             className="my-2"
+
                         />
                         <Box className="flex gap-4">
                             <TextField
@@ -178,12 +182,13 @@ const Step3 = () => {
                                 error={!!paymentErrors.cvc}
                                 helperText={paymentErrors.cvc}
                                 className="w-1/2"
+
                             />
                         </Box>
                         <div className="flex items-center mt-4">
                             <Checkbox
                                 checked={isBillingSame}
-                                onChange={(e) => setIsBillingSame(e.target.checked)}
+                                onChange={(e: any) => setIsBillingSame(e.target.checked)}
                                 color="primary"
                             />
                             <span>Billing is same as shipping information</span>
@@ -210,10 +215,11 @@ const Step3 = () => {
                     variant="outlined"
                     placeholder="Enter Billing Email"
                     value={billingData.billingEmail}
-                    onChange={(e) => handleChange('billingEmail', e.target.value)}
+                    onChange={(e: any) => handleChange('billingEmail', e.target.value)}
                     onBlur={() => handleBlur('billingEmail')}
                     error={formState.touchedFields.billingEmail && !!formState.errors.billingEmail}
                     helperText={formState.touchedFields.billingEmail ? formState.errors.billingEmail : ''}
+
                 />
                 <TextField
                     className="w-1/4"
@@ -222,10 +228,11 @@ const Step3 = () => {
                     variant="outlined"
                     placeholder="Enter Pincode"
                     value={billingData.pincode}
-                    onChange={(e) => handleChange('pincode', e.target.value)}
+                    onChange={(e: any) => handleChange('pincode', e.target.value)}
                     onBlur={() => handleBlur('pincode')}
                     error={formState.touchedFields.pincode && !!formState.errors.pincode}
                     helperText={formState.touchedFields.pincode ? formState.errors.pincode : ''}
+
                 />
             </Box>
             <TextField
@@ -235,10 +242,11 @@ const Step3 = () => {
                 variant="outlined"
                 placeholder="Enter First Name"
                 value={billingData.firstName}
-                onChange={(e) => handleChange('firstName', e.target.value)}
+                onChange={(e: any) => handleChange('firstName', e.target.value)}
                 onBlur={() => handleBlur('firstName')}
                 error={formState.touchedFields.firstName && !!formState.errors.firstName}
                 helperText={formState.touchedFields.firstName ? formState.errors.firstName : ''}
+
             />
             <TextField
                 className="w-full mb-4"
@@ -247,10 +255,11 @@ const Step3 = () => {
                 variant="outlined"
                 placeholder="Enter Last Name"
                 value={billingData.lastName}
-                onChange={(e) => handleChange('lastName', e.target.value)}
+                onChange={(e: any) => handleChange('lastName', e.target.value)}
                 onBlur={() => handleBlur('lastName')}
                 error={formState.touchedFields.lastName && !!formState.errors.lastName}
                 helperText={formState.touchedFields.lastName ? formState.errors.lastName : ''}
+
             />
             <TextField
                 className="w-full mb-4"
@@ -259,10 +268,11 @@ const Step3 = () => {
                 variant="outlined"
                 placeholder="Enter Address Line 1"
                 value={billingData.addressLine1}
-                onChange={(e) => handleChange('addressLine1', e.target.value)}
+                onChange={(e: any) => handleChange('addressLine1', e.target.value)}
                 onBlur={() => handleBlur('addressLine1')}
                 error={formState.touchedFields.addressLine1 && !!formState.errors.addressLine1}
                 helperText={formState.touchedFields.addressLine1 ? formState.errors.addressLine1 : ''}
+
             />
             <TextField
                 className="w-full mb-4"
@@ -271,7 +281,8 @@ const Step3 = () => {
                 variant="outlined"
                 placeholder="Enter Address Line 2"
                 value={billingData.addressLine2}
-                onChange={(e) => handleChange('addressLine2', e.target.value)}
+                onChange={(e: any) => handleChange('addressLine2', e.target.value)}
+
             />
             <PaymentForm />
         </div>

@@ -1,9 +1,9 @@
+'use client'
 import React, { useState, useEffect } from 'react';
-import TextField from '@mui/material/TextField';
+import { TextField } from '@mui/material';
 import './Step4.css';
 
 const Step4 = () => {
-    // State to store data fetched from local storage
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -34,6 +34,18 @@ const Step4 = () => {
         }
     }, []);
 
+    const handleFormChange = (field: any, value: any) => {
+        const updatedFormData = { ...formData, [field]: value };
+        setFormData(updatedFormData);
+        localStorage.setItem('formData', JSON.stringify(updatedFormData));
+    };
+
+    const handleBillingChange = (field: any, value: any) => {
+        const updatedBillingData = { ...billingData, [field]: value };
+        setBillingData(updatedBillingData);
+        localStorage.setItem('billingData', JSON.stringify(updatedBillingData));
+    };
+
     return (
         <form className="step4-container">
             <h3 className="section-title">Review Personal Information</h3>
@@ -46,9 +58,7 @@ const Step4 = () => {
                             fullWidth
                             variant="outlined"
                             value={formData.firstName}
-                            InputProps={{
-                                readOnly: true,
-                            }}
+                            onChange={(e: any) => handleFormChange('firstName', e.target.value)}
                         />
                     </div>
                     <div className="form-row">
@@ -57,9 +67,7 @@ const Step4 = () => {
                             fullWidth
                             variant="outlined"
                             value={formData.phoneNumber}
-                            InputProps={{
-                                readOnly: true,
-                            }}
+                            onChange={(e: any) => handleFormChange('phoneNumber', e.target.value)}
                         />
                     </div>
                     <div className="form-row">
@@ -68,9 +76,7 @@ const Step4 = () => {
                             fullWidth
                             variant="outlined"
                             value={formData.email}
-                            InputProps={{
-                                readOnly: true,
-                            }}
+                            onChange={(e: any) => handleFormChange('email', e.target.value)}
                         />
                     </div>
                 </div>
@@ -81,9 +87,7 @@ const Step4 = () => {
                             fullWidth
                             variant="outlined"
                             value={formData.lastName}
-                            InputProps={{
-                                readOnly: true,
-                            }}
+                            onChange={(e: any) => handleFormChange('lastName', e.target.value)}
                         />
                     </div>
                     <div className="form-row">
@@ -92,9 +96,7 @@ const Step4 = () => {
                             fullWidth
                             variant="outlined"
                             value={formData.secondaryPhoneNumber}
-                            InputProps={{
-                                readOnly: true,
-                            }}
+                            onChange={(e: any) => handleFormChange('secondaryPhoneNumber', e.target.value)}
                         />
                     </div>
                     <div className="form-row">
@@ -103,9 +105,7 @@ const Step4 = () => {
                             fullWidth
                             variant="outlined"
                             value={formData.secondaryEmail}
-                            InputProps={{
-                                readOnly: true,
-                            }}
+                            onChange={(e: any) => handleFormChange('secondaryEmail', e.target.value)}
                         />
                     </div>
                 </div>
@@ -121,9 +121,7 @@ const Step4 = () => {
                             fullWidth
                             variant="outlined"
                             value={billingData.firstName}
-                            InputProps={{
-                                readOnly: true,
-                            }}
+                            onChange={(e: any) => handleBillingChange('firstName', e.target.value)}
                         />
                     </div>
                     <div className="form-row">
@@ -132,9 +130,7 @@ const Step4 = () => {
                             fullWidth
                             variant="outlined"
                             value={billingData.addressLine1}
-                            InputProps={{
-                                readOnly: true,
-                            }}
+                            onChange={(e: any) => handleBillingChange('addressLine1', e.target.value)}
                         />
                     </div>
                     <div className="form-row">
@@ -143,9 +139,7 @@ const Step4 = () => {
                             fullWidth
                             variant="outlined"
                             value={billingData.billingEmail}
-                            InputProps={{
-                                readOnly: true,
-                            }}
+                            onChange={(e: any) => handleBillingChange('billingEmail', e.target.value)}
                         />
                     </div>
                 </div>
@@ -156,9 +150,7 @@ const Step4 = () => {
                             fullWidth
                             variant="outlined"
                             value={billingData.lastName}
-                            InputProps={{
-                                readOnly: true,
-                            }}
+                            onChange={(e: any) => handleBillingChange('lastName', e.target.value)}
                         />
                     </div>
                     <div className="form-row">
@@ -167,9 +159,7 @@ const Step4 = () => {
                             fullWidth
                             variant="outlined"
                             value={billingData.addressLine2}
-                            InputProps={{
-                                readOnly: true,
-                            }}
+                            onChange={(e: any) => handleBillingChange('addressLine2', e.target.value)}
                         />
                     </div>
                     <div className="form-row">
@@ -178,9 +168,7 @@ const Step4 = () => {
                             fullWidth
                             variant="outlined"
                             value={billingData.pincode}
-                            InputProps={{
-                                readOnly: true,
-                            }}
+                            onChange={(e: any) => handleBillingChange('pincode', e.target.value)}
                         />
                     </div>
                 </div>

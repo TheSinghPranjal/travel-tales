@@ -4,7 +4,6 @@ function useLocalStorage(key: string, initialValue: number) {
     const [value, setValue] = useState<number>(initialValue);
 
     useEffect(() => {
-        // Only access localStorage in the browser
         if (typeof window !== 'undefined') {
             const storedValue = localStorage.getItem(key);
             if (storedValue !== null) {
