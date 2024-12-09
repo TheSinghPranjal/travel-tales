@@ -10,15 +10,17 @@ const Test25 = () => {
     const addTodo = () => {
         const inputText = enteredText.current!.value
         console.log(inputText, 'hey input text')
-        const newTodo = {
-            id: Math.random,
-            enteredText: inputText,
-            completed: false,
+
+        if (enteredText) {
+            const newTodo = {
+                id: Math.random(),
+                enteredText: inputText,
+                completed: false,
+            }
+
+            setTodo([...todo, newTodo])
+            enteredText.current!.value = ''
         }
-
-        setTodo([...todo, newTodo])
-
-        // setTodo()
 
     }
 
