@@ -26,6 +26,7 @@ const Test25 = () => {
 
     const deleteTodo = (idToDelete: number) => {
         console.log(idToDelete, 'hey idToDelete')
+        setTodo(todo.filter(item => item.id !== idToDelete))
     }
 
     return (
