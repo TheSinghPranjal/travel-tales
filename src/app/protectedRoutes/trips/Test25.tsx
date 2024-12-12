@@ -20,6 +20,7 @@ const Test25 = () => {
                     : item
             ));
             setEditingId(null);
+
         } else {
             // Add a new todo
             const newTodo = {
