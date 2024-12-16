@@ -7,6 +7,9 @@ const Test25 = () => {
     const [editingId, setEditingId] = useState<number | null>(null); // Track the id of the item being edited
     const enteredText = useRef<HTMLInputElement>(null);
 
+
+
+
     const addTodo = () => {
         const inputText = enteredText.current!.value;
 
@@ -34,6 +37,16 @@ const Test25 = () => {
 
         enteredText.current!.value = '';
     };
+
+    // const addTodo = () => {
+    //     const inputText = enteredText.current!.value;
+    //     if (editingId !== null) {
+    //         setTodo(todo.map(
+    //             item => item.id === editingId ? { ...item, enteredText: inputText } : item
+    //         ))
+    //         setEditingId(null);
+    //     }
+    // }
 
     const deleteTodo = (idToDelete: number) => {
         setTodo(todo.filter(item => item.id !== idToDelete));
