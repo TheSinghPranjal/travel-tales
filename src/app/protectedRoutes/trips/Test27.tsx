@@ -78,6 +78,14 @@ const Test27 = () => {
     //     }
     // }
 
+    const editTicket = (id: number) => {
+        const itemToEdit = ticket.find(item => item.id === id)
+        if (itemToEdit) {
+            enteredInputFieldText.current.value = itemToEdit.text
+            setEditingId(id);
+        }
+    }
+
 
 
 
