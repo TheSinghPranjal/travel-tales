@@ -31,16 +31,54 @@ const Test27 = () => {
 
     const deleteTicket = (id: number) => {
         setTicket(ticket.filter(item => item.id !== id))
-
     }
 
-    const editTicket = (id: number) => {
-        const ticketToEdit = ticket.find(item => item.id === id)
-        if (ticketToEdit) {
-            enteredInputFieldText.current!.value = ticketToEdit?.text;
-            setEditingId(id);
-        }
-    }
+    // const editTicket = (id: number) => {
+    //     const ticketToEdit = ticket.find(item => item.id === id)
+    //     if (ticketToEdit) {
+    //         enteredInputFieldText.current!.value = ticketToEdit?.text;
+    //         setEditingId(id);
+    //     }
+    // }
+
+    // const editTicket = (id: number) => {
+    //     const ticketIdToEdit = ticket.find(item => item.id === id)
+    //     if (ticketIdToEdit) {
+    //         enteredInputFieldText.current.value = ''
+    //         setEditingId(id)
+    //     }
+
+    // }
+
+
+    // const editTicket = (id: number) => {
+
+    //     const idToEdit = ticket.find(item => item.id === id)
+    //     if (idToEdit) {
+    //         enteredInputFieldText.current.value = idToEdit.id
+    //         setEditingId(id)
+    //     }
+
+    // }
+
+    // const editTicket = (id: number) => {
+
+    //     const idToEdit = ticket.find(item => item.id === id)
+    //     if (idToEdit) {
+    //         enteredInputFieldText.current.value = idToEdit.text
+    //         setEditingId(id)
+    //     }
+    // }
+
+    // const editTicket = (id: number) => {
+    //     const itemToEdit = ticket.find(item => item.id === id)
+    //     if (itemToEdit) {
+    //         enteredInputFieldText.current.value = itemToEdit.text
+    //         setEditingId(id)
+    //     }
+    // }
+
+
 
 
     return (
