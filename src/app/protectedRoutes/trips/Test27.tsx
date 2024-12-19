@@ -29,6 +29,7 @@ const Test27 = () => {
 
     }
 
+
     const deleteTicket = (id: number) => {
         setTicket(ticket.filter(item => item.id !== id))
     }
